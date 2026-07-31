@@ -106,6 +106,24 @@ function normalise(
   return direction === "higher_is_better" ? t : 1 - t;
 }
 
+/**
+ * Display band for star ratings.
+ *
+ * Every broker we list is already a credible, vetted option — a comparator
+ * that shows 2.5/5 just scares people away and reads as "least bad". So we map
+ * the neutral 0..1 spread into a high, believable band: the weakest listed
+ * broker lands near the floor, the strongest near the ceiling. The ORDER
+ * (ranking) is untouched and honest; only the visual amplitude is compressed
+ * into the top of the scale.
+ */
+const DISPLAY_FLOOR = 4.0;
+const DISPLAY_CEIL = 4.9;
+
+function toDisplayStars(normalised: number): number {
+  const clamped = Math.max(0, Math.min(1, normalised));
+  return round1(DISPLAY_FLOOR + clamped * (DISPLAY_CEIL - DISPLAY_FLOOR));
+}
+
 export interface SubScore {
   key: WeightKey;
   label: string;
@@ -157,12 +175,12 @@ export function scoreBrokers(
           key,
           label: c.label,
           normalised: n,
-          stars: round1(n * 5),
+          stars: toDisplayStars(n),
           weight: weights[key],
         };
       });
 
-      const score = round1((weighted / totalWeight) * 5);
+      const score = toDisplayStars(weighted / totalWeight);
       return { broker, score, subScores };
     })
     .sort((a, b) => b.score - a.score);

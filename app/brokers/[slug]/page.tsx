@@ -141,7 +141,7 @@ export default function BrokerPage({
               <div className="h-2.5 w-full overflow-hidden rounded-full bg-cream">
                 <div
                   className="h-full rounded-full bg-amber"
-                  style={{ width: `${sub.normalised * 100}%` }}
+                  style={{ width: `${(sub.stars / 5) * 100}%` }}
                 />
               </div>
             </div>
