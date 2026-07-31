@@ -8,6 +8,7 @@ import {
 } from "@/lib/courses";
 import { Block } from "@/components/Block";
 import { CourseProgress, ModuleComplete } from "@/components/CourseProgress";
+import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
 
 export function generateStaticParams() {
   return getAllModuleParams();
@@ -148,6 +149,9 @@ export default function ModulePage({
           All modules
         </Link>
       </div>
+
+      {/* Cross-cluster internal links (SEO mesh) */}
+      <RelatedLinks links={CROSS_LINKS} />
 
       {/* Bottom disclaimer */}
       <div className="mt-10 rounded-xl border border-line bg-cream p-4 text-sm leading-relaxed text-muted">

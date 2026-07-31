@@ -2,9 +2,15 @@ import Link from "next/link";
 import { getBrokers } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
 import { Stars } from "@/components/Stars";
+import { FearGreed } from "@/components/FearGreed";
+import { getFearGreed } from "@/lib/markets";
 
-export default function HomePage() {
+/** Keep the homepage fresh: refresh the market pulse ~every 15 min. */
+export const revalidate = 900;
+
+export default async function HomePage() {
   const top = scoreBrokers(getBrokers()).slice(0, 3);
+  const fg = await getFearGreed(); // never throws; null-safe teaser below
 
   return (
     <>
@@ -65,6 +71,24 @@ export default function HomePage() {
               <p className="mt-2 text-sm leading-relaxed text-muted">{c.d}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Market pulse teaser */}
+      <section className="mx-auto max-w-6xl px-5 py-8">
+        <div className="flex flex-col items-start gap-4 rounded-xl2 border border-line bg-paper p-6 shadow-card sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-4">
+            <span className="text-sm font-semibold text-ink">
+              Market pulse
+            </span>
+            <FearGreed data={fg} variant="compact" />
+          </div>
+          <Link
+            href="/markets"
+            className="text-sm font-semibold text-amber-dark hover:underline"
+          >
+            See live markets →
+          </Link>
         </div>
       </section>
 

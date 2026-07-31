@@ -1,10 +1,14 @@
 import Link from "next/link";
 import { CFD_DISCLAIMER, NOT_ADVICE, SITE } from "@/lib/site";
+import { EmailCapture } from "@/components/EmailCapture";
 
 /** Site-wide footer with the mandatory CFD risk disclaimer. */
 export function Footer() {
   return (
     <footer className="mt-20 border-t border-line bg-cream">
+      <div className="mx-auto max-w-6xl px-5 pt-10">
+        <EmailCapture />
+      </div>
       <div className="mx-auto max-w-6xl px-5 py-10">
         <div className="flex flex-col gap-6 sm:flex-row sm:justify-between">
           <div>

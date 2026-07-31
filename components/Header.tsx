@@ -19,6 +19,12 @@ export function Header() {
           <Link href="/learn" className="hover:text-ink">
             Learn
           </Link>
+          <Link href="/tools" className="hover:text-ink">
+            Tools
+          </Link>
+          <Link href="/markets" className="hover:text-ink">
+            Markets
+          </Link>
           <Link href="/quiz" className="hover:text-ink">
             Quiz
           </Link>
