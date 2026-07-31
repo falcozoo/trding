@@ -47,6 +47,16 @@ export const CROSS_LINKS: LinkItem[] = [
     sub: "Neutral scores on regulation, fees and more",
   },
   {
+    href: "/tools/cost-of-trading",
+    label: "Real cost of trading",
+    sub: "Rank brokers by real annual spread + commission",
+  },
+  {
+    href: "/tools/regulation-checker",
+    label: "Broker regulation checker",
+    sub: "Who regulates each broker, with official registers",
+  },
+  {
     href: "/quiz",
     label: "Find your broker",
     sub: "A 60-second quiz matched to your profile",

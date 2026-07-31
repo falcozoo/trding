@@ -26,6 +26,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/risk-reward",
     "/tools/pip-value",
     "/tools/compounding",
+    "/tools/cost-of-trading",
+    "/tools/regulation-checker",
     "/methodology",
     "/how-we-make-money",
   ].map((path) => ({

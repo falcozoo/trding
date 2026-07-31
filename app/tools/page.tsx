@@ -10,6 +10,18 @@ export const metadata: Metadata = {
 
 const TOOLS = [
   {
+    href: "/tools/cost-of-trading",
+    badge: "Broker data",
+    title: "Real cost of trading calculator",
+    desc: "Enter your trade size and frequency to see the real annual cost (spread + commission) at every broker in our dataset, ranked cheapest first.",
+  },
+  {
+    href: "/tools/regulation-checker",
+    badge: "Broker data",
+    title: "Broker regulation checker",
+    desc: "See which authorities regulate each broker (FCA, ASIC, CySEC and more), with direct links to the official registers so you can verify a licence yourself.",
+  },
+  {
     href: "/tools/position-size",
     badge: "Risk management",
     title: "Position size calculator",
