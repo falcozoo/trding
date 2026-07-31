@@ -13,6 +13,9 @@ export function Header() {
           <Link href="/brokers" className="hover:text-ink">
             Brokers
           </Link>
+          <Link href="/compare" className="hover:text-ink">
+            Compare
+          </Link>
           <Link href="/quiz" className="hover:text-ink">
             Quiz
           </Link>
