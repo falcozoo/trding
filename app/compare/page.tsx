@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getBrokers, getBrokerBySlug } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
 import { getAllPairs } from "@/lib/pairs";
-import { NEEDS } from "@/lib/needs";
+import { ALL_ANGLES } from "@/lib/bestFor";
 import {
   CompareSelector,
   type CompareBroker,
@@ -60,14 +60,18 @@ export default function CompareHubPage() {
       {/* Best brokers by need */}
       <section className="mt-16">
         <h2 className="text-2xl font-bold">Best brokers by need</h2>
+        <p className="mt-2 max-w-3xl text-sm text-muted">
+          Data-driven rankings for specific priorities — platform, asset class,
+          trading style or budget. Each list is filtered and scored neutrally.
+        </p>
         <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {NEEDS.map((n) => (
+          {ALL_ANGLES.map((a) => (
             <Link
-              key={n.slug}
-              href={`/best/${n.slug}`}
+              key={a.slug}
+              href={`/best/${a.slug}`}
               className="rounded-xl border border-line bg-paper px-4 py-3 text-sm font-medium text-ink shadow-card hover:text-amber-dark"
             >
-              Best for {n.title}
+              Best for {a.title}
             </Link>
           ))}
         </div>

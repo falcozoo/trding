@@ -19,6 +19,9 @@ export function Header() {
           <Link href="/learn" className="hover:text-ink">
             Learn
           </Link>
+          <Link href="/glossary" className="hover:text-ink">
+            Glossary
+          </Link>
           <Link href="/tools" className="hover:text-ink">
             Tools
           </Link>

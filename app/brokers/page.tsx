@@ -4,6 +4,7 @@ import { getBrokers } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
 import { Stars } from "@/components/Stars";
 import { SITE } from "@/lib/site";
+import { ALL_ANGLES } from "@/lib/bestFor";
 
 export const metadata: Metadata = {
   title: "Best Brokers 2026 — Compared & Rated",
@@ -128,6 +129,27 @@ export default function BrokersPage() {
               <h3 className="font-semibold">{f.q}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{f.a}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Best brokers by need — internal link grid */}
+      <section className="mt-14">
+        <h2 className="text-2xl font-bold">Best brokers by need</h2>
+        <p className="mt-2 max-w-3xl text-muted">
+          Want a shortlist tuned to one priority? These data-driven rankings
+          filter and score brokers for a specific platform, market or trading
+          style.
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {ALL_ANGLES.map((a) => (
+            <Link
+              key={a.slug}
+              href={`/best/${a.slug}`}
+              className="rounded-xl border border-line bg-paper px-4 py-3 text-sm font-medium text-ink shadow-card hover:text-amber-dark"
+            >
+              Best for {a.title}
+            </Link>
           ))}
         </div>
       </section>

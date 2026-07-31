@@ -2,9 +2,10 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { getAllSlugs } from "@/lib/brokers";
 import { getAllPairs } from "@/lib/pairs";
-import { NEEDS } from "@/lib/needs";
+import { ALL_ANGLES } from "@/lib/bestFor";
 import { getAllLessonSlugs } from "@/lib/lessons";
 import { getCourses } from "@/lib/courses";
+import { getAllTermSlugs } from "@/lib/glossary";
 
 const BASE = `https://${SITE.domain}`;
 
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/quiz",
     "/learn",
     "/learn/quiz",
+    "/glossary",
     "/markets",
     "/tools",
     "/tools/position-size",
@@ -51,12 +53,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  // Best-for-need pages
-  const needPages = NEEDS.map((n) => ({
+  // Best-for-need pages (all angles)
+  const needPages = ALL_ANGLES.map((n) => ({
     url: `${BASE}/best/${n.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.6,
+  }));
+
+  // Glossary term pages
+  const glossaryPages = getAllTermSlugs().map((slug) => ({
+    url: `${BASE}/glossary/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
   }));
 
   // Quick guides (lessons)
@@ -91,6 +101,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...brokerPages,
     ...comparePages,
     ...needPages,
+    ...glossaryPages,
     ...lessonPages,
     ...coursePages,
   ];
