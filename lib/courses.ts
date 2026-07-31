@@ -56,8 +56,9 @@ export interface Course {
 import { priceActionCourse } from "./courses/price-action";
 import { smcCourse } from "./courses/smart-money-concepts";
 import { volumeCourse } from "./courses/volume-order-flow";
+import { wyckoffCourse } from "./courses/wyckoff";
 
-const COURSES: Course[] = [priceActionCourse, smcCourse, volumeCourse];
+const COURSES: Course[] = [priceActionCourse, smcCourse, volumeCourse, wyckoffCourse];
 
 export function getCourses(): Course[] {
   return COURSES;
