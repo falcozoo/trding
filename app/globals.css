@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+/* Sober focus ring in brand amber */
+:focus-visible {
+  outline: 2px solid #e08a2e;
+  outline-offset: 2px;
+}

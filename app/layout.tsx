@@ -1,0 +1,42 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { SITE } from "@/lib/site";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const metadata: Metadata = {
+  metadataBase: new URL(`https://${SITE.domain}`),
+  title: {
+    default: `${SITE.name} — Neutral CFD Broker Comparison`,
+    template: `%s — ${SITE.name}`,
+  },
+  description:
+    "Find the right CFD broker in 60 seconds. Neutral scoring, no jargon, no sales pitch. Compare regulation, fees, platforms and more.",
+  openGraph: {
+    title: `${SITE.name} — Neutral CFD Broker Comparison`,
+    description:
+      "Find the right CFD broker in 60 seconds. Neutral scoring, no jargon, no sales pitch.",
+    url: `https://${SITE.domain}`,
+    siteName: SITE.name,
+    type: "website",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={inter.variable}>
+      <body className="min-h-screen bg-cream font-sans text-ink antialiased">
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
