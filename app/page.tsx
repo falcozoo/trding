@@ -8,8 +8,22 @@ import { getFearGreed } from "@/lib/markets";
 /** Keep the homepage fresh: refresh the market pulse ~every 15 min. */
 export const revalidate = 900;
 
+/**
+ * Homepage "Top-rated" preview order (Falco business rule).
+ * Presentation-only: the underlying objective scores are untouched and still
+ * shown. We simply lead this shortlist with RaiseFX and Axi, then keep the rest
+ * in their honest scored order. This does not affect /brokers, the quiz, or any
+ * ranking — only the 3-card teaser on the homepage.
+ */
+const HOME_PREVIEW_LEAD = ["raisefx", "axi"];
+
 export default async function HomePage() {
-  const top = scoreBrokers(getBrokers()).slice(0, 3);
+  const scored = scoreBrokers(getBrokers());
+  const lead = HOME_PREVIEW_LEAD.map((slug) =>
+    scored.find((s) => s.broker.slug === slug)
+  ).filter((s): s is (typeof scored)[number] => Boolean(s));
+  const rest = scored.filter((s) => !HOME_PREVIEW_LEAD.includes(s.broker.slug));
+  const top = [...lead, ...rest].slice(0, 3);
   const fg = await getFearGreed(); // never throws; null-safe teaser below
 
   return (
