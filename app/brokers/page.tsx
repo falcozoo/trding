@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getBrokers } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
+import { leadListing } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { SITE } from "@/lib/site";
 import { ALL_ANGLES } from "@/lib/bestFor";
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function BrokersPage() {
-  const scored = scoreBrokers(getBrokers());
+  const scored = leadListing(scoreBrokers(getBrokers()));
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-12">
@@ -52,9 +53,21 @@ export default function BrokersPage() {
             {scored.map((s, i) => (
               <tr
                 key={s.broker.slug}
-                className="border-b border-line last:border-0 hover:bg-cream/60"
+                className={
+                  i === 0
+                    ? "border-b border-amber/30 bg-amber-soft/50"
+                    : "border-b border-line last:border-0 hover:bg-cream/60"
+                }
               >
-                <td className="px-4 py-4 font-medium text-muted">{i + 1}</td>
+                <td className="px-4 py-4 font-medium text-muted">
+                  {i === 0 ? (
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber text-xs font-bold text-white">
+                      1
+                    </span>
+                  ) : (
+                    i + 1
+                  )}
+                </td>
                 <td className="px-4 py-4">
                   <Link
                     href={`/brokers/${s.broker.slug}`}
@@ -62,6 +75,11 @@ export default function BrokersPage() {
                   >
                     {s.broker.name}
                   </Link>
+                  {i === 0 && (
+                    <span className="ml-2 rounded-full bg-amber px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                      Best choice
+                    </span>
+                  )}
                   <div className="text-xs text-muted">{s.broker.tagline}</div>
                 </td>
                 <td className="px-4 py-4">

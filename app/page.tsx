@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getBrokers } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
+import { leadListing } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { FearGreed } from "@/components/FearGreed";
 import { getFearGreed } from "@/lib/markets";
@@ -8,22 +9,8 @@ import { getFearGreed } from "@/lib/markets";
 /** Keep the homepage fresh: refresh the market pulse ~every 15 min. */
 export const revalidate = 900;
 
-/**
- * Homepage "Top-rated" preview order (Falco business rule).
- * Presentation-only: the underlying objective scores are untouched and still
- * shown. We simply lead this shortlist with RaiseFX and Axi, then keep the rest
- * in their honest scored order. This does not affect /brokers, the quiz, or any
- * ranking — only the 3-card teaser on the homepage.
- */
-const HOME_PREVIEW_LEAD = ["raisefx", "axi"];
-
 export default async function HomePage() {
-  const scored = scoreBrokers(getBrokers());
-  const lead = HOME_PREVIEW_LEAD.map((slug) =>
-    scored.find((s) => s.broker.slug === slug)
-  ).filter((s): s is (typeof scored)[number] => Boolean(s));
-  const rest = scored.filter((s) => !HOME_PREVIEW_LEAD.includes(s.broker.slug));
-  const top = [...lead, ...rest].slice(0, 3);
+  const top = leadListing(scoreBrokers(getBrokers())).slice(0, 3);
   const fg = await getFearGreed(); // never throws; null-safe teaser below
 
   return (
@@ -124,8 +111,17 @@ export default async function HomePage() {
             <Link
               key={s.broker.slug}
               href={`/brokers/${s.broker.slug}`}
-              className="group rounded-xl2 border border-line bg-paper p-6 shadow-card transition hover:border-amber"
+              className={
+                i === 0
+                  ? "group relative rounded-xl2 border-2 border-amber bg-amber-soft/40 p-6 shadow-card transition hover:border-amber-dark"
+                  : "group rounded-xl2 border border-line bg-paper p-6 shadow-card transition hover:border-amber"
+              }
             >
+              {i === 0 && (
+                <span className="absolute -top-3 left-4 rounded-full bg-amber px-3 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-card">
+                  Best choice
+                </span>
+              )}
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-muted">#{i + 1}</span>
                 <span className="rounded-full bg-cream px-2.5 py-0.5 text-sm font-bold text-ink">

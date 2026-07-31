@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBrokers } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
+import { leadListing } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
 import { ALL_ANGLES, getAngle } from "@/lib/bestFor";
@@ -42,7 +43,13 @@ export default function BestPage({
   let scored = scoreBrokers(pool, angle.weights);
 
   // 3) Optional ranking override for single-stat angles (spread, leverage, ...).
-  if (angle.sort) scored = angle.sort(scored);
+  //    For those, the order must stay honest to the stat, so we DON'T re-lead.
+  //    For general-score angles, apply the site-wide listing lead (RaiseFX, Axi).
+  if (angle.sort) {
+    scored = angle.sort(scored);
+  } else {
+    scored = leadListing(scored);
+  }
 
   const itemListLd = {
     "@context": "https://schema.org",
