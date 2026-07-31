@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getLessons, CATEGORY_LABELS } from "@/lib/lessons";
+import { getCourses } from "@/lib/courses";
 
 export const metadata: Metadata = {
   title: "Learn to Trade — Free, Plain-English Guides for Beginners",
@@ -18,6 +19,7 @@ const CATEGORY_BADGE: Record<string, string> = {
 
 export default function LearnHubPage() {
   const lessons = getLessons();
+  const courses = getCourses();
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-12">
@@ -53,8 +55,48 @@ export default function LearnHubPage() {
         </Link>
       </div>
 
-      {/* Lesson grid */}
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Courses (premium structured paths) */}
+      {courses.length > 0 && (
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-ink">Trading courses</h2>
+          <p className="mt-2 max-w-3xl text-muted">
+            Structured, step-by-step paths with clear visuals and progress
+            tracking. Work through them in order, or jump to the module you
+            need.
+          </p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            {courses.map((course) => (
+              <Link
+                key={course.id}
+                href={`/learn/course/${course.id}`}
+                className="group flex flex-col rounded-xl2 border border-line bg-paper p-6 shadow-card transition hover:-translate-y-0.5 hover:border-amber"
+              >
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="rounded-full bg-amber-soft px-2.5 py-1 text-xs font-semibold text-amber-dark">
+                    Course · {course.level}
+                  </span>
+                  <span className="text-xs text-muted">
+                    {course.modules.length} modules
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-ink group-hover:text-amber-dark">
+                  {course.title}
+                </h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                  {course.tagline}
+                </p>
+                <span className="mt-4 text-sm font-semibold text-amber-dark">
+                  Start course →
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Short guides */}
+      <h2 className="mt-14 text-2xl font-bold text-ink">Quick guides</h2>
+      <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {lessons.map((lesson) => (
           <Link
             key={lesson.slug}
