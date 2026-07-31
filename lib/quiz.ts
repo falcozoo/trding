@@ -21,7 +21,7 @@ export type Budget = "<100" | "100-500" | "500-2000" | ">2000";
 export type Market = "Forex" | "Indices" | "Stocks" | "Crypto" | "Everything";
 export type Priority =
   | "Low fees"
-  | "Regulation"
+  | "Fast execution"
   | "Simple platform"
   | "High leverage";
 
@@ -52,8 +52,8 @@ function priorityToWeightKey(priority: Priority): WeightKey | null {
   switch (priority) {
     case "Low fees":
       return "fees";
-    case "Regulation":
-      return "regulation";
+    case "Fast execution":
+      return "withdrawal";
     case "Simple platform":
       return "platforms";
     case "High leverage":
@@ -150,8 +150,8 @@ function buildReasons(
     reasons.push(`Fits your budget (min deposit €${b.minDeposit}).`);
   }
 
-  if (answers.priority === "Regulation" && b.regulationScore >= 4) {
-    reasons.push(`Strongly regulated: ${b.regulators.join(", ")}.`);
+  if (answers.priority === "Fast execution" && b.withdrawalDays <= 1) {
+    reasons.push("Fast withdrawals (1 business day).");
   }
   if (answers.priority === "Low fees" && b.avgSpreadEurUsd <= 0.5) {
     reasons.push(`Low EUR/USD spread (~${b.avgSpreadEurUsd} pips).`);

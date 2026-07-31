@@ -10,6 +10,16 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "bg-[#E85D5D]",
+    "bg-[#3E7BD6]",
+    "bg-[#E0A030]",
+    "bg-[#3FA66A]",
+    "ring-[#C23B3B]",
+    "ring-[#295CAA]",
+    "ring-[#B97F1F]",
+    "ring-[#2C7C4C]",
+  ],
   theme: {
     extend: {
       colors: {
