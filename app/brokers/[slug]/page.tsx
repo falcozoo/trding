@@ -8,7 +8,7 @@ import {
 } from "@/lib/brokers";
 import { scoreOne } from "@/lib/scoring";
 import { Stars } from "@/components/Stars";
-import { SITE } from "@/lib/site";
+import { SITE, formatWithdrawal } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -46,7 +46,7 @@ export default function BrokerPage({
     ["Founded", String(broker.founded)],
     [
       "Minimum deposit",
-      broker.minDeposit === 0 ? "€0" : `€${broker.minDeposit}`,
+      `Recommended: €${SITE.recommendedMinDeposit}`,
     ],
     ["Avg EUR/USD spread", `${broker.avgSpreadEurUsd} pips`],
     [
@@ -56,7 +56,7 @@ export default function BrokerPage({
     ["Max leverage", `1:${broker.maxLeverage}`],
     ["Platforms", broker.platforms.join(", ")],
     ["Asset classes", broker.assetClasses.join(", ")],
-    ["Withdrawal time", `${broker.withdrawalDays} business day(s)`],
+    ["Withdrawal time", formatWithdrawal(broker.withdrawalDays)],
     ["Demo account", broker.demoAccount ? "Yes" : "No"],
     [
       "Negative balance protection",

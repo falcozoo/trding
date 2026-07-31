@@ -10,15 +10,15 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${SITE.domain}`),
   title: {
-    default: `${SITE.name} — Neutral CFD Broker Comparison`,
+    default: `${SITE.name} — Neutral Broker Comparison`,
     template: `%s — ${SITE.name}`,
   },
   description:
-    "Find the right CFD broker in 60 seconds. Neutral scoring, no jargon, no sales pitch. Compare regulation, fees, platforms and more.",
+    "Find the right broker in 60 seconds. Neutral scoring, no jargon, no sales pitch. Compare regulation, fees, platforms and more.",
   openGraph: {
-    title: `${SITE.name} — Neutral CFD Broker Comparison`,
+    title: `${SITE.name} — Neutral Broker Comparison`,
     description:
-      "Find the right CFD broker in 60 seconds. Neutral scoring, no jargon, no sales pitch.",
+      "Find the right broker in 60 seconds. Neutral scoring, no jargon, no sales pitch.",
     url: `https://${SITE.domain}`,
     siteName: SITE.name,
     type: "website",

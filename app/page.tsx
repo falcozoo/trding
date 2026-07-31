@@ -15,7 +15,7 @@ export default function HomePage() {
             Neutral. No jargon. No sales pitch.
           </p>
           <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
-            Find the right CFD broker in{" "}
+            Find the right broker in{" "}
             <span className="text-amber">60 seconds</span>.
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted sm:text-xl">

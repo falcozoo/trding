@@ -5,6 +5,7 @@ import { getBrokers, type Broker } from "@/lib/brokers";
 import { scoreBrokers, type ScoredBroker } from "@/lib/scoring";
 import { Stars } from "@/components/Stars";
 import { getAllPairs, parsePairSlug } from "@/lib/pairs";
+import { formatWithdrawal } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllPairs().map((p) => ({ pair: p.slug }));
@@ -87,8 +88,8 @@ export default function ComparePage({
     ["Platforms", a.platforms.join(", "), b.platforms.join(", ")],
     [
       "Withdrawal time",
-      `${a.withdrawalDays} business day(s)`,
-      `${b.withdrawalDays} business day(s)`,
+      formatWithdrawal(a.withdrawalDays),
+      formatWithdrawal(b.withdrawalDays),
     ],
     [
       "Trustpilot",
@@ -101,7 +102,7 @@ export default function ComparePage({
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: `${a.name} vs ${b.name}`,
-    description: `Side-by-side comparison of ${a.name} and ${b.name} CFD brokers.`,
+    description: `Side-by-side comparison of ${a.name} and ${b.name} brokers.`,
     itemListElement: [a, b].map((brk, i) => ({
       "@type": "ListItem",
       position: i + 1,

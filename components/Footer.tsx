@@ -12,7 +12,7 @@ export function Footer() {
               trding<span className="text-amber">.io</span>
             </p>
             <p className="mt-1 max-w-xs text-sm text-muted">
-              A neutral CFD broker comparator. No jargon, no sales pitch.
+              A neutral broker comparator. No jargon, no sales pitch.
             </p>
           </div>
           <nav className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm text-muted">

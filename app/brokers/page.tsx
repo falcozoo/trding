@@ -3,11 +3,12 @@ import Link from "next/link";
 import { getBrokers } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
 import { Stars } from "@/components/Stars";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Best CFD Brokers 2026 — Compared & Rated",
+  title: "Best Brokers 2026 — Compared & Rated",
   description:
-    "Compare the best CFD brokers on regulation, fees, spreads, platforms and withdrawal speed. Neutral scoring, updated regularly. No account needed.",
+    "Compare the best brokers on regulation, fees, spreads, platforms and withdrawal speed. Neutral scoring, updated regularly. No account needed.",
 };
 
 export default function BrokersPage() {
@@ -17,7 +18,7 @@ export default function BrokersPage() {
     <div className="mx-auto max-w-6xl px-5 py-12">
       <header className="max-w-3xl">
         <h1 className="text-3xl font-bold sm:text-4xl">
-          Best CFD brokers, compared
+          Best brokers, compared
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-muted">
           Every broker below is scored on the same objective criteria —
@@ -67,9 +68,7 @@ export default function BrokersPage() {
                   <Stars value={s.score} size="sm" />
                 </td>
                 <td className="px-4 py-4">
-                  {s.broker.minDeposit === 0
-                    ? "€0"
-                    : `€${s.broker.minDeposit}`}
+                  Recommended: €{SITE.recommendedMinDeposit}
                 </td>
                 <td className="px-4 py-4">{s.broker.avgSpreadEurUsd} pips</td>
                 <td className="px-4 py-4 text-xs">
@@ -97,7 +96,7 @@ export default function BrokersPage() {
       {/* SEO intro / FAQ */}
       <section className="mt-14 max-w-3xl space-y-8">
         <div>
-          <h2 className="text-2xl font-bold">How to choose a CFD broker</h2>
+          <h2 className="text-2xl font-bold">How to choose a broker</h2>
           <p className="mt-3 leading-relaxed text-muted">
             The right broker depends on your profile. If you&apos;re starting
             out, prioritise strong regulation, a free demo account and a low

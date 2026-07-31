@@ -302,14 +302,14 @@ function FeaturedCard({ result }: { result: ReturnType<typeof recommend>[number]
             ))}
           </ul>
 
-          {/* bonus line */}
+          {/* recommended starting deposit line */}
           <div className="mt-4 rounded-lg bg-amber-soft px-4 py-2 text-sm text-amber-dark">
             {(b.bonusCode || b.bonusNote) && (
               <>
                 Welcome bonus{b.bonusCode ? ` — code ${b.bonusCode}` : ""}.{" "}
               </>
             )}
-            Min €{SITE.bonusMinDeposit} deposit to unlock the bonus.
+            Recommended: €{SITE.recommendedMinDeposit} to get started.
           </div>
 
           <a

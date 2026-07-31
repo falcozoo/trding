@@ -18,7 +18,7 @@ export function generateMetadata({
   const need = getNeed(params.need);
   if (!need) return {};
   return {
-    title: `Best CFD Brokers for ${need.title} (2026)`,
+    title: `Best Brokers for ${need.title} (2026)`,
     description: `${need.intro}`.slice(0, 155),
     alternates: { canonical: `/best/${need.slug}` },
   };
@@ -44,7 +44,7 @@ export default function BestPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: `Best CFD Brokers for ${need.title} (2026)`,
+    name: `Best Brokers for ${need.title} (2026)`,
     itemListElement: scored.map((s, i) => ({
       "@type": "ListItem",
       position: i + 1,
@@ -68,7 +68,7 @@ export default function BestPage({
 
       <header className="max-w-3xl">
         <h1 className="text-3xl font-bold sm:text-4xl">
-          Best CFD Brokers for {need.title} (2026)
+          Best Brokers for {need.title} (2026)
         </h1>
         <p className="mt-4 text-lg leading-relaxed text-muted">{need.intro}</p>
       </header>
