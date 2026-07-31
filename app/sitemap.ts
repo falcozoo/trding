@@ -6,6 +6,7 @@ import { ALL_ANGLES } from "@/lib/bestFor";
 import { getAllLessonSlugs } from "@/lib/lessons";
 import { getCourses } from "@/lib/courses";
 import { getAllTermSlugs } from "@/lib/glossary";
+import { getAllCountrySlugs } from "@/lib/geoCountries";
 
 const BASE = `https://${SITE.domain}`;
 
@@ -63,6 +64,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Geo-targeted "best brokers in [country]" landing pages
+  const countryPages = getAllCountrySlugs().map((slug) => ({
+    url: `${BASE}/best/country/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   // Glossary term pages
   const glossaryPages = getAllTermSlugs().map((slug) => ({
     url: `${BASE}/glossary/${slug}`,
@@ -103,6 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...brokerPages,
     ...comparePages,
     ...needPages,
+    ...countryPages,
     ...glossaryPages,
     ...lessonPages,
     ...coursePages,
