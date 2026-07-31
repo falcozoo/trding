@@ -57,8 +57,11 @@ import { priceActionCourse } from "./courses/price-action";
 import { smcCourse } from "./courses/smart-money-concepts";
 import { volumeCourse } from "./courses/volume-order-flow";
 import { wyckoffCourse } from "./courses/wyckoff";
+import { trendCourse } from "./courses/trend-following";
+import { scalpingCourse } from "./courses/scalping-intraday";
+import { fibonacciCourse } from "./courses/fibonacci-harmonic";
 
-const COURSES: Course[] = [priceActionCourse, smcCourse, volumeCourse, wyckoffCourse];
+const COURSES: Course[] = [priceActionCourse, smcCourse, volumeCourse, wyckoffCourse, trendCourse, scalpingCourse, fibonacciCourse];
 
 export function getCourses(): Course[] {
   return COURSES;
