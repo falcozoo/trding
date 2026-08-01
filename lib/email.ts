@@ -72,6 +72,35 @@ export async function sendWelcome(
   }
 }
 
+/**
+ * Add a subscriber to the Resend Audience so signups are stored durably.
+ * Needs a full-access key (RESEND_API_KEY) and RESEND_AUDIENCE_ID set.
+ * Best-effort: never throws, returns {ok}. Duplicate emails are treated as ok.
+ */
+export async function addContact(
+  email: string,
+): Promise<{ ok: boolean; id?: string; error?: string }> {
+  const c = client();
+  if (!c) return { ok: false, error: "email_not_configured" };
+  const audienceId = process.env.RESEND_AUDIENCE_ID;
+  if (!audienceId) return { ok: false, error: "audience_not_configured" };
+  try {
+    const { data, error } = await c.contacts.create({
+      email,
+      audienceId,
+      unsubscribed: false,
+    });
+    if (error) {
+      // A contact that already exists is not a failure for our purposes.
+      if (/already|exist/i.test(error.message)) return { ok: true };
+      return { ok: false, error: error.message };
+    }
+    return { ok: true, id: data?.id };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : "contact_failed" };
+  }
+}
+
 /** Generic broadcast helper for future campaigns (broker of the month, etc.). */
 export async function sendEmail(
   to: string | string[],
