@@ -71,6 +71,18 @@ export interface Broker {
   /** Optional bonus note, shown discreetly. */
   bonusNote?: string;
 
+  /**
+   * Flagged brokers are listed as a NEUTRALITY signal, not as options we
+   * endorse. They are added on the strength of verifiable, sourced facts
+   * (e.g. self-declared lack of regulation, documented withdrawal complaints).
+   * When true, the scoring engine maps them below the normal credibility band
+   * (they can score ~2/5), and they are never featured, led or given an
+   * affiliate link. `flagReason` must be a factual, sourceable statement.
+   */
+  flagged?: boolean;
+  /** Short, factual reason shown to the user (must be verifiable). */
+  flagReason?: string;
+
   /** Last time we verified this broker's facts. */
   lastVerified: string;
 }
@@ -230,6 +242,60 @@ export const BROKERS: Broker[] = [
     affiliateUrl:
       "https://www.vantagemarkets.com/open-live-account/?affid=NTgyNzY=&invitecode=Z9PeieRe",
     lastVerified: "2026-07-15",
+  },
+  {
+    slug: "startrader",
+    name: "StarTrader",
+    tagline: "Offshore broker with reported withdrawal complaints.",
+    regulators: ["Offshore / limited oversight"],
+    regulationScore: 1,
+    founded: 2019,
+    minDeposit: 50,
+    avgSpreadEurUsd: 1.2,
+    commissionPerLot: 7,
+    maxLeverage: 1000,
+    platforms: ["MT4", "MT5"],
+    assetClasses: ["Forex", "Indices", "Commodities"],
+    withdrawalDays: 7,
+    demoAccount: true,
+    negativeBalanceProtection: false,
+    segregatedFunds: false,
+    trustpilotRating: 2.4,
+    trustpilotReviews: 210,
+    countriesServed: [...EU_NORDIC, "Other"],
+    // No affiliate link: flagged brokers are listed as a neutrality signal only.
+    affiliateUrl: "",
+    flagged: true,
+    flagReason:
+      "Operates under weak offshore oversight, with multiple publicly documented client complaints about blocked or delayed withdrawals. We list it for transparency and do not recommend it.",
+    lastVerified: "2026-08-01",
+  },
+  {
+    slug: "tauromarkets",
+    name: "Tauro Markets",
+    tagline: "Broker that states it is not EU-regulated.",
+    regulators: ["Unregulated (self-declared, no EU authorisation)"],
+    regulationScore: 1,
+    founded: 2021,
+    minDeposit: 100,
+    avgSpreadEurUsd: 1.4,
+    commissionPerLot: 8,
+    maxLeverage: 1000,
+    platforms: ["MT5"],
+    assetClasses: ["Forex", "Indices", "Commodities"],
+    withdrawalDays: 7,
+    demoAccount: true,
+    negativeBalanceProtection: false,
+    segregatedFunds: false,
+    trustpilotRating: 2.2,
+    trustpilotReviews: 90,
+    countriesServed: [...EU_NORDIC, "Other"],
+    // No affiliate link: flagged brokers are listed as a neutrality signal only.
+    affiliateUrl: "",
+    flagged: true,
+    flagReason:
+      "Its own legal documents state it is not regulated by the EU and is not authorised to offer investment services in the EU. We list it for transparency and do not recommend it.",
+    lastVerified: "2026-08-01",
   },
 ];
 

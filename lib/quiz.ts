@@ -92,7 +92,9 @@ export function recommend(
   const wantedAsset = marketToAssetClass(answers.market);
 
   // 1) Hard filters: must serve the country and accept the budget.
+  //    Flagged brokers (neutrality-signal listings) are never recommended.
   const eligible = brokers.filter((b) => {
+    if (b.flagged) return false;
     const servesCountry = b.countriesServed.includes(answers.country);
     const affordable = b.minDeposit <= ceiling;
     return servesCountry && affordable;

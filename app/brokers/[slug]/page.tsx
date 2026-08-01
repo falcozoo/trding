@@ -362,14 +362,20 @@ export default function BrokerPage({
             </div>
           </div>
           <div className="flex flex-col items-start gap-2">
-            <a
-              href={broker.affiliateUrl}
-              target="_blank"
-              rel="sponsored noopener"
-              className="rounded-xl bg-amber px-6 py-3.5 font-semibold text-white shadow-card hover:bg-amber-dark"
-            >
-              Open an account
-            </a>
+            {broker.flagged ? (
+              <div className="rounded-xl border border-red-200 bg-red-50 px-6 py-3.5 font-semibold text-red-700">
+                ⚠️ Not recommended
+              </div>
+            ) : (
+              <a
+                href={broker.affiliateUrl}
+                target="_blank"
+                rel="sponsored noopener"
+                className="rounded-xl bg-amber px-6 py-3.5 font-semibold text-white shadow-card hover:bg-amber-dark"
+              >
+                Open an account
+              </a>
+            )}
             <span className="text-xs text-muted">
               Recommended: €{SITE.recommendedMinDeposit} to start
             </span>
@@ -627,6 +633,31 @@ export default function BrokerPage({
       </section>
 
       {/* CTA + compare */}
+      {broker.flagged ? (
+        <section className="mt-10 rounded-xl2 border border-red-200 bg-red-50 p-6 shadow-card">
+          <h2 className="text-xl font-bold text-red-700">
+            We don&apos;t recommend {broker.name}
+          </h2>
+          <p className="mt-2 text-sm text-ink/90">
+            {broker.flagReason} We list it for transparency so you can compare it
+            against properly regulated alternatives.
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <Link
+              href="/brokers"
+              className="rounded-xl bg-amber px-6 py-3.5 font-semibold text-white shadow-card hover:bg-amber-dark"
+            >
+              See recommended brokers
+            </Link>
+            <Link
+              href={`/compare/${comparePair}`}
+              className="rounded-xl border border-line bg-paper px-6 py-3.5 font-semibold text-ink hover:border-amber"
+            >
+              Compare {broker.name} vs {other.name}
+            </Link>
+          </div>
+        </section>
+      ) : (
       <section className="mt-10 rounded-xl2 border border-line bg-amber-soft p-6 shadow-card">
         <h2 className="text-xl font-bold text-ink">
           Ready to try {broker.name}?
@@ -658,6 +689,7 @@ export default function BrokerPage({
           </Link>
         </div>
       </section>
+      )}
 
       <p className="mt-6 text-xs text-muted">{NOT_ADVICE}</p>
 

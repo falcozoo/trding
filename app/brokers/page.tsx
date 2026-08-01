@@ -98,14 +98,20 @@ export default function BrokersPage() {
                   {s.broker.platforms.join(", ")}
                 </td>
                 <td className="px-4 py-4">
-                  <a
-                    href={s.broker.affiliateUrl}
-                    target="_blank"
-                    rel="sponsored noopener"
-                    className="whitespace-nowrap rounded-lg bg-amber px-3 py-2 text-xs font-semibold text-white hover:bg-amber-dark"
-                  >
-                    Open account
-                  </a>
+                  {s.broker.flagged ? (
+                    <span className="whitespace-nowrap rounded-lg bg-red-50 px-3 py-2 text-xs font-semibold text-red-700 ring-1 ring-red-200">
+                      Not recommended
+                    </span>
+                  ) : (
+                    <a
+                      href={s.broker.affiliateUrl}
+                      target="_blank"
+                      rel="sponsored noopener"
+                      className="whitespace-nowrap rounded-lg bg-amber px-3 py-2 text-xs font-semibold text-white hover:bg-amber-dark"
+                    >
+                      Open account
+                    </a>
+                  )}
                 </td>
               </tr>
             ))}

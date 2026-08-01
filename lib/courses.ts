@@ -25,7 +25,12 @@ export type ModuleBlock =
   | { kind: "heading"; text: string }
   | { kind: "key"; text: string } // highlighted key takeaway callout
   | { kind: "image"; src: string; alt: string; caption?: string }
-  | { kind: "list"; items: string[] };
+  | { kind: "list"; items: string[] }
+  // Worked example: a step-by-step, boxed walkthrough on a concrete case.
+  // Each step's html may contain inline <strong>.
+  | { kind: "example"; title?: string; steps: string[] }
+  // Common-mistakes block: a red-flagged list of beginner traps to avoid.
+  | { kind: "mistakes"; title?: string; items: string[] };
 
 export interface Module {
   slug: string;

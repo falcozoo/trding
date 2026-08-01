@@ -182,13 +182,17 @@ export const priceActionCourse: Course = {
       title: "Market Structure",
       summary:
         "Learn to read market structure — uptrends, downtrends and ranges — using swing highs and swing lows as your map.",
-      readingMinutes: 6,
+      readingMinutes: 12,
       objective:
-        "After this module you'll be able to classify any chart as trending up, trending down, or ranging by reading its swings.",
+        "After this module you'll be able to open any chart, mark its swing points, classify the trend as up, down or ranging, and know which trades fit that structure.",
       blocks: [
         {
           kind: "text",
-          html: "Market structure is the skeleton of price action: the sequence of <strong>swing highs and swing lows</strong> that tells you whether the market is trending or ranging. Everything else — levels, setups, entries — should be read in the context of structure.",
+          html: "Market structure is the <strong>skeleton of price action</strong>. Before you think about a single trade, you read structure to answer one question: who is in control right now — buyers, sellers, or nobody? Get this wrong and every other tool you own points the wrong way. Get it right and you already have an edge, because you are trading in the direction the market is actually moving.",
+        },
+        {
+          kind: "text",
+          html: "Structure is built from just two things: <strong>swing highs</strong> and <strong>swing lows</strong>. A swing high is a peak that has a lower candle on each side of it — price pushed up, ran out of buyers, and turned down. A swing low is the mirror image: a trough with a higher candle on each side, where price fell, ran out of sellers, and turned back up. Every trend, no matter how complex it looks, is just a chain of these two points.",
         },
         {
           kind: "image",
@@ -202,24 +206,81 @@ export const priceActionCourse: Course = {
           text: "The three states of a market",
         },
         {
+          kind: "text",
+          html: "A market is only ever doing one of three things. Learn to name the state out loud before you do anything else — it forces you to trade the chart in front of you instead of the one you wish you had.",
+        },
+        {
           kind: "list",
           items: [
-            "Uptrend: a series of higher highs and higher lows — buyers in control.",
-            "Downtrend: a series of lower highs and lower lows — sellers in control.",
-            "Range: highs and lows are roughly level — neither side in control.",
+            "<strong>Uptrend</strong> — higher highs (HH) and higher lows (HL). Each rally clears the last peak, each dip stops above the last trough. Buyers are in control: look for buys, ignore sells.",
+            "<strong>Downtrend</strong> — lower highs (LH) and lower lows (LL). Each drop breaks the last low, each bounce fails below the last peak. Sellers are in control: look for sells, ignore buys.",
+            "<strong>Range</strong> — highs and lows are roughly level. Price bounces between a ceiling and a floor. Neither side is in control: either trade the edges, or stand aside until it breaks.",
+          ],
+        },
+        {
+          kind: "heading",
+          text: "How to mark structure on a live chart",
+        },
+        {
+          kind: "text",
+          html: "This is where most guides stop and most beginners get stuck. Marking structure is a <strong>mechanical routine</strong>, not an art. Follow the same steps every time and the trend names itself.",
+        },
+        {
+          kind: "example",
+          title: "Reading a chart step by step",
+          steps: [
+            "Zoom out first. Drop to a <strong>higher timeframe</strong> (e.g. the 4-hour or daily). Structure on a 1-minute chart is noise; structure on the daily is the real trend everyone is reacting to.",
+            "Find the obvious peaks and troughs. Mark every clear <strong>swing high</strong> (peak with a lower candle each side) and <strong>swing low</strong> (trough with a higher candle each side). Ignore tiny wiggles — you want the points a human would circle at a glance.",
+            "Read them left to right. Ask: is each new high <strong>above</strong> the last high? Is each new low <strong>above</strong> the last low? Two yeses in a row = uptrend.",
+            "Name the state out loud: \"higher highs and higher lows — this is an uptrend, I only look for buys.\" If the highs and lows are flat, say \"range — I wait or fade the edges.\"",
+            "Mark the <strong>most recent swing low</strong> (in an uptrend). That level is your line in the sand: while price holds above it, the uptrend is intact. If price closes firmly below it, the structure has changed and your bias is no longer valid.",
+          ],
+        },
+        {
+          kind: "heading",
+          text: "Why the last swing point is your objective invalidation",
+        },
+        {
+          kind: "text",
+          html: "The single most practical use of structure is that it gives you a <strong>non-negotiable exit</strong> decided by the market, not by your emotions. In an uptrend, the most recent higher low is the level that must hold. If it breaks, buyers have failed to defend their last footprint — the reason you were long has gone. This is how structure turns into a real, sizable trade with a defined risk.",
+        },
+        {
+          kind: "example",
+          title: "Turning structure into a sized trade",
+          steps: [
+            "You spot an uptrend on EUR/USD: price made a higher low at <strong>1.0850</strong> and is now pulling back toward it.",
+            "You decide to buy the hold of that higher low, entering at <strong>1.0870</strong>.",
+            "Your invalidation is a close below the swing low, so you place your stop just under it at <strong>1.0840</strong> — a 30-pip risk.",
+            "Your account is <strong>€1,000</strong> and you risk <strong>1%</strong> = €10. With a 30-pip stop, you size the position so that 30 pips against you costs about €10 — roughly <strong>0.03 lots</strong> on EUR/USD.",
+            "You now have a complete plan before entering: entry 1.0870, stop 1.0840, risk €10, and a clear rule — <strong>if 1.0840 breaks, the uptrend is over and you are out</strong>, no debate.",
           ],
         },
         {
           kind: "text",
-          html: "A swing high is a peak with lower highs on either side; a swing low is a trough with higher lows on either side. Marking these gives you an <strong>objective map</strong> of the trend rather than an opinion. When you can name the current state, you know which setups fit and which to avoid.",
+          html: "Notice what happened there: structure didn't just tell you the direction, it told you <strong>exactly where to be wrong</strong>. That is the whole point. A trade without a structural invalidation is a hope; a trade with one is a plan.",
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with structure",
+          items: [
+            "<strong>Reading structure on too low a timeframe.</strong> A 1-minute chart flips between 'uptrend' and 'downtrend' every few minutes. Anchor your bias on a higher timeframe first, then zoom in only to time entries.",
+            "<strong>Forcing a trend that isn't there.</strong> If highs and lows are flat, it's a range — not 'about to break out'. Trading a range as if it were a trend is one of the fastest ways to get chopped up.",
+            "<strong>Fighting the structure.</strong> Buying in a clean downtrend because it 'looks cheap' is trading your opinion against the market's proof. Trade with structure until you have real experience.",
+            "<strong>Moving your invalidation.</strong> When price nears the swing low that should get you out, it's tempting to slide the stop lower 'to give it room'. That's just choosing to lose more. The level was objective when you set it — respect it.",
+            "<strong>Marking every wiggle as a swing.</strong> Over-marking turns the chart into spaghetti. Only mark the peaks and troughs a stranger would circle at a glance.",
+          ],
+        },
+        {
+          kind: "heading",
+          text: "Trade with structure, not against it",
         },
         {
           kind: "text",
-          html: "The single most useful habit is to <strong>trade with structure</strong>: favour longs in an uptrend and shorts in a downtrend. Fighting structure is possible but statistically harder, and beginners should master trend-aligned trading first before attempting counter-trend plays.",
+          html: "The single most useful habit in all of price action is to <strong>favour longs in an uptrend and shorts in a downtrend</strong>. Counter-trend trading is possible, but it is statistically harder and demands precise timing you won't have as a beginner. Master trend-aligned trading first: it lets the overall drift of the market work for you instead of against you.",
         },
         {
           kind: "key",
-          text: "Read the swings first — structure tells you whether to be looking for buys, sells, or nothing at all.",
+          text: "Read the swings first. Structure tells you whether to be looking for buys, sells, or nothing at all — and it hands you the exact level where you're proven wrong.",
         },
       ],
     },

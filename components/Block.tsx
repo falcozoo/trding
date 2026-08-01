@@ -63,6 +63,60 @@ export function Block({ block }: { block: ModuleBlock }) {
         </ul>
       );
 
+    case "example":
+      return (
+        <div className="mt-8 rounded-xl2 border border-amber/40 bg-amber-soft/30 p-6 shadow-card">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="text-lg" aria-hidden>
+              📈
+            </span>
+            <h3 className="text-sm font-bold uppercase tracking-wide text-amber-dark">
+              {block.title ?? "Worked example"}
+            </h3>
+          </div>
+          <ol className="space-y-3">
+            {block.steps.map((step, i) => (
+              <li key={i} className="flex gap-3 text-base leading-relaxed text-ink/90">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber text-sm font-bold text-white">
+                  {i + 1}
+                </span>
+                <span
+                  className="[&_strong]:font-semibold [&_strong]:text-ink"
+                  dangerouslySetInnerHTML={{ __html: step }}
+                />
+              </li>
+            ))}
+          </ol>
+        </div>
+      );
+
+    case "mistakes":
+      return (
+        <div className="mt-8 rounded-xl2 border border-red-200 bg-red-50/70 p-6 shadow-card">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="text-lg" aria-hidden>
+              ⚠️
+            </span>
+            <h3 className="text-sm font-bold uppercase tracking-wide text-red-700">
+              {block.title ?? "Common mistakes"}
+            </h3>
+          </div>
+          <ul className="space-y-3">
+            {block.items.map((it, i) => (
+              <li key={i} className="flex gap-3 text-base leading-relaxed text-ink/90">
+                <span className="mt-0.5 shrink-0 text-red-500" aria-hidden>
+                  ✕
+                </span>
+                <span
+                  className="[&_strong]:font-semibold [&_strong]:text-ink"
+                  dangerouslySetInnerHTML={{ __html: it }}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+
     default:
       return null;
   }

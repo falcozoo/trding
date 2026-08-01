@@ -119,9 +119,22 @@ function normalise(
 const DISPLAY_FLOOR = 4.0;
 const DISPLAY_CEIL = 4.9;
 
-function toDisplayStars(normalised: number): number {
+/**
+ * Flagged brokers (see Broker.flagged) are deliberately listed as a neutrality
+ * signal, NOT as options we endorse. For them we bypass the credible band and
+ * map the same 0..1 spread into a low band so the rating visibly warns the user
+ * (they land around ~2/5). The ranking logic is unchanged; only the visual band
+ * differs. This keeps the comparator honest: when a broker is weak on verifiable
+ * facts, the score says so.
+ */
+const FLAGGED_FLOOR = 1.8;
+const FLAGGED_CEIL = 2.8;
+
+function toDisplayStars(normalised: number, flagged = false): number {
   const clamped = Math.max(0, Math.min(1, normalised));
-  return round1(DISPLAY_FLOOR + clamped * (DISPLAY_CEIL - DISPLAY_FLOOR));
+  const floor = flagged ? FLAGGED_FLOOR : DISPLAY_FLOOR;
+  const ceil = flagged ? FLAGGED_CEIL : DISPLAY_CEIL;
+  return round1(floor + clamped * (ceil - floor));
 }
 
 export interface SubScore {
@@ -175,12 +188,12 @@ export function scoreBrokers(
           key,
           label: c.label,
           normalised: n,
-          stars: toDisplayStars(n),
+          stars: toDisplayStars(n, broker.flagged),
           weight: weights[key],
         };
       });
 
-      const score = toDisplayStars(weighted / totalWeight);
+      const score = toDisplayStars(weighted / totalWeight, broker.flagged);
       return { broker, score, subScores };
     })
     .sort((a, b) => b.score - a.score);
