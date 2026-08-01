@@ -30,7 +30,17 @@ export type ModuleBlock =
   // Each step's html may contain inline <strong>.
   | { kind: "example"; title?: string; steps: string[] }
   // Common-mistakes block: a red-flagged list of beginner traps to avoid.
-  | { kind: "mistakes"; title?: string; items: string[] };
+  | { kind: "mistakes"; title?: string; items: string[] }
+  // Interactive mini-quiz: a single multiple-choice check-your-understanding
+  // question with immediate feedback. Gamifies the lesson. `correct` is the
+  // 0-based index of the right option; `explain` is shown after answering.
+  | {
+      kind: "quiz";
+      question: string;
+      options: string[];
+      correct: number;
+      explain?: string;
+    };
 
 export interface Module {
   slug: string;

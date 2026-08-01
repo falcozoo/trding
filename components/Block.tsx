@@ -3,6 +3,7 @@
  * callout, image, or list). Server component — pure presentation.
  */
 import type { ModuleBlock } from "@/lib/courses";
+import { MiniQuiz } from "@/components/MiniQuiz";
 
 export function Block({ block }: { block: ModuleBlock }) {
   switch (block.kind) {
@@ -115,6 +116,16 @@ export function Block({ block }: { block: ModuleBlock }) {
             ))}
           </ul>
         </div>
+      );
+
+    case "quiz":
+      return (
+        <MiniQuiz
+          question={block.question}
+          options={block.options}
+          correct={block.correct}
+          explain={block.explain}
+        />
       );
 
     default:

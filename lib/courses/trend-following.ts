@@ -88,6 +88,20 @@ export const trendCourse: Course = {
           text: "Trend following means trading with the market's direction — indicators help you read that direction, but they lag price and never guarantee it.",
         },
         {
+          kind: "quiz",
+          question:
+            "A one-hour chart is bouncing up, but the daily chart is in a clear downtrend. What's the trend-following bias?",
+          options: [
+            "Go long — follow the one-hour bounce",
+            "Stay short-biased — the higher timeframe sets direction",
+            "Ignore both and wait for a crossover",
+            "Trade both directions at once",
+          ],
+          correct: 1,
+          explain:
+            "The higher timeframe wins. A short-term bounce inside a bigger downtrend is still counter-trend, so a trend follower keeps a short bias until the daily itself turns.",
+        },
+        {
           kind: "text",
           html: "Throughout this course we build up in layers: first read the trend, then add moving averages, momentum tools and volatility bands, and finally combine them into one disciplined plan. Because no tool is perfect, <strong>risk management</strong> is the thread that runs through every module — the same defined-stop discipline you just saw applies to every setup ahead.",
         },

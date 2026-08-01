@@ -20,6 +20,9 @@ export function Footer() {
             </p>
           </div>
           <nav className="grid grid-cols-2 gap-x-10 gap-y-2 text-sm text-muted">
+            <Link href="/about" className="hover:text-ink">
+              About us
+            </Link>
             <Link href="/brokers" className="hover:text-ink">
               All brokers
             </Link>

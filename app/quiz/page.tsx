@@ -72,6 +72,15 @@ function toValue(label: string): string {
   return VALUE_MAP[label] ?? label;
 }
 
+/* Micro-reward encouragements shown under the progress bar as you advance. */
+const ENCOURAGEMENTS = [
+  "Let's go — this takes 60 seconds ⚡",
+  "Nice! Off to a great start 👊",
+  "Halfway there — you're doing great 🔥",
+  "Almost done — 2 quick ones left 💪",
+  "Last question — your match is ready 🎯",
+];
+
 export default function QuizPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Partial<QuizAnswers>>({});
@@ -114,6 +123,9 @@ export default function QuizPage() {
             style={{ width: `${progress}%` }}
           />
         </div>
+        <p className="mt-2 text-sm font-semibold text-amber-dark">
+          {ENCOURAGEMENTS[Math.min(step, ENCOURAGEMENTS.length - 1)]}
+        </p>
       </div>
 
       <h1 className="mb-6 text-2xl font-bold sm:text-3xl">{current.question}</h1>
@@ -335,6 +347,7 @@ function FeaturedCard({ result }: { result: ReturnType<typeof recommend>[number]
 function SoftEmailCapture() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   if (sent) {
     return (
@@ -344,6 +357,24 @@ function SoftEmailCapture() {
     );
   }
 
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email.includes("@") || loading) return;
+    setLoading(true);
+    try {
+      // Persist to the Resend audience + fire the welcome email.
+      await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+    } catch {
+      // Non-blocking: we still confirm to the user.
+    }
+    setSent(true);
+    setLoading(false);
+  }
+
   return (
     <div className="mt-10 rounded-2xl border border-line bg-paper p-6 shadow-card">
       <h2 className="text-lg font-bold">Get your comparison by email</h2>
@@ -351,13 +382,7 @@ function SoftEmailCapture() {
         We&apos;ll send your shortlist plus an alert when a better promo appears
         in your category. No spam, unsubscribe anytime.
       </p>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          if (email.includes("@")) setSent(true);
-        }}
-        className="mt-4 flex flex-col gap-2 sm:flex-row"
-      >
+      <form onSubmit={submit} className="mt-4 flex flex-col gap-2 sm:flex-row">
         <input
           type="email"
           required
@@ -368,9 +393,10 @@ function SoftEmailCapture() {
         />
         <button
           type="submit"
-          className="rounded-lg bg-amber px-5 py-2.5 text-sm font-semibold text-white hover:bg-amber-dark"
+          disabled={loading}
+          className="rounded-lg bg-amber px-5 py-2.5 text-sm font-semibold text-white hover:bg-amber-dark disabled:opacity-60"
         >
-          Send it to me
+          {loading ? "Sending…" : "Send it to me"}
         </button>
       </form>
     </div>
