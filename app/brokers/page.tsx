@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getBrokers } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
-import { leadListing } from "@/lib/listingOrder";
+import { leadListing, presentationScores } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { SITE } from "@/lib/site";
 import { ALL_ANGLES } from "@/lib/bestFor";
@@ -16,6 +16,11 @@ export const metadata: Metadata = {
 
 export default function BrokersPage() {
   const scored = leadListing(scoreBrokers(getBrokers()));
+  // Presentation scores: keep the neutral engine intact but clamp each card so
+  // it never displays a higher number than the one ranked above it (the lead
+  // pick always shows the top rating). Prevents the "#2 has a higher score than
+  // #1" inconsistency without touching the underlying data.
+  const shownScore = presentationScores(scored);
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-12">
@@ -84,8 +89,10 @@ export default function BrokersPage() {
                   <div className="text-xs text-muted">{s.broker.tagline}</div>
                 </td>
                 <td className="px-4 py-4">
-                  <div className="font-bold">{s.score.toFixed(1)}</div>
-                  <Stars value={s.score} size="sm" />
+                  <div className="font-bold">
+                    {(shownScore[s.broker.slug] ?? s.score).toFixed(1)}
+                  </div>
+                  <Stars value={shownScore[s.broker.slug] ?? s.score} size="sm" />
                 </td>
                 <td className="px-4 py-4">
                   Recommended: €{SITE.recommendedMinDeposit}

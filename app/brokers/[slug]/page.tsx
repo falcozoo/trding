@@ -10,6 +10,7 @@ import {
 import { scoreOne, scoreBrokers } from "@/lib/scoring";
 import { Stars } from "@/components/Stars";
 import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
+import { DepositSteps } from "@/components/DepositSteps";
 import { SITE, NOT_ADVICE, formatWithdrawal } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -689,6 +690,15 @@ export default function BrokerPage({
           </Link>
         </div>
       </section>
+      )}
+
+      {!broker.flagged && (
+        <DepositSteps
+          brokerName={broker.name}
+          affiliateUrl={broker.affiliateUrl}
+          hasDemo={broker.demoAccount}
+          minDeposit={broker.minDeposit}
+        />
       )}
 
       <p className="mt-6 text-xs text-muted">{NOT_ADVICE}</p>

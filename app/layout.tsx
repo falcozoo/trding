@@ -28,6 +28,20 @@ export const metadata: Metadata = {
     url: `https://${SITE.domain}`,
     siteName: SITE.name,
     type: "website",
+    locale: "en_GB",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — Neutral Broker Comparison`,
+    description:
+      "Find the right broker in 60 seconds. Neutral scoring, no jargon, no sales pitch.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: `https://${SITE.domain}`,
   },
 };
 
