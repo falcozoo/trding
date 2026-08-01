@@ -1127,7 +1127,7 @@ export const smcCourse: Course = {
       title: "Equilibrium",
       summary:
         "Understand equilibrium — the 50% midpoint of a range that separates premium from discount and acts as a fair-value pivot.",
-      readingMinutes: 5,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to find equilibrium in a range and use it as a fair-value reference.",
       blocks: [
@@ -1159,6 +1159,29 @@ export const smcCourse: Course = {
           html: "Use equilibrium as a <strong>reference, not a rule</strong>: a bullish trade is more attractive when price is below equilibrium (discount), and a bearish trade when it is above (premium). It is a filter that stops you from entering at poor prices, best confirmed by structure and a level of interest.",
         },
         {
+          kind: "example",
+          title: "Sizing a discount entry from equilibrium",
+          steps: [
+            "On GBP/USD the range runs from a swing low at <strong>1.2500</strong> to a swing high at <strong>1.2700</strong>. Equilibrium sits at the <strong>50% midpoint = 1.2600</strong>.",
+            "Bias is bullish from higher-timeframe structure, so you only want to buy in the <strong>discount half below 1.2600</strong> — never chase longs above it.",
+            "Price pulls back to <strong>1.2540</strong> (deep discount) and taps a demand order block. You enter long at <strong>1.2545</strong>.",
+            "Stop goes below the range low at <strong>1.2490</strong> — a break there means the range and the bullish read are done. Risk = <strong>55 pips</strong>.",
+            "Account <strong>€1,000</strong>, risk <strong>1% = €10</strong>. With a 55-pip stop, size ≈ €10 ÷ 55 pips ≈ <strong>0.018 lots</strong> on GBP/USD.",
+            "Target is the range high at <strong>1.2700</strong>, ~155 pips away — roughly <strong>2.8:1 reward-to-risk</strong>. Entering below equilibrium is what made that ratio possible.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common mistakes with equilibrium",
+          items: [
+            "<strong>Buying above equilibrium in a range.</strong> Longing in the premium half means paying up and shrinking your reward-to-risk — the level exists to stop exactly this.",
+            "<strong>Measuring the wrong range.</strong> Equilibrium is only meaningful on a valid, clearly-defined swing high to swing low. Draw it on random noise and the 50% is meaningless.",
+            "<strong>Treating the midpoint as a signal.</strong> Price touching equilibrium is not an entry — it is a filter. You still need structure and a level of interest to act.",
+            "<strong>Ignoring the higher-timeframe bias.</strong> Discount only favours longs when the bigger trend is up. In a downtrend, the discount half can just be a stop on the way lower.",
+            "<strong>Skipping the stop because the price looked cheap.</strong> A discount entry can still fail. Always place the stop beyond the range invalidation and size from it.",
+          ],
+        },
+        {
           kind: "key",
           text: "Equilibrium is the 50% fair-value midpoint of a range — the pivot separating discount below from premium above.",
         },
@@ -1173,7 +1196,7 @@ export const smcCourse: Course = {
       title: "Inducement",
       summary:
         "Learn about inducement — the obvious liquidity that lures traders in before the real move — and how to avoid the trap.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to spot inducement and avoid entering on the liquidity that precedes the real setup.",
       blocks: [
@@ -1214,6 +1237,29 @@ export const smcCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "Waiting past inducement into the real order block",
+          steps: [
+            "On the 15-minute EUR/USD you are bullish and mark an obvious minor swing low at <strong>1.0880</strong> — the level everyone would buy. Treat it as <strong>inducement, not entry</strong>.",
+            "Deeper below sits a fresh demand order block at <strong>1.0850–1.0855</strong>, created before the last displacement up. That is the real zone.",
+            "Price dips, taps 1.0880, tempts early longs, then sweeps straight through it — those longs are now trapped and their stops feed the move.",
+            "Price runs into the order block at <strong>1.0852</strong> and prints a lower-timeframe CHoCH. You enter long at <strong>1.0856</strong>.",
+            "Stop goes below the order block at <strong>1.0842</strong>. Risk = <strong>14 pips</strong>. Account <strong>€1,000</strong>, risk <strong>1% = €10</strong> → size ≈ €10 ÷ 14 pips ≈ <strong>0.071 lots</strong>.",
+            "Target the prior high near <strong>1.0910</strong>, ~54 pips away — about <strong>3.8:1</strong>. Patience past the inducement is exactly what bought that reward-to-risk.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common mistakes with inducement",
+          items: [
+            "<strong>Buying the first obvious level.</strong> The cleanest swing is usually the bait. If everyone can see it, its liquidity is likely being harvested, not defended.",
+            "<strong>Entering before the inducement is swept.</strong> The whole point is that price takes that liquidity first — jumping in early puts you in exactly the trapped crowd.",
+            "<strong>Confusing inducement with the real zone.</strong> The genuine order block or FVG sits beyond the inducement. Mislabel them and you enter at the worst possible price.",
+            "<strong>Treating it as a guarantee.</strong> Inducement is a probabilistic read, not a law. Sometimes the obvious level simply holds. Always define risk regardless.",
+            "<strong>No confirmation after the sweep.</strong> A sweep alone is not entry — wait for a structure shift or CHoCH in the deeper zone before committing.",
+          ],
+        },
+        {
           kind: "key",
           text: "Inducement is the obvious liquidity that baits traders early — the real entry usually waits beyond it.",
         },
@@ -1228,7 +1274,7 @@ export const smcCourse: Course = {
       title: "Displacement",
       summary:
         "Understand displacement — the sharp, one-directional move that signals institutional intent and validates SMC setups.",
-      readingMinutes: 5,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to recognise displacement and use it to confirm a genuine change in order flow.",
       blocks: [
@@ -1260,6 +1306,29 @@ export const smcCourse: Course = {
           html: "Use displacement as a <strong>confirmation filter</strong>. After a sweep, a displacement move away from the level tells you the reversal has conviction. The order block and FVG created by that displacement then become your entry zones. Weak, indecisive breaks without displacement deserve more caution.",
         },
         {
+          kind: "example",
+          title: "Trading the FVG left by displacement",
+          steps: [
+            "On the 5-minute US30 (Dow) index, price sweeps a session low at <strong>38,600</strong>, then fires up with three wide-range bullish candles — clear <strong>bullish displacement</strong>.",
+            "That run leaves a <strong>fair value gap</strong> between <strong>38,660</strong> and <strong>38,690</strong> and prints a CHoCH — the displacement validated the shift.",
+            "You wait for the retrace into the FVG and enter long at <strong>38,675</strong> as price fills the gap and holds.",
+            "Stop goes below the displacement origin at <strong>38,590</strong> — if that fails, the intent read was wrong. Risk = <strong>85 points</strong>.",
+            "Account <strong>€1,000</strong>, risk <strong>1% = €10</strong>. At €1 per point, size ≈ €10 ÷ 85 ≈ <strong>0.12 contracts</strong> (or the nearest micro/CFD size your broker allows).",
+            "Target the next liquidity at <strong>38,940</strong>, ~265 points away — about <strong>3.1:1</strong>. No displacement, no trade: the sharp move is the whole edge here.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common mistakes with displacement",
+          items: [
+            "<strong>Trading breaks with no displacement.</strong> A slow, overlapping drift through a level is not intent. Without wide-range candles and imbalance, the break is far weaker.",
+            "<strong>Confusing a news spike with displacement.</strong> A single erratic candle on a headline can reverse instantly. Look for a sustained run that leaves structure, not one violent wick.",
+            "<strong>Chasing the displacement candle itself.</strong> Entering mid-move at the extreme gives a terrible stop. Wait for the retrace into the FVG or order block it created.",
+            "<strong>Ignoring the origin as your invalidation.</strong> If price closes back beyond where the displacement began, the intent read is dead — that is where the stop belongs.",
+            "<strong>Assuming displacement guarantees continuation.</strong> It raises the odds, it does not remove risk. Size from the stop and accept that some validated shifts still fail.",
+          ],
+        },
+        {
           kind: "key",
           text: "Displacement is a sharp, imbalanced move that signals intent — it validates structure shifts and creates tradeable zones.",
         },
@@ -1274,7 +1343,7 @@ export const smcCourse: Course = {
       title: "Power of Three",
       summary:
         "Learn the Power of Three model — accumulation, manipulation and distribution — and how it frames a market cycle.",
-      readingMinutes: 6,
+      readingMinutes: 11,
       objective:
         "After this module you'll be able to describe the accumulation, manipulation and distribution phases of the Power of Three.",
       blocks: [
@@ -1314,6 +1383,29 @@ export const smcCourse: Course = {
           html: "Treat Power of Three as a <strong>narrative framework</strong>, not a precise timing tool. Phases are only clear in hindsight and do not appear on every chart. Use it to stay patient through the manipulation and to align entries with the distribution leg once structure confirms it.",
         },
         {
+          kind: "example",
+          title: "Trading the distribution leg after the manipulation sweep",
+          steps: [
+            "On the daily open, EUR/USD builds an <strong>accumulation range</strong> between <strong>1.0900</strong> and <strong>1.0930</strong> during the quiet session — you mark both edges.",
+            "At the London open, price drives below the range low to <strong>1.0885</strong> — a <strong>manipulation sweep</strong> that traps breakout sellers. You do NOT short this.",
+            "Price snaps back above 1.0900 with displacement and prints a CHoCH — the <strong>distribution leg</strong> up is beginning. You enter long at <strong>1.0912</strong>.",
+            "Stop goes below the manipulation low at <strong>1.0878</strong> — if that breaks, the read failed. Risk = <strong>34 pips</strong>.",
+            "Account <strong>€1,000</strong>, risk <strong>1% = €10</strong> → size ≈ €10 ÷ 34 pips ≈ <strong>0.029 lots</strong> on EUR/USD.",
+            "Target the buy-side liquidity above at <strong>1.0985</strong>, ~73 pips away — about <strong>2.1:1</strong>. The edge came from waiting out the fake move, not chasing it.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common mistakes with Power of Three",
+          items: [
+            "<strong>Trading the manipulation as a breakout.</strong> The first obvious push is usually the trap. Chasing it puts you on the wrong side right before distribution begins.",
+            "<strong>Forcing the model onto every chart.</strong> Not every session accumulates, manipulates and distributes cleanly. Many days are just noise — don't invent phases that aren't there.",
+            "<strong>Using it for precise timing.</strong> Phases are only obvious in hindsight. Treat it as a narrative to stay patient, not a clock that tells you the exact turn.",
+            "<strong>Entering distribution with no confirmation.</strong> Wait for the snap-back plus a structure shift. A sweep alone is not proof the distribution leg has started.",
+            "<strong>No stop beyond the manipulation extreme.</strong> Sometimes the 'fake' is real continuation. Your invalidation must sit past the sweep, and size comes from it.",
+          ],
+        },
+        {
           kind: "key",
           text: "Power of Three frames a move as accumulate, manipulate, distribute — the first obvious push is often the trap.",
         },
@@ -1328,7 +1420,7 @@ export const smcCourse: Course = {
       title: "ICT Kill Zones",
       summary:
         "Understand ICT kill zones — the session windows some traders favour — with an honest note that times are illustrative.",
-      readingMinutes: 6,
+      readingMinutes: 11,
       objective:
         "After this module you'll be able to describe the ICT kill zones and adapt session windows to your own market and broker.",
       blocks: [
@@ -1369,6 +1461,29 @@ export const smcCourse: Course = {
           html: "Kill zones are a <strong>filter, not a signal</strong>. Trading during active hours can improve fills and follow-through, but the window alone is not a reason to trade — you still need structure, liquidity and a valid setup. Backtest whether these windows actually help on your market before relying on them.",
         },
         {
+          kind: "example",
+          title: "Taking a London-open setup inside the kill zone",
+          steps: [
+            "During the Asian session, GBP/USD builds a tight range between <strong>1.2650</strong> and <strong>1.2680</strong> — you mark the range as the liquidity pool for later.",
+            "You wait for the <strong>London-open window</strong> (illustrative — convert to your own broker time). Outside this window you take no trade.",
+            "At the open, price sweeps the Asian high to <strong>1.2688</strong>, then reverses with displacement and a CHoCH — a valid sell setup <strong>inside the active window</strong>.",
+            "You enter short at <strong>1.2670</strong> on the retrace into the FVG. Stop goes above the sweep at <strong>1.2694</strong>. Risk = <strong>24 pips</strong>.",
+            "Account <strong>€1,000</strong>, risk <strong>1% = €10</strong> → size ≈ €10 ÷ 24 pips ≈ <strong>0.041 lots</strong> on GBP/USD.",
+            "Target the Asian range low at <strong>1.2650</strong> then the next pool at <strong>1.2620</strong>, ~50 pips away — about <strong>2:1</strong>. The window improved timing; the setup still did the work.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common mistakes with kill zones",
+          items: [
+            "<strong>Trading the window with no setup.</strong> A kill zone is a filter, not a signal. Being in the right hour means nothing without structure, liquidity and confirmation.",
+            "<strong>Using fixed clock times blindly.</strong> The quoted times shift with daylight saving and your broker's server time. Convert the concept to your own instrument and zone.",
+            "<strong>Applying FX sessions to the wrong market.</strong> Crypto trades 24/7 and index futures follow their own rhythm. FX kill zones may not map to them at all — test first.",
+            "<strong>Forcing trades to 'not miss' the window.</strong> Overtrading during active hours burns capital fast. If no clean setup appears, the correct action is no trade.",
+            "<strong>Assuming the window guarantees follow-through.</strong> Volatility can also mean whipsaws and wider spreads. Higher activity is not the same as higher probability.",
+          ],
+        },
+        {
           kind: "key",
           text: "Kill zones flag active session windows, but the exact times are illustrative and depend on your session, broker and market.",
         },
@@ -1383,7 +1498,7 @@ export const smcCourse: Course = {
       title: "Optimal Trade Entry (OTE)",
       summary:
         "Master the Optimal Trade Entry zone — the 62% to 79% retracement area — with honest entry, stop and target logic.",
-      readingMinutes: 7,
+      readingMinutes: 11,
       objective:
         "After this module you'll be able to plot the OTE zone and structure a trade entry, stop and target around it.",
       blocks: [
@@ -1424,6 +1539,29 @@ export const smcCourse: Course = {
           html: "OTE is <strong>not a stand-alone signal</strong>. Combine it with market structure, a liquidity sweep and a confirmation like a CHoCH on a lower timeframe. Deep retracements sometimes turn into full reversals, so the stop beyond the origin is what keeps a wrong read small.",
         },
         {
+          kind: "example",
+          title: "Plotting the OTE zone and sizing the entry",
+          steps: [
+            "On EUR/USD a confirmed bullish impulse runs from a swing low at <strong>1.0800</strong> (origin) to a swing high at <strong>1.0900</strong> (a 100-pip leg). You draw the Fibonacci low-to-high.",
+            "The <strong>OTE zone (62%–79%)</strong> sits between <strong>1.0838</strong> and <strong>1.0821</strong>, with the 70.5% sweet spot near <strong>1.0830</strong>.",
+            "Price retraces into the zone and taps an order block at <strong>1.0829</strong> with a lower-timeframe CHoCH confirming. You enter long at <strong>1.0830</strong>.",
+            "Stop goes just below the origin at <strong>1.0794</strong> — beyond the swing low that must hold. Risk = <strong>36 pips</strong>.",
+            "Account <strong>€1,000</strong>, risk <strong>1% = €10</strong> → size ≈ €10 ÷ 36 pips ≈ <strong>0.027 lots</strong> on EUR/USD.",
+            "Target the prior high / buy-side liquidity at <strong>1.0900</strong>, ~70 pips away — about <strong>1.9:1</strong>, and the next pool at 1.0940 stretches it past 3:1. The deep entry is what funds that ratio.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common mistakes with OTE",
+          items: [
+            "<strong>Drawing the Fib on an unconfirmed move.</strong> OTE only works on a genuine structure-breaking impulse. Plot it on random noise and the 62%–79% zone means nothing.",
+            "<strong>Treating the zone as an automatic buy.</strong> Price reaching 70.5% is not a signal. Without a sweep, order block or CHoCH inside it, you are just catching a falling knife.",
+            "<strong>Putting the stop inside the zone.</strong> A deep pullback can wick further. The stop belongs beyond the origin, not at the 79% level where noise easily takes you out.",
+            "<strong>Forgetting deep retraces can fully reverse.</strong> Sometimes the 'pullback' is the start of a new trend. The origin stop is exactly what keeps that wrong read cheap.",
+            "<strong>Ignoring reward-to-risk.</strong> If the target barely clears the stop distance, the discount entry gained you nothing. Confirm the ratio before clicking.",
+          ],
+        },
+        {
           kind: "key",
           text: "OTE is the 62%–79% retracement of a confirmed impulse — a discount entry with the stop just beyond the origin.",
         },
@@ -1438,7 +1576,7 @@ export const smcCourse: Course = {
       title: "Building a Complete SMC Setup",
       summary:
         "Combine market structure, liquidity, order blocks and OTE into a repeatable five-step SMC setup with strict risk management.",
-      readingMinutes: 8,
+      readingMinutes: 12,
       objective:
         "After this module you'll be able to run a five-step SMC checklist to plan an entry, stop and target with disciplined risk.",
       blocks: [
@@ -1478,6 +1616,29 @@ export const smcCourse: Course = {
         {
           kind: "text",
           html: "A widely used guideline is to <strong>risk a small fixed percentage</strong> per trade so no single loss hurts. Position size is calculated from the stop distance, never the other way around. Keep a <strong>trading journal</strong> with screenshots and outcomes, and review whether you actually followed your rules.",
+        },
+        {
+          kind: "example",
+          title: "Running the five-step checklist on one trade",
+          steps: [
+            "<strong>Bias:</strong> On the 1-hour EUR/USD, higher-timeframe structure shows a bullish BOS and order flow is up — you only look for longs.",
+            "<strong>Liquidity:</strong> You mark sell-side liquidity below an obvious swing low at <strong>1.0840</strong> — the pool price is likely reaching for before continuing up.",
+            "<strong>Sweep and shift:</strong> Price sweeps below to <strong>1.0832</strong>, then reverses with displacement and a CHoCH — the trap is set and structure has shifted.",
+            "<strong>Entry zone:</strong> On the retrace, price taps a demand order block at <strong>1.0850</strong> in the discount half. You enter long at <strong>1.0852</strong>.",
+            "<strong>Risk:</strong> Stop below the sweep at <strong>1.0827</strong> → risk = <strong>25 pips</strong>. Account <strong>€1,000</strong>, risk <strong>1% = €10</strong> → size ≈ €10 ÷ 25 ≈ <strong>0.04 lots</strong>.",
+            "Target the buy-side liquidity above at <strong>1.0930</strong>, ~78 pips away — about <strong>3.1:1</strong>. Every step agreed before you clicked; if one had conflicted, the answer would be no trade.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common mistakes building an SMC setup",
+          items: [
+            "<strong>Taking the trade when steps conflict.</strong> An order block in a premium zone against your bias is not a setup. When structure, liquidity and the zone disagree, the honest answer is no trade.",
+            "<strong>Sizing before defining the stop.</strong> Position size must come from the stop distance and your 1% risk — never pick a lot size first and place the stop to fit it.",
+            "<strong>Skipping the sweep-and-shift step.</strong> Entering at a raw order block with no liquidity sweep or CHoCH is guessing. Wait for confirmation that order flow actually turned.",
+            "<strong>Overtrading when no clean setup exists.</strong> A checklist that rarely fires is doing its job. Forcing trades to stay busy is how accounts bleed out.",
+            "<strong>Believing the model wins every time.</strong> These are interpretations, not certainties. Backtest, journal every trade, and protect capital — the process is the edge, not prediction.",
+          ],
         },
         {
           kind: "text",

@@ -1000,7 +1000,7 @@ export const volumeCourse: Course = {
       title: "Delta Volume",
       summary:
         "Delta measures aggressive buying minus aggressive selling per bar, splitting neutral volume into a directional order-flow reading.",
-      readingMinutes: 6,
+      readingMinutes: 11,
       objective:
         "After this module you'll be able to explain what delta measures and read a delta histogram to gauge aggressive buying versus selling.",
       blocks: [
@@ -1041,6 +1041,35 @@ export const volumeCourse: Course = {
           html: "An important honest limit: true delta needs <strong>tick-level bid/ask data</strong> from a real exchange feed, so it is reliable on futures and stocks but often unavailable or estimated on CFDs and forex. Know what your platform is actually calculating before you trust it.",
         },
         {
+          kind: "text",
+          html: "HOW to trade it in practice: wait for price to reach a level you already respect, then let delta <strong>confirm or veto</strong>. A green push-up bar into resistance that prints a large negative delta is telling you buyers hit the wall and sellers absorbed them — that is your permission to fade, not chase.",
+        },
+        {
+          kind: "example",
+          title: "Fading a delta divergence at resistance (€1000 account)",
+          steps: [
+            "Instrument: EUR/USD futures proxy, price grinds up to a resistance shelf at 1.0920.",
+            "The final push prints a new high candle at 1.0922 but delta on that bar is -1,800 (aggressive sellers dominated the up-move).",
+            "Read: price up, delta negative = bearish divergence, buyers were absorbed.",
+            "Entry: short at 1.0918 once the next bar closes back below the shelf.",
+            "Stop: 1.0930, just above the delta-negative high — a 12-pip risk.",
+            "Risk 1% of €1000 = €10. At €1 per pip that is a size of ~0.8 mini-lots (€10 / 12 pips).",
+            "Target: prior value-area low at 1.0882 = 36 pips, roughly 3R.",
+            "Outcome logged either way — the setup is defined before entry, not after.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Delta mistakes that cost money",
+          items: [
+            "Trusting delta on a CFD or forex feed that only estimates it from ticks — you are trading a guess dressed as data.",
+            "Treating one positive delta bar as a buy signal with no level or structure behind it.",
+            "Chasing a big green delta bar at the top of an extended move — that is often the last aggressive buyer, not the first.",
+            "Ignoring divergence because 'price is still going up' — divergence is a warning, and warnings arrive early.",
+            "Sizing off gut feel instead of stop distance, so one wide-stop delta trade wipes three winners.",
+          ],
+        },
+        {
           kind: "key",
           text: "Delta reveals who was aggressive — buyers or sellers — and its divergence from price is one of order flow's most telling clues.",
         },
@@ -1055,7 +1084,7 @@ export const volumeCourse: Course = {
       title: "Cumulative Delta",
       summary:
         "Cumulative delta sums delta over time into a running line, exposing whether aggressive flow is building or diverging from price.",
-      readingMinutes: 6,
+      readingMinutes: 11,
       objective:
         "After this module you'll be able to read a cumulative delta line and spot divergences between order flow and price.",
       blocks: [
@@ -1096,6 +1125,35 @@ export const volumeCourse: Course = {
           html: "Treat divergences as <strong>context, not triggers</strong>. Flow can diverge for a while before price responds, or not respond at all, and the same data caveats from the delta module apply on CFDs. Use cumulative delta to gauge the strength behind a trend and confirm with price before acting.",
         },
         {
+          kind: "text",
+          html: "HOW to use it: mark the swing where price and the cumulative delta line last agreed, then watch the next test of that price. If price returns but cumulative delta cannot reclaim its old level, aggressive flow has <strong>quietly reversed</strong> — wait for a price trigger in that direction before you commit.",
+        },
+        {
+          kind: "example",
+          title: "Trading a cumulative-delta divergence (€1000 account)",
+          steps: [
+            "Instrument: index CFD, price makes a new session high at 18,240.",
+            "Cumulative delta at the first high was +4,200; at the new price high it only reads +2,600 — a lower high in flow.",
+            "Read: price higher, flow lower = bearish divergence, the new high was not bought.",
+            "Entry: short at 18,232 after a lower-high candle confirms the roll-over.",
+            "Stop: 18,258, above the divergent high — a 26-point risk.",
+            "Risk 1% of €1000 = €10. At €0.5 per point, size ≈ 0.77 units (€10 / (26 × €0.5)).",
+            "Target: session VWAP at 18,180 = 52 points, about 2R, then trail the rest.",
+            "If cumulative delta makes a fresh high instead, the divergence is void — no trade.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Cumulative delta mistakes that cost money",
+          items: [
+            "Shorting the instant delta diverges — flow can lead price by many bars, so you need a price trigger too.",
+            "Forgetting cumulative delta resets each session, then comparing today's line against yesterday's absolute level.",
+            "Reading the line on a CFD that fakes delta from ticks and treating the divergence as gospel.",
+            "Confusing a flat line for a bearish signal — no build-up just means balance, not a reversal.",
+            "Holding a losing trade because 'delta still diverges' after price already invalidated the level.",
+          ],
+        },
+        {
           kind: "key",
           text: "Cumulative delta turns order flow into a trend line — and when it diverges from price, it hints the move is running on empty.",
         },
@@ -1110,7 +1168,7 @@ export const volumeCourse: Course = {
       title: "Reading Institutional Flow",
       summary:
         "How large institutional orders leave volume footprints — and how retail traders can read those traces without overclaiming.",
-      readingMinutes: 6,
+      readingMinutes: 11,
       objective:
         "After this module you'll be able to recognise the volume footprints large players tend to leave and read them with realistic expectations.",
       blocks: [
@@ -1151,6 +1209,35 @@ export const volumeCourse: Course = {
           html: "Used well, this is about <strong>aligning with pressure</strong>, not predicting it: favour trades in the direction that the footprints, structure and volume all agree on, and stand aside when they conflict.",
         },
         {
+          kind: "text",
+          html: "HOW to act on it: never trade the footprint alone. Wait until price gives you a <strong>defined trigger</strong> at the level where accumulation showed up, place your stop where the footprint would be proven wrong, and only then size the position. The trace picks the location; price picks the timing.",
+        },
+        {
+          kind: "example",
+          title: "Joining accumulation after a footprint (€1000 account)",
+          steps: [
+            "Instrument: gold CFD, price ranges near 2,318 for hours with repeated high-volume bars but no breakdown.",
+            "Footprint read: heavy volume plus absorption on every dip = a large buyer quietly accumulating.",
+            "Trigger: price breaks the range top at 2,322 on expanding volume with positive delta.",
+            "Entry: long at 2,323 on the breakout close.",
+            "Stop: 2,315, below the accumulation zone where the thesis fails — an 8-point (80-pip) risk.",
+            "Risk 1% of €1000 = €10. At €0.10 per pip, size ≈ 1.25 mini-lots (€10 / (80 × €0.10)).",
+            "Target: next HVN above at 2,339 = 160 pips, roughly 2R.",
+            "If price breaks 2,315 instead, the 'accumulation' was distribution — take the small loss and move on.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Institutional-flow mistakes that cost money",
+          items: [
+            "Believing an indicator that claims to show 'real institutional orders' — no retail feed can see them.",
+            "Trading the footprint with no price trigger, so you are long into a level that keeps failing.",
+            "Assuming heavy volume must be a big buyer when it can equally be a big seller distributing.",
+            "Reading footprints off CFD volume as if it were exchange truth — it is only a tick proxy.",
+            "Marrying the narrative — holding a loser because 'the institutions are accumulating' after price already broke your stop.",
+          ],
+        },
+        {
           kind: "key",
           text: "Institutions leave footprints, not signatures — read the volume traces to align with pressure, but never mistake a clue for certainty.",
         },
@@ -1165,7 +1252,7 @@ export const volumeCourse: Course = {
       title: "Building a Volume Setup",
       summary:
         "Turn volume profile, VWAP, confirmation and delta into a written, repeatable volume trading setup with clear risk rules.",
-      readingMinutes: 7,
+      readingMinutes: 12,
       objective:
         "After this module you'll be able to combine the course's volume tools into a simple, repeatable setup with defined entries, stops and risk.",
       blocks: [
@@ -1209,6 +1296,31 @@ export const volumeCourse: Course = {
         {
           kind: "text",
           html: "Keep a <strong>trading journal</strong> with the setup, a screenshot of the volume picture, and the outcome, then review it to refine one clear process over many trades. Remember the honest limits — CFD volume is a tick proxy, no tool wins every time, and volume is <strong>context, not certainty</strong>. Trade the plan, not the emotion.",
+        },
+        {
+          kind: "example",
+          title: "Running the full five-step checklist (€1000 account)",
+          steps: [
+            "Level: EUR/USD pulls back to 1.0855, an HVN that also sits on the value-area low.",
+            "Bias: price is above a rising VWAP at 1.0851 and structure shows higher lows — longs favoured.",
+            "Confirmation: the pullback stalls and a bullish bar closes on expanding volume.",
+            "Flow: delta flips positive and cumulative delta holds its higher low — flow agrees.",
+            "Entry: long at 1.0858 on the confirmation close.",
+            "Stop: 1.0843, below the HVN and VWAP where the thesis fails — a 15-pip risk.",
+            "Risk 1% of €1000 = €10. At €1 per pip, size ≈ 0.66 mini-lots (€10 / 15 pips).",
+            "Target: next HVN / value-area high at 1.0903 = 45 pips, roughly 3R; only take the trade if all five boxes tick.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Setup mistakes that cost money",
+          items: [
+            "Taking the trade with only three of five boxes ticked because you are impatient — a checklist you skip is not a checklist.",
+            "Sizing the position first and forcing the stop to fit, instead of sizing from a fixed 1% risk and the stop distance.",
+            "Adding more indicators after a loss rather than reviewing the journal to see what actually failed.",
+            "Moving the stop wider mid-trade to avoid being wrong — that turns a planned 1% loss into a 3% one.",
+            "Believing the setup should win every time; even a good process has losing streaks, and over-leverage is what ends accounts.",
+          ],
         },
         {
           kind: "key",

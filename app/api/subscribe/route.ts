@@ -1,38 +1,23 @@
 import { NextResponse } from "next/server";
+import { sendWelcome } from "@/lib/email";
 
 /**
  * POST /api/subscribe
  *
- * Validates an email address and (for now) simply records it server-side.
- * This is a clean stub ready to connect to a real backend / ESP.
+ * 1. Validates the email.
+ * 2. Sends the on-brand welcome email via Resend (best-effort).
+ * 3. Logs the subscriber server-side so signups are recoverable from logs
+ *    until a persistent store (Supabase table or Resend Audience) is wired in.
  *
- * TO PLUG IN A REAL BACKEND LATER (do NOT commit secrets — use env vars):
+ * TO ADD PERSISTENT STORAGE LATER (needs a non-send-only key / service role):
  *
- *   // --- Supabase ---
- *   // import { createClient } from "@supabase/supabase-js";
- *   // const supabase = createClient(
- *   //   process.env.NEXT_PUBLIC_SUPABASE_URL!,
- *   //   process.env.SUPABASE_SERVICE_ROLE_KEY!, // server-only secret
- *   // );
+ *   // --- Resend Audience (full-access key) ---
+ *   // await resend.contacts.create({ email, audienceId: process.env.RESEND_AUDIENCE_ID! });
+ *
+ *   // --- Supabase (service-role key, server-only) ---
  *   // await supabase.from("subscribers").insert({ email });
- *
- *   // --- Mailchimp ---
- *   // await fetch(`https://<dc>.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}/members`, {
- *   //   method: "POST",
- *   //   headers: { Authorization: `Bearer ${process.env.MAILCHIMP_API_KEY}` },
- *   //   body: JSON.stringify({ email_address: email, status: "subscribed" }),
- *   // });
- *
- *   // --- ConvertKit ---
- *   // await fetch(`https://api.convertkit.com/v3/forms/${process.env.CONVERTKIT_FORM_ID}/subscribe`, {
- *   //   method: "POST",
- *   //   headers: { "Content-Type": "application/json" },
- *   //   body: JSON.stringify({ api_key: process.env.CONVERTKIT_API_KEY, email }),
- *   // });
  */
 
-// Pragmatic email regex — good enough for a signup form (real validation
-// happens when the ESP sends the confirmation email).
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
@@ -48,7 +33,7 @@ export async function POST(request: Request) {
 
   const email =
     typeof body === "object" && body !== null && "email" in body
-      ? String((body as { email: unknown }).email ?? "").trim()
+      ? String((body as { email: unknown }).email ?? "").trim().toLowerCase()
       : "";
 
   if (!email || !EMAIL_RE.test(email)) {
@@ -58,8 +43,15 @@ export async function POST(request: Request) {
     );
   }
 
-  // For now we just log server-side. Replace this with a real insert/ESP call.
-  console.log(`[subscribe] new subscriber: ${email}`);
+  // Recoverable audit line until a persistent store is connected.
+  console.log(`[subscribe] ${new Date().toISOString()} ${email}`);
+
+  // Fire the welcome email. We do NOT fail the signup if the email send fails
+  // (the address is still captured in logs); we just note it.
+  const result = await sendWelcome(email);
+  if (!result.ok) {
+    console.warn(`[subscribe] welcome email not sent for ${email}: ${result.error}`);
+  }
 
   return NextResponse.json({ ok: true });
 }
