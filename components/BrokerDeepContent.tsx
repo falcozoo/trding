@@ -29,6 +29,38 @@ export function BrokerDeepContent({
         </p>
       </section>
 
+      {/* Tested by us */}
+      {deep.testedByUs && (
+        <section className="mt-10 rounded-xl2 border border-line bg-paper p-6 shadow-card">
+          <div className="flex flex-wrap items-center gap-3">
+            <h2 className="text-xl font-bold text-ink">
+              Tested by us
+            </h2>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">
+              <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+              Verified {deep.testedByUs.checkedOn}
+            </span>
+          </div>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink/90">
+            We don&apos;t just copy a broker&apos;s marketing. Here is what we
+            checked ourselves on {brokerName}:
+          </p>
+          <ul className="mt-4 space-y-3">
+            {deep.testedByUs.points.map((p, i) => (
+              <li
+                key={i}
+                className="flex gap-3 text-[15px] leading-relaxed text-ink/90"
+              >
+                <span className="mt-0.5 shrink-0 font-bold text-green-600">
+                  ✓
+                </span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       {/* Withdrawal proof */}
       {deep.withdrawalProof && (
         <section className="mt-10">

@@ -309,16 +309,32 @@ export const BROKERS: Broker[] = [
   },
 ];
 
+// --- Flagged / regulator-warned brokers (neutrality signal) ---
+// Researched from official regulator warning lists (AMF, FCA, CONSOB, FSMA,
+// CNMV, CySEC, ASIC…). Listed for transparency and NEVER recommended; each
+// flagReason cites the specific regulator. Kept in separate files to keep this
+// module readable.
+import { FLAGGED_BROKERS_1 } from "./seo/flagged-batch-1";
+import { FLAGGED_BROKERS_2 } from "./seo/flagged-batch-2";
+import { FLAGGED_BROKERS_3 } from "./seo/flagged-batch-3";
+
+const ALL_BROKERS: Broker[] = [
+  ...BROKERS,
+  ...FLAGGED_BROKERS_1,
+  ...FLAGGED_BROKERS_2,
+  ...FLAGGED_BROKERS_3,
+];
+
 // --- Access helpers (async-shaped for a painless Supabase swap later) ---
 
 export function getBrokers(): Broker[] {
-  return BROKERS;
+  return ALL_BROKERS;
 }
 
 export function getBrokerBySlug(slug: string): Broker | undefined {
-  return BROKERS.find((b) => b.slug === slug);
+  return ALL_BROKERS.find((b) => b.slug === slug);
 }
 
 export function getAllSlugs(): string[] {
-  return BROKERS.map((b) => b.slug);
+  return ALL_BROKERS.map((b) => b.slug);
 }
