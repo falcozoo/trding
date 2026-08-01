@@ -320,6 +320,13 @@ import { FLAGGED_BROKERS_3 } from "./seo/flagged-batch-3";
 import { FLAGGED_BROKERS_4 } from "./seo/flagged-batch-4";
 import { FLAGGED_BROKERS_5 } from "./seo/flagged-batch-5";
 import { FLAGGED_BROKERS_6 } from "./seo/flagged-batch-6";
+import { FLAGGED_BROKERS_7 } from "./seo/flagged-batch-7";
+import { FLAGGED_BROKERS_8 } from "./seo/flagged-batch-8";
+import { FLAGGED_BROKERS_9 } from "./seo/flagged-batch-9";
+import { FLAGGED_BROKERS_10 } from "./seo/flagged-batch-10";
+import { FLAGGED_BROKERS_11 } from "./seo/flagged-batch-11";
+import { FLAGGED_BROKERS_12 } from "./seo/flagged-batch-12";
+import { FLAGGED_BROKERS_13 } from "./seo/flagged-batch-13";
 
 const ALL_BROKERS: Broker[] = [
   ...BROKERS,
@@ -329,6 +336,13 @@ const ALL_BROKERS: Broker[] = [
   ...FLAGGED_BROKERS_4,
   ...FLAGGED_BROKERS_5,
   ...FLAGGED_BROKERS_6,
+  ...FLAGGED_BROKERS_7,
+  ...FLAGGED_BROKERS_8,
+  ...FLAGGED_BROKERS_9,
+  ...FLAGGED_BROKERS_10,
+  ...FLAGGED_BROKERS_11,
+  ...FLAGGED_BROKERS_12,
+  ...FLAGGED_BROKERS_13,
 ];
 
 // --- Access helpers (async-shaped for a painless Supabase swap later) ---

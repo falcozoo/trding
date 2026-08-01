@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   getLessonBySlug,
   getAllLessonSlugs,
+  getRelatedLessons,
   CATEGORY_LABELS,
 } from "@/lib/lessons";
 import { SITE } from "@/lib/site";
@@ -110,6 +111,36 @@ export default function LessonPage({
       <div className="mt-12">
         <Disclaimer />
       </div>
+
+      {/* Related guides — internal linking */}
+      {(() => {
+        const related = getRelatedLessons(lesson.slug, 6);
+        if (related.length === 0) return null;
+        return (
+          <section className="mt-12">
+            <h2 className="text-xl font-bold text-ink">Related guides</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {related.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/learn/${r.slug}`}
+                  className="group rounded-xl border border-line bg-paper p-4 transition hover:border-amber"
+                >
+                  <span className="text-[11px] font-semibold uppercase tracking-wide text-amber-dark">
+                    {CATEGORY_LABELS[r.category]}
+                  </span>
+                  <p className="mt-1 font-semibold text-ink group-hover:text-amber-dark">
+                    {r.title}
+                  </p>
+                  <p className="mt-1 line-clamp-2 text-sm text-muted">
+                    {r.summary}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        );
+      })()}
 
       {/* Soft CTA */}
       <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-xl2 border border-line bg-paper p-6 shadow-card sm:flex-row sm:items-center">

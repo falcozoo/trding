@@ -23,6 +23,13 @@ import { FLAGGED_DEEP_3 } from "./seo/flagged-batch-3";
 import { FLAGGED_DEEP_4 } from "./seo/flagged-batch-4";
 import { FLAGGED_DEEP_5 } from "./seo/flagged-batch-5";
 import { FLAGGED_DEEP_6 } from "./seo/flagged-batch-6";
+import { FLAGGED_DEEP_7 } from "./seo/flagged-batch-7";
+import { FLAGGED_DEEP_8 } from "./seo/flagged-batch-8";
+import { FLAGGED_DEEP_9 } from "./seo/flagged-batch-9";
+import { FLAGGED_DEEP_10 } from "./seo/flagged-batch-10";
+import { FLAGGED_DEEP_11 } from "./seo/flagged-batch-11";
+import { FLAGGED_DEEP_12 } from "./seo/flagged-batch-12";
+import { FLAGGED_DEEP_13 } from "./seo/flagged-batch-13";
 
 export interface DeepSection {
   heading: string;
@@ -283,6 +290,13 @@ const ALL_DEEP: Record<string, DeepBroker> = {
   ...FLAGGED_DEEP_4,
   ...FLAGGED_DEEP_5,
   ...FLAGGED_DEEP_6,
+  ...FLAGGED_DEEP_7,
+  ...FLAGGED_DEEP_8,
+  ...FLAGGED_DEEP_9,
+  ...FLAGGED_DEEP_10,
+  ...FLAGGED_DEEP_11,
+  ...FLAGGED_DEEP_12,
+  ...FLAGGED_DEEP_13,
 };
 
 export function getDeepBroker(slug: string): DeepBroker | undefined {

@@ -16,6 +16,8 @@ const CATEGORY_BADGE: Record<string, string> = {
   risk: "bg-amber-soft text-amber-dark",
   strategy: "bg-cream text-muted",
   psychology: "bg-cream text-muted",
+  howto: "bg-green-50 text-green-700",
+  troubleshooting: "bg-red-50 text-red-700",
 };
 
 export default function LearnHubPage() {

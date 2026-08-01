@@ -4,7 +4,13 @@
  * No signals, no performance promises, no "get rich" framing.
  */
 
-export type LessonCategory = "basics" | "risk" | "strategy" | "psychology";
+export type LessonCategory =
+  | "basics"
+  | "risk"
+  | "strategy"
+  | "psychology"
+  | "howto"
+  | "troubleshooting";
 export type LessonLevel = "beginner" | "intermediate";
 
 export interface LessonSection {
@@ -28,6 +34,8 @@ export const CATEGORY_LABELS: Record<LessonCategory, string> = {
   risk: "Risk",
   strategy: "Strategy",
   psychology: "Psychology",
+  howto: "How-to",
+  troubleshooting: "Troubleshooting",
 };
 
 const LESSONS: Lesson[] = [
@@ -316,6 +324,10 @@ import CLUSTER_RISK from "./seo/cluster-risk";
 import CLUSTER_CHOOSING from "./seo/cluster-choosing";
 import CLUSTER_RAISEFX from "./seo/cluster-raisefx";
 import CLUSTER_HEROFX_FXCESS from "./seo/cluster-herofx-fxcess";
+import CLUSTER_HOWTO from "./seo/cluster-howto";
+import CLUSTER_PROBLEMS from "./seo/cluster-problems";
+import CLUSTER_TROUBLESHOOTING from "./seo/cluster-troubleshooting";
+import CLUSTER_CONCEPTS from "./seo/cluster-concepts";
 
 const ALL_LESSONS: Lesson[] = [
   ...LESSONS,
@@ -324,6 +336,10 @@ const ALL_LESSONS: Lesson[] = [
   ...CLUSTER_CHOOSING,
   ...CLUSTER_RAISEFX,
   ...CLUSTER_HEROFX_FXCESS,
+  ...CLUSTER_HOWTO,
+  ...CLUSTER_PROBLEMS,
+  ...CLUSTER_TROUBLESHOOTING,
+  ...CLUSTER_CONCEPTS,
 ];
 
 /** Return all lessons in display order. */
@@ -339,4 +355,21 @@ export function getLessonBySlug(slug: string): Lesson | undefined {
 /** Return all lesson slugs (for static generation). */
 export function getAllLessonSlugs(): string[] {
   return ALL_LESSONS.map((l) => l.slug);
+}
+
+/**
+ * Related lessons for internal linking: prefer same-category lessons, then top
+ * up from other categories, excluding the current one. Deterministic order so
+ * the static build is stable.
+ */
+export function getRelatedLessons(slug: string, count = 6): Lesson[] {
+  const current = ALL_LESSONS.find((l) => l.slug === slug);
+  if (!current) return [];
+  const sameCat = ALL_LESSONS.filter(
+    (l) => l.slug !== slug && l.category === current.category
+  );
+  const others = ALL_LESSONS.filter(
+    (l) => l.slug !== slug && l.category !== current.category
+  );
+  return [...sameCat, ...others].slice(0, count);
 }
