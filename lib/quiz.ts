@@ -82,6 +82,14 @@ export interface QuizResult extends ScoredBroker {
 }
 
 /**
+ * Priorities where a specific broker legitimately owns the #1 slot on raw
+ * facts, so the featured edge should stand down (keeps the quiz credible).
+ */
+function priorityOverrideActive(priority: Priority): boolean {
+  return priority === "High leverage";
+}
+
+/**
  * Produce a ranked shortlist (top 5) for the given answers.
  */
 export function recommend(
@@ -111,25 +119,49 @@ export function recommend(
   let scored = scoreBrokers(pool, weights);
 
   // 4) Soft re-rank nudges that aren't weighted criteria.
+  //
+  // Design goal (business rule): the featured pick leads for most general
+  // profiles (~80%), BUT when the user picks a priority that another broker
+  // wins decisively on the raw facts, that broker legitimately takes #1.
+  // This keeps the quiz credible: the answer visibly reflects what you asked.
+  const bestLeverage = Math.max(...scored.map((s) => s.broker.maxLeverage));
+
   scored = scored
     .map((s) => {
       let bump = 0;
-      // High-leverage seekers: nudge brokers offering more leverage.
-      if (answers.priority === "High leverage") {
-        bump += Math.min(s.broker.maxLeverage / 1000, 1) * 0.3;
-      }
       // Asset-class match nudge.
       if (wantedAsset && s.broker.assetClasses.includes(wantedAsset)) {
-        bump += 0.15;
+        bump += 0.1;
       }
       // Beginners: nudge lower minimum deposit + demo availability.
       if (answers.level === "Beginner") {
-        if (s.broker.demoAccount) bump += 0.1;
-        if (s.broker.minDeposit <= 100) bump += 0.1;
+        if (s.broker.demoAccount) bump += 0.05;
+        if (s.broker.minDeposit <= 100) bump += 0.05;
       }
+
+      // Feature-specific override: only "High leverage" hands #1 to another
+      // broker (the highest-leverage one), because it's an unambiguous,
+      // fact-based win. All other priorities keep the featured pick leading.
+      if (
+        answers.priority === "High leverage" &&
+        s.broker.maxLeverage === bestLeverage
+      ) {
+        bump += 0.6;
+      }
+
+      // Featured top pick gets a small edge — but NOT when another broker is
+      // winning the user's specific priority (so ~20% of profiles surface a
+      // different, legitimately-better broker at #1).
+      if (s.broker.featured && !priorityOverrideActive(answers.priority)) {
+        bump += 0.15;
+      }
+
       return { ...s, score: Math.min(5, Math.round((s.score + bump) * 10) / 10) };
     })
-    .sort((a, b) => b.score - a.score);
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return (b.broker.featured ? 1 : 0) - (a.broker.featured ? 1 : 0);
+    });
 
   // 5) Attach human-readable reasons.
   return scored.slice(0, 5).map((s) => ({

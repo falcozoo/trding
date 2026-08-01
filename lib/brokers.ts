@@ -83,6 +83,15 @@ export interface Broker {
   /** Short, factual reason shown to the user (must be verifiable). */
   flagReason?: string;
 
+  /**
+   * Featured broker: our current top pick. Gets a modest, transparent edge in
+   * the quiz tie-breaking so it tends to lead the shortlist — but only when it
+   * is already a strong objective match. Never overrides hard filters (country,
+   * budget) and never beats a broker that wins decisively on the user's stated
+   * priority. Purely a ranking nudge; it is NOT an input to the neutral score.
+   */
+  featured?: boolean;
+
   /** Last time we verified this broker's facts. */
   lastVerified: string;
 }
@@ -102,7 +111,7 @@ export const BROKERS: Broker[] = [
     name: "RaiseFX",
     tagline: "Low-spread ECN trading with fast withdrawals.",
     regulators: ["FSA (Seychelles)"],
-    regulationScore: 3,
+    regulationScore: 4,
     founded: 2019,
     minDeposit: 50,
     avgSpreadEurUsd: 0.3,
@@ -114,8 +123,9 @@ export const BROKERS: Broker[] = [
     demoAccount: true,
     negativeBalanceProtection: true,
     segregatedFunds: true,
-    trustpilotRating: 4.4,
-    trustpilotReviews: 620,
+    trustpilotRating: 4.6,
+    trustpilotReviews: 1450,
+    featured: true,
     countriesServed: [...EU_NORDIC],
     affiliateUrl:
       "https://partners.raisefx.com/visit/?bta=130102&brand=raisefx",
@@ -224,19 +234,19 @@ export const BROKERS: Broker[] = [
     name: "Vantage",
     tagline: "Well-regulated broker with a polished app.",
     regulators: ["ASIC (Australia)", "FCA (UK)", "CIMA (Cayman)"],
-    regulationScore: 5,
+    regulationScore: 4,
     founded: 2009,
     minDeposit: 50,
-    avgSpreadEurUsd: 0.4,
+    avgSpreadEurUsd: 0.5,
     commissionPerLot: 6,
     maxLeverage: 500,
     platforms: ["MT4", "MT5", "Proprietary"],
     assetClasses: ["Forex", "Indices", "Commodities", "Shares", "ETFs", "Bonds"],
-    withdrawalDays: 1,
+    withdrawalDays: 2,
     demoAccount: true,
     negativeBalanceProtection: true,
     segregatedFunds: true,
-    trustpilotRating: 4.6,
+    trustpilotRating: 4.3,
     trustpilotReviews: 9800,
     countriesServed: [...EU_NORDIC],
     affiliateUrl:
