@@ -7,6 +7,7 @@ import {
   CATEGORY_LABELS,
 } from "@/lib/lessons";
 import { SITE } from "@/lib/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return getAllLessonSlugs().map((slug) => ({ slug }));
@@ -54,6 +55,7 @@ export default function LessonPage({
     author: { "@type": "Organization", name: SITE.name },
     publisher: { "@type": "Organization", name: SITE.name },
     inLanguage: "en",
+    mainEntityOfPage: `https://${SITE.domain}/learn/${lesson.slug}`,
   };
 
   return (
@@ -63,11 +65,9 @@ export default function LessonPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <nav className="mb-6 text-sm text-muted">
-        <Link href="/learn" className="hover:text-ink">
-          ← All guides
-        </Link>
-      </nav>
+      <Breadcrumbs
+        items={[{ name: "Learn", href: "/learn" }, { name: lesson.title }]}
+      />
 
       {/* Header */}
       <header>

@@ -11,6 +11,7 @@ import { scoreOne, scoreBrokers } from "@/lib/scoring";
 import { Stars } from "@/components/Stars";
 import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
 import { DepositSteps } from "@/components/DepositSteps";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE, NOT_ADVICE, formatWithdrawal } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -338,11 +339,12 @@ export default function BrokerPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
 
-      <nav className="mb-6 text-sm text-muted">
-        <Link href="/brokers" className="hover:text-ink">
-          ← All brokers
-        </Link>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Brokers", href: "/brokers" },
+          { name: broker.name },
+        ]}
+      />
 
       {/* Header */}
       <header className="rounded-xl2 border border-line bg-paper p-6 shadow-card">

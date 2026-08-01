@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getLessons, CATEGORY_LABELS } from "@/lib/lessons";
 import { getCourses } from "@/lib/courses";
+import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Learn to Trade — Free, Plain-English Guides for Beginners",
@@ -21,8 +22,32 @@ export default function LearnHubPage() {
   const lessons = getLessons();
   const courses = getCourses();
 
+  const base = `https://${SITE.domain}`;
+  const collectionLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Learn to Trade — Beginner Guides",
+    url: `${base}/learn`,
+    description:
+      "A free library of plain-English trading guides for beginners, covering the basics, risk, costs and how to choose a broker.",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: lessons.length,
+      itemListElement: lessons.map((l, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${base}/learn/${l.slug}`,
+        name: l.title,
+      })),
+    },
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-5 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }}
+      />
       <header className="max-w-3xl">
         <h1 className="text-3xl font-bold sm:text-4xl">
           Learn to trade — free, plain-English guides
