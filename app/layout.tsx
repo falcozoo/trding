@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SocialProof } from "@/components/SocialProof";
 import { IntentPopup } from "@/components/IntentPopup";
+import { StickyCTA } from "@/components/StickyCTA";
 import { SITE } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -38,10 +39,11 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen bg-cream font-sans text-ink antialiased">
         <Header />
-        <main>{children}</main>
+        <main className="pb-24 sm:pb-0">{children}</main>
         <Footer />
         <SocialProof />
         <IntentPopup />
+        <StickyCTA />
         <Analytics />
         <SpeedInsights />
       </body>

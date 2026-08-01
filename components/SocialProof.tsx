@@ -111,7 +111,7 @@ export function SocialProof() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed bottom-4 left-4 z-40 flex flex-col gap-2"
+      className="pointer-events-none fixed bottom-20 left-3 right-3 z-40 flex flex-col gap-2 sm:bottom-3 sm:right-auto"
     >
       {/* People online pill */}
       <div className="pointer-events-none inline-flex w-fit items-center gap-2 rounded-full border border-line bg-paper/95 px-3 py-1.5 text-xs font-medium text-ink shadow-card backdrop-blur">
@@ -124,7 +124,7 @@ export function SocialProof() {
 
       {/* Rotating activity toast */}
       <div
-        className={`max-w-[19rem] rounded-xl border border-line bg-paper/95 px-4 py-3 shadow-card backdrop-blur transition-all duration-500 ${
+        className={`w-full rounded-xl border border-line bg-paper/95 px-4 py-3 shadow-card backdrop-blur transition-all duration-500 sm:max-w-[19rem] ${
           visible
             ? "translate-y-0 opacity-100"
             : "pointer-events-none translate-y-2 opacity-0"

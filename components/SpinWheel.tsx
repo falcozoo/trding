@@ -86,7 +86,7 @@ export function SpinWheel() {
         </p>
       </div>
 
-      <div className="relative mx-auto mt-7 h-64 w-64 sm:h-72 sm:w-72">
+      <div className="relative mx-auto mt-7 aspect-square w-[min(18rem,80vw)]">
         {/* Pointer */}
         <div className="absolute left-1/2 top-[-6px] z-10 -translate-x-1/2">
           <div

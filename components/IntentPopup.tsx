@@ -35,13 +35,13 @@ export function IntentPopup() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-ink/40 p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       onClick={() => setOpen(false)}
     >
       <div
-        className="relative w-full max-w-md rounded-2xl border border-line bg-paper p-7 shadow-xl"
+        className="relative my-auto w-full max-w-md rounded-2xl border border-line bg-paper p-7 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button

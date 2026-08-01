@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { SITE } from "@/lib/site";
 import { LanguageSelector } from "@/components/LanguageSelector";
+import { MobileNav } from "@/components/MobileNav";
 
 /** Site-wide top navigation. Light, sober, brand ".io" in amber. */
 export function Header() {
@@ -10,7 +10,9 @@ export function Header() {
         <Link href="/" className="text-2xl font-bold tracking-tight text-ink">
           trding<span className="text-amber">.io</span>
         </Link>
-        <nav className="flex items-center gap-5 text-sm font-medium text-muted">
+
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-5 text-sm font-medium text-muted sm:flex">
           <Link href="/brokers" className="hover:text-ink">
             Brokers
           </Link>
@@ -32,7 +34,7 @@ export function Header() {
           <Link href="/quiz" className="hover:text-ink">
             Quiz
           </Link>
-          <Link href="/methodology" className="hidden hover:text-ink sm:inline">
+          <Link href="/methodology" className="hidden hover:text-ink lg:inline">
             Methodology
           </Link>
           <Link
@@ -43,6 +45,12 @@ export function Header() {
           </Link>
           <LanguageSelector />
         </nav>
+
+        {/* Mobile: language + hamburger */}
+        <div className="flex items-center gap-2 sm:hidden">
+          <LanguageSelector />
+          <MobileNav />
+        </div>
       </div>
     </header>
   );
