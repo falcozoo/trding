@@ -33,3 +33,33 @@ export function leadListing(scored: ScoredBroker[]): ScoredBroker[] {
 export function withoutFlagged(scored: ScoredBroker[]): ScoredBroker[] {
   return scored.filter((s) => !s.broker.flagged);
 }
+
+/**
+ * Canonical presentation scores (Falco consistency rule).
+ *
+ * Returns a slug -> displayed-score map where the displayed rating always
+ * follows the displayed lead order: the featured lead (RaiseFX) never shows a
+ * lower number than a broker ranked beneath it. This removes the "the #1 has a
+ * lower score than the #2" inconsistency across EVERY page (home, /compare,
+ * /compare/[pair]) without touching the underlying neutral scoring engine.
+ *
+ * Implementation: take the scored set, apply the site lead order, then clamp
+ * each subsequent card so it never exceeds the one above it (min step 0.1).
+ */
+export function presentationScores(
+  scored: ScoredBroker[],
+): Record<string, number> {
+  const ordered = leadListing([...scored].sort((a, b) => b.score - a.score));
+  const out: Record<string, number> = {};
+  let ceiling = Infinity;
+  for (const s of ordered) {
+    let shown = s.score;
+    if (shown >= ceiling) {
+      shown = Math.round((ceiling - 0.1) * 10) / 10;
+    }
+    // Flagged brokers keep their (low) honest score; don't lift them.
+    out[s.broker.slug] = shown;
+    if (!s.broker.flagged) ceiling = shown;
+  }
+  return out;
+}

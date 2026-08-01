@@ -4,6 +4,7 @@ import { scoreBrokers } from "@/lib/scoring";
 import { leadListing } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { FearGreed } from "@/components/FearGreed";
+import { SpinWheel } from "@/components/SpinWheel";
 import { getFearGreed } from "@/lib/markets";
 
 /** Keep the homepage fresh: refresh the market pulse ~every 15 min. */
@@ -149,6 +150,11 @@ export default async function HomePage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* Gamified broker matcher */}
+      <section className="mx-auto max-w-3xl px-5 py-12">
+        <SpinWheel />
       </section>
     </>
   );

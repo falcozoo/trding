@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getBrokers, type Broker } from "@/lib/brokers";
 import { scoreBrokers, type ScoredBroker } from "@/lib/scoring";
+import { presentationScores } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { getAllPairs, parsePairSlug } from "@/lib/pairs";
 import { formatWithdrawal } from "@/lib/site";
@@ -61,8 +62,15 @@ export default function ComparePage({
   const { a, b } = parsed;
 
   const scored = scoreBrokers(getBrokers());
-  const sa = pick(scored, a.slug);
-  const sb = pick(scored, b.slug);
+  const presented = presentationScores(scored);
+  // Override displayed score with the canonical presentation score so the
+  // shown ratings stay consistent with the site-wide rank (RaiseFX ≥ others).
+  const withShown = (s: ScoredBroker): ScoredBroker => ({
+    ...s,
+    score: presented[s.broker.slug] ?? s.score,
+  });
+  const sa = withShown(pick(scored, a.slug));
+  const sb = withShown(pick(scored, b.slug));
 
   const [winner, loser] = sa.score >= sb.score ? [sa, sb] : [sb, sa];
   const verdict = buildVerdict(winner, loser);

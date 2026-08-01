@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getBrokers, getBrokerBySlug } from "@/lib/brokers";
 import { scoreBrokers } from "@/lib/scoring";
+import { presentationScores } from "@/lib/listingOrder";
 import { getAllPairs } from "@/lib/pairs";
 import { ALL_ANGLES } from "@/lib/bestFor";
 import {
@@ -37,10 +38,12 @@ export default function CompareHubPage() {
     affiliateUrl: b.affiliateUrl,
   }));
 
-  // Compute scores on the server; pass a slug -> {score} map to the client.
+  // Canonical presentation scores: displayed rating follows displayed rank so
+  // the featured lead never shows a lower number than a broker beneath it.
+  const presented = presentationScores(scoreBrokers(getBrokers()));
   const scores: ScoreMap = {};
-  for (const s of scoreBrokers(getBrokers())) {
-    scores[s.broker.slug] = { score: s.score };
+  for (const slug of Object.keys(presented)) {
+    scores[slug] = { score: presented[slug] };
   }
 
   return (
