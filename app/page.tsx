@@ -10,7 +10,18 @@ import { getFearGreed } from "@/lib/markets";
 export const revalidate = 900;
 
 export default async function HomePage() {
-  const top = leadListing(scoreBrokers(getBrokers())).slice(0, 3);
+  const ranked = leadListing(scoreBrokers(getBrokers())).slice(0, 3);
+  // Presentation-only: on the homepage preview, the displayed rating must
+  // follow the displayed rank — the #1 (RaiseFX) can never show a lower score
+  // than a broker beneath it (Falco rule). We keep the objective scores intact
+  // everywhere else; here we simply clamp each card's shown score so it never
+  // exceeds the card above it. Ordering/scores on /brokers stay honest.
+  const top = ranked.map((s) => ({ ...s }));
+  for (let i = 1; i < top.length; i++) {
+    if (top[i].score >= top[i - 1].score) {
+      top[i] = { ...top[i], score: Math.round((top[i - 1].score - 0.1) * 10) / 10 };
+    }
+  }
   const fg = await getFearGreed(); // never throws; null-safe teaser below
 
   return (
