@@ -12,6 +12,8 @@ import { Stars } from "@/components/Stars";
 import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
 import { DepositSteps } from "@/components/DepositSteps";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BrokerDeepContent } from "@/components/BrokerDeepContent";
+import { getDeepBroker } from "@/lib/brokerDeep";
 import { SITE, NOT_ADVICE, formatWithdrawal } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -168,6 +170,7 @@ export default function BrokerPage({
 
   const all = getBrokers();
   const scored = scoreOne(broker, all);
+  const deep = getDeepBroker(broker.slug);
   const ranked = scoreBrokers(all);
   const rankIndex = ranked.findIndex((r) => r.broker.slug === broker.slug);
   const rank = rankIndex + 1;
@@ -561,6 +564,9 @@ export default function BrokerPage({
           support work.
         </p>
       </section>
+
+      {/* Deep, per-broker editorial layer (verdict, withdrawal proof, long-form) */}
+      {deep && <BrokerDeepContent brokerName={broker.name} deep={deep} />}
 
       {/* Who it's for */}
       <section className="mt-10">
