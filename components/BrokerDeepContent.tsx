@@ -110,6 +110,57 @@ export function BrokerDeepContent({
         </section>
       )}
 
+      {/* Highlighted product feature (e.g. funded-style account) */}
+      {deep.featureBlock && (
+        <section className="mt-10 rounded-xl2 border border-amber bg-amber-soft/40 p-6 shadow-card">
+          <h2 className="text-xl font-bold text-ink">
+            {deep.featureBlock.heading}
+          </h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink/90">
+            {deep.featureBlock.intro}
+          </p>
+
+          <div className="mt-5 overflow-hidden rounded-xl border border-line bg-paper">
+            <table className="w-full text-left text-sm">
+              <tbody>
+                {deep.featureBlock.rows.map(([label, value], i) => (
+                  <tr
+                    key={i}
+                    className="border-b border-line last:border-0"
+                  >
+                    <th className="w-1/2 px-4 py-3 font-semibold text-ink sm:w-2/5">
+                      {label}
+                    </th>
+                    <td className="px-4 py-3 text-ink/90">{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {deep.featureBlock.image && (
+            <figure className="mt-5 overflow-hidden rounded-xl2 border border-line bg-paper">
+              <div className="mx-auto max-w-xs p-4">
+                <Image
+                  src={deep.featureBlock.image}
+                  alt={deep.featureBlock.imageAlt ?? deep.featureBlock.heading}
+                  width={633}
+                  height={1280}
+                  className="h-auto w-full rounded-lg"
+                />
+              </div>
+            </figure>
+          )}
+
+          {deep.featureBlock.note && (
+            <p className="mt-4 rounded-lg border border-line bg-cream p-4 text-xs leading-relaxed text-muted">
+              <strong className="text-ink">Note.</strong>{" "}
+              {deep.featureBlock.note}
+            </p>
+          )}
+        </section>
+      )}
+
       {/* Deep narrative sections */}
       {deep.sections.map((s) => (
         <section key={s.heading} className="mt-10">

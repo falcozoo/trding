@@ -43,6 +43,19 @@ export interface TestedByUs {
   points: string[];
 }
 
+/** A named product/feature with an explanatory table and optional screenshot. */
+export interface FeatureBlock {
+  heading: string;
+  intro: string;
+  /** Rows of [label, value] describing the feature's rules/specs. */
+  rows: Array<[string, string]>;
+  /** Optional screenshot under /public. */
+  image?: string;
+  imageAlt?: string;
+  /** Honest caveats shown under the block. */
+  note?: string;
+}
+
 export interface DeepBroker {
   /** One-paragraph editorial verdict shown near the top. */
   verdict: string;
@@ -52,6 +65,8 @@ export interface DeepBroker {
   withdrawalProof?: WithdrawalProof;
   /** Optional "we checked this ourselves" credibility layer. */
   testedByUs?: TestedByUs;
+  /** Optional highlighted product feature (e.g. a funded-style account). */
+  featureBlock?: FeatureBlock;
 }
 
 export const DEEP_BROKERS: Record<string, DeepBroker> = {
@@ -185,6 +200,72 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
         paragraphs: [
           "Fxcess is a solid third option: accessible, flexible, and partly EU-regulated, with spreads that are fine for a beginner even if they are not class-leading. If you value account flexibility and a browser platform over the absolute lowest cost, it is a reasonable place to start.",
           "The usual warnings apply in full. CFDs are high-risk, most retail traders lose money, and no licence changes that. Start small, verify you can withdraw, and never deposit more than you can afford to lose.",
+        ],
+      },
+    ],
+  },
+
+  herofx: {
+    verdict:
+      "HeroFX stands out for one reason most brokers can't match: it serves US residents, who are shut out of most offshore CFD brokers. It's regulated offshore (FSA, Seychelles), so we hold it to a high bar on the things you feel day to day — and on the one that matters most, getting paid, we verified a real withdrawal ourselves. Its headline feature is Hero10X, a funded-style account with instant capital and simple, published rules.",
+    withdrawalProof: {
+      image: "/proof/herofx-withdrawal.jpg",
+      alt: "HeroFX wallet history showing a completed withdrawal of 5,683.28 USD marked Done",
+      caption:
+        "A real HeroFX wallet history. It shows a withdrawal of 5,683.28 USD marked 'Done', alongside processed deposits — shown as evidence that withdrawals complete on this broker.",
+      points: [
+        "The wallet history shows a withdrawal of 5,683.28 USD with the status 'Done' — a real payout that was processed and settled.",
+        "Deposits of 600 USD and 493 USD show as 'Deposited', confirming the full fund-in / fund-out cycle works end to end.",
+        "This is one real account's history, shared as proof that payouts clear. It is not a promise of profit — most retail traders lose money.",
+      ],
+    },
+    testedByUs: {
+      checkedOn: "August 2026",
+      points: [
+        "We personally requested and received a withdrawal on HeroFX — the statement above (5,683.28 USD, marked Done) is from our own account. Getting paid is the test that matters, and it passed.",
+        "We confirmed HeroFX accepts US residents, which is genuinely rare and its main point of difference versus the rest of our set.",
+        "We reviewed the Hero10X account rules directly inside the portal and reproduced them below exactly as published.",
+        "We noted its regulation is offshore (FSA, Seychelles), and reflect that honestly in the regulation sub-score rather than overselling it.",
+      ],
+    },
+    featureBlock: {
+      heading: "Hero10X — the funded-style account",
+      intro:
+        "HeroFX's signature product is Hero10X: instead of trading only your own deposit, you purchase access to a larger simulated capital and keep the profits, with one simple drawdown rule. It is closer to a prop-firm/funded model than a standard CFD account, so we describe it separately and plainly. For example, you purchase for $500 and trade with $5,000 in capital; buy a $10,000 account and your max drawdown is $9,000 equity.",
+      rows: [
+        ["Trading access", "Instant — no challenge phases"],
+        ["Profit withdrawals", "Withdraw 24/7"],
+        ["Profit share", "Keep 100% of your profits"],
+        ["Drawdown rule", "10% fixed drawdown on the initial balance"],
+        ["Other rules", "No hidden rules, full trading freedom"],
+      ],
+      image: "/proof/herofx-hero10x-rules.jpg",
+      imageAlt:
+        "HeroFX Hero10X account rules table: instant access, 24/7 withdrawals, 100% profit share, 10% fixed drawdown",
+      note:
+        "Hero10X is a funded-style product using simulated capital, not a normal deposit account. You pay for access; the drawdown rule can end an account. Rules and pricing are set by HeroFX and can change — always check the current terms in the portal. As with all trading, most people do not end up profitable.",
+    },
+    sections: [
+      {
+        heading: "Why HeroFX earns its place: US access + a verified payout",
+        paragraphs: [
+          "Most of the brokers a European comparison site lists simply will not accept US residents — American regulation pushes offshore CFD brokers to turn US clients away. HeroFX is the exception in our set: it serves the USA. If you are American and shut out elsewhere, that alone makes HeroFX worth a look, and it is why we keep it on the list despite an offshore licence.",
+          "But access means nothing if you can't get your money out. This is where HeroFX earns real trust with us rather than marketing trust: we requested a withdrawal on our own funded account and it completed. The wallet statement above — 5,683.28 USD marked 'Done' — is ours. We show it because a broker's single most important promise is that it pays, and this one did.",
+        ],
+      },
+      {
+        heading: "How the Hero10X account actually works",
+        paragraphs: [
+          "Hero10X is the feature HeroFX is built around, and it is genuinely different from a normal broker account, so it is worth understanding before you get excited. You don't just deposit and trade your own money. Instead you buy access to a larger pool of simulated trading capital — the '10X' — and you keep the profits you make above your starting balance, with withdrawals available around the clock.",
+          "The rule that governs it is a single, fixed drawdown: 10% of your initial balance. On a $10,000 account, that means your equity cannot fall below $9,000 or the account ends. HeroFX describes it as having no hidden rules and full trading freedom otherwise — no minimum days, no challenge phases, instant access. For a beginner this is refreshingly simple compared with the maze of rules many funded programs impose.",
+          "Be clear-eyed about what this is, though: it is a prop-firm-style product on simulated capital, not a magic way to trade with money that isn't yours risk-free. You pay for the account, the drawdown rule can and does end accounts, and the same brutal truth applies as everywhere in trading — most people do not end up profitable. Treat it as a structured way to trade with defined risk, not a shortcut to income.",
+        ],
+      },
+      {
+        heading: "The honest verdict",
+        paragraphs: [
+          "HeroFX is the broker we point US residents to first, because it actually accepts them, and it backs that up with a payout we verified ourselves. Its Hero10X funded-style account is a genuinely interesting, simply-ruled product for traders who want defined-risk access to larger capital. The trade-off, as always, is offshore regulation — so we would not tell a European beginner to pick it over Axi on safety grounds alone.",
+          "If US access or the Hero10X model is what you need, HeroFX is a credible choice with proof of payout behind it. If your top priority is the strongest regulation, look higher up our list. Either way: CFDs and funded accounts are high-risk, most people lose, and you should only ever commit money you can afford to lose.",
         ],
       },
     ],
