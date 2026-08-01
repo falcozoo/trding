@@ -38,6 +38,24 @@ export function Footer() {
           </nav>
         </div>
 
+        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 border-t border-line pt-6 text-sm text-muted">
+          <Link href="/privacy" className="hover:text-ink">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="hover:text-ink">
+            Terms of Use
+          </Link>
+          <Link href="/cookies" className="hover:text-ink">
+            Cookie Policy
+          </Link>
+          <Link href="/risk-disclosure" className="hover:text-ink">
+            Risk Disclosure
+          </Link>
+          <Link href="/contact" className="hover:text-ink">
+            Contact
+          </Link>
+        </div>
+
         <div className="mt-8 space-y-3 border-t border-line pt-6 text-xs leading-relaxed text-muted">
           <p>
             <strong className="text-ink">Risk warning.</strong> {CFD_DISCLAIMER}

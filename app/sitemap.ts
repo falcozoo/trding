@@ -31,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/regulation-checker",
     "/methodology",
     "/how-we-make-money",
+    "/about",
+    "/contact",
+    "/privacy",
+    "/terms",
+    "/cookies",
+    "/risk-disclosure",
   ].map((path) => ({
     url: `${BASE}${path}`,
     lastModified: now,

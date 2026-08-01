@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { SocialProof } from "@/components/SocialProof";
 import { IntentPopup } from "@/components/IntentPopup";
 import { StickyCTA } from "@/components/StickyCTA";
+import { CookieBanner } from "@/components/CookieBanner";
 import { SITE } from "@/lib/site";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -44,6 +45,7 @@ export default function RootLayout({
         <SocialProof />
         <IntentPopup />
         <StickyCTA />
+        <CookieBanner />
         <Analytics />
         <SpeedInsights />
       </body>

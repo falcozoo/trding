@@ -8,6 +8,10 @@ export const SITE = {
   tagline: "Find the right broker in 60 seconds.",
   /** Recommended starting deposit shown on cards, lists and quiz results (not a real per-broker minimum). */
   recommendedMinDeposit: 500,
+  /** Contact email surfaced on the Contact + legal pages. */
+  contactEmail: "hello@trding.io",
+  /** Last time the legal documents were reviewed (shown on legal pages). */
+  legalUpdated: "August 1, 2026",
 } as const;
 
 export const CFD_DISCLAIMER = `CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. ${SITE.retailLossPct}% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.`;
