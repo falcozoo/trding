@@ -186,6 +186,12 @@ export default function BrokerPage({
     ranked.find((r) => r.broker.slug !== broker.slug)?.broker ?? broker;
   const comparePair = [broker.slug, other.slug].sort().join("-vs-");
 
+  // For flagged brokers, steer the anxious visitor to our top recommended,
+  // non-flagged broker with a direct link (legal: the negative is sourced, the
+  // redirect is our editorial choice).
+  const topPick =
+    ranked.find((r) => !r.broker.flagged)?.broker ?? broker;
+
   const regWord =
     broker.regulationScore >= 4
       ? "strongly regulated"
@@ -651,6 +657,39 @@ export default function BrokerPage({
             {broker.flagReason} We list it for transparency so you can compare it
             against properly regulated alternatives.
           </p>
+
+          {topPick.slug !== broker.slug && (
+            <div className="mt-5 rounded-xl border border-green-200 bg-green-50 p-4">
+              <p className="text-sm font-semibold text-green-800">
+                Safer alternative: {topPick.name}
+              </p>
+              <p className="mt-1 text-sm text-ink/80">
+                Instead of {broker.name}, consider {topPick.name} — our
+                top-rated broker, chosen on objective, published criteria. If
+                you were about to sign up here, look at a regulated option
+                first.
+              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                {topPick.affiliateUrl && (
+                  <a
+                    href={topPick.affiliateUrl}
+                    target="_blank"
+                    rel="sponsored nofollow noopener"
+                    className="rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-green-700"
+                  >
+                    Visit {topPick.name} →
+                  </a>
+                )}
+                <Link
+                  href={`/brokers/${topPick.slug}`}
+                  className="text-sm font-medium text-green-800 underline"
+                >
+                  Read our {topPick.name} review
+                </Link>
+              </div>
+            </div>
+          )}
+
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <Link
               href="/brokers"

@@ -317,12 +317,18 @@ export const BROKERS: Broker[] = [
 import { FLAGGED_BROKERS_1 } from "./seo/flagged-batch-1";
 import { FLAGGED_BROKERS_2 } from "./seo/flagged-batch-2";
 import { FLAGGED_BROKERS_3 } from "./seo/flagged-batch-3";
+import { FLAGGED_BROKERS_4 } from "./seo/flagged-batch-4";
+import { FLAGGED_BROKERS_5 } from "./seo/flagged-batch-5";
+import { FLAGGED_BROKERS_6 } from "./seo/flagged-batch-6";
 
 const ALL_BROKERS: Broker[] = [
   ...BROKERS,
   ...FLAGGED_BROKERS_1,
   ...FLAGGED_BROKERS_2,
   ...FLAGGED_BROKERS_3,
+  ...FLAGGED_BROKERS_4,
+  ...FLAGGED_BROKERS_5,
+  ...FLAGGED_BROKERS_6,
 ];
 
 // --- Access helpers (async-shaped for a painless Supabase swap later) ---

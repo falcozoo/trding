@@ -314,12 +314,16 @@ const LESSONS: Lesson[] = [
 import CLUSTER_BASICS from "./seo/cluster-basics";
 import CLUSTER_RISK from "./seo/cluster-risk";
 import CLUSTER_CHOOSING from "./seo/cluster-choosing";
+import CLUSTER_RAISEFX from "./seo/cluster-raisefx";
+import CLUSTER_HEROFX_FXCESS from "./seo/cluster-herofx-fxcess";
 
 const ALL_LESSONS: Lesson[] = [
   ...LESSONS,
   ...CLUSTER_BASICS,
   ...CLUSTER_RISK,
   ...CLUSTER_CHOOSING,
+  ...CLUSTER_RAISEFX,
+  ...CLUSTER_HEROFX_FXCESS,
 ];
 
 /** Return all lessons in display order. */

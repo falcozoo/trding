@@ -20,6 +20,9 @@
 import { FLAGGED_DEEP_1 } from "./seo/flagged-batch-1";
 import { FLAGGED_DEEP_2 } from "./seo/flagged-batch-2";
 import { FLAGGED_DEEP_3 } from "./seo/flagged-batch-3";
+import { FLAGGED_DEEP_4 } from "./seo/flagged-batch-4";
+import { FLAGGED_DEEP_5 } from "./seo/flagged-batch-5";
+import { FLAGGED_DEEP_6 } from "./seo/flagged-batch-6";
 
 export interface DeepSection {
   heading: string;
@@ -277,6 +280,9 @@ const ALL_DEEP: Record<string, DeepBroker> = {
   ...FLAGGED_DEEP_1,
   ...FLAGGED_DEEP_2,
   ...FLAGGED_DEEP_3,
+  ...FLAGGED_DEEP_4,
+  ...FLAGGED_DEEP_5,
+  ...FLAGGED_DEEP_6,
 };
 
 export function getDeepBroker(slug: string): DeepBroker | undefined {
