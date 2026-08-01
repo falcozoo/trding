@@ -19,3 +19,23 @@ body {
   outline: 2px solid #e08a2e;
   outline-offset: 2px;
 }
+
+/* --- Google Translate: hide the default banner/UI, keep translation --- */
+.goog-te-banner-frame,
+.skiptranslate iframe,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+/* Kill the highlight Google adds to translated text */
+.goog-text-highlighted {
+  background: none !important;
+  box-shadow: none !important;
+}
+font[style] {
+  background: none !important;
+  box-shadow: none !important;
+}

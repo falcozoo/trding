@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 /** Site-wide top navigation. Light, sober, brand ".io" in amber. */
 export function Header() {
@@ -40,6 +41,7 @@ export function Header() {
           >
             Find my broker
           </Link>
+          <LanguageSelector />
         </nav>
       </div>
     </header>
