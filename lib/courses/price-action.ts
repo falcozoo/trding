@@ -89,6 +89,18 @@ export const priceActionCourse: Course = {
           text: "Price action is reading the market from the chart itself — the raw, real-time story of buyers versus sellers, told by candles, swings and levels.",
         },
         {
+          kind: "example",
+          title: "Turning a bare-chart read into a sized trade",
+          steps: [
+            "On the 1-hour EUR/USD chart you read the state: rising swings, big green bodies, price holding above the last swing low at <strong>1.0820</strong> — an uptrend, so you only look for buys.",
+            "Price pulls back to your reference level near <strong>1.0840</strong> and prints a <strong>long lower wick</strong> — rejection, buyers stepping back in. You enter long at <strong>1.0850</strong>.",
+            "Your stop goes just below the swing low at <strong>1.0815</strong> — a close there means the uptrend read was wrong. Risk = <strong>35 pips</strong>.",
+            "Account is <strong>€1,000</strong> and you risk <strong>1%</strong> = €10. With a 35-pip stop, you size so 35 pips against you costs ~€10 — about <strong>0.028 lots</strong> on EUR/USD.",
+            "You target the next resistance near <strong>1.0960</strong>, ~110 pips away — roughly <strong>3:1 reward-to-risk</strong>. The plan is complete before you click: entry 1.0850, stop 1.0815, risk €10.",
+            "One rule, no debate: <strong>a close below 1.0815</strong> and you are out. The read gave you a direction; risk management gave you a way to survive being wrong.",
+          ],
+        },
+        {
           kind: "mistakes",
           title: "Common beginner mistakes when starting out",
           items: [
@@ -556,11 +568,11 @@ export const priceActionCourse: Course = {
       blocks: [
         {
           kind: "text",
-          html: "A break of structure, or <strong>BOS</strong>, is the market re-confirming the trend that is already in motion. In an uptrend, a BOS is a decisive break above the <strong>last swing high</strong>; in a downtrend, it is a break below the last swing low. Nothing about the trend has to change for a BOS to happen — it is simply price completing another leg in the same direction and leaving fresh proof that the side in control is still winning.",
+          html: "A break of structure, or <strong>BOS</strong>, is the market re-confirming the trend that is already in motion. In an uptrend, a BOS is a decisive break above the <strong>last swing high</strong>; in a downtrend, it is a break below the last swing low. Nothing about the trend has to change for a BOS to happen — it is simply price completing another leg in the same direction and leaving <strong>fresh proof</strong> that the side in control is still winning. It is the market's way of ticking off another rung on the staircase.",
         },
         {
           kind: "text",
-          html: "Why does this matter so much? Because a trend is nothing more than a chain of broken swing points. Each time buyers push price above the previous peak, they print a new <strong>higher high</strong>, and the uptrend earns the right to continue. A BOS is the exact moment that proof arrives. Until it does, a pullback is just a pullback — it could be the pause before continuation, or the start of a reversal. The BOS resolves that ambiguity in the trend's favour.",
+          html: "<strong>Why it matters:</strong> a trend is nothing more than a chain of broken swing points. Each time buyers push price above the previous peak, they print a new <strong>higher high</strong>, and the uptrend earns the right to continue. A BOS is the exact moment that proof arrives. Until it does, a pullback is just a pullback — it could be the pause before continuation, or the start of a reversal. The BOS <strong>resolves that ambiguity</strong> in the trend's favour and tells you it is safe to keep hunting entries in the trend direction.",
         },
         {
           kind: "image",
@@ -571,11 +583,19 @@ export const priceActionCourse: Course = {
         },
         {
           kind: "heading",
+          text: "How to spot a BOS on a live chart",
+        },
+        {
+          kind: "text",
+          html: "Spotting a BOS is a <strong>mechanical routine</strong>, not a judgement call. First, name the trend on a higher timeframe. Second, mark the <strong>last relevant swing</strong> — the most recent higher high in an uptrend, or lower low in a downtrend. Third, watch that level: the BOS is a candle body that <strong>closes clearly beyond</strong> it in the trend direction. If you find yourself squinting to decide whether a level broke, it probably didn't — a real BOS is obvious.",
+        },
+        {
+          kind: "heading",
           text: "BOS versus CHoCH — same event, opposite meaning",
         },
         {
           kind: "text",
-          html: "The most common confusion is between a BOS and a change of character (CHoCH). The mechanics are identical — price breaks a swing point — but the <strong>direction decides everything</strong>. A BOS breaks a swing in the direction of the existing trend and confirms continuation. A CHoCH breaks a swing against the trend and warns of a possible reversal. Read them as a pair: BOS tells you the trend is healthy, CHoCH tells you its character just cracked.",
+          html: "The most common confusion is between a BOS and a change of character (CHoCH). The mechanics are identical — price breaks a swing point — but the <strong>direction decides everything</strong>. A BOS breaks a swing in the direction of the existing trend and confirms continuation. A CHoCH breaks a swing against the trend and warns of a possible reversal. Read them as a pair: BOS tells you the trend is <strong>healthy</strong>, CHoCH tells you its character just cracked.",
         },
         {
           kind: "list",
@@ -591,17 +611,26 @@ export const priceActionCourse: Course = {
         },
         {
           kind: "text",
-          html: "The single most useful filter is to require a <strong>candle close</strong> beyond the swing point, not just a wick poking through it. Wicks through levels are extremely common — they are stop-runs and liquidity grabs that snap straight back. A body that closes clearly beyond the level tells you the break was accepted, not rejected. Beginners who count every wick as a BOS end up chasing dozens of fake breaks; traders who wait for the close trade far fewer, far cleaner ones.",
+          html: "The single most useful filter is to require a <strong>candle close</strong> beyond the swing point, not just a wick poking through it. Wicks through levels are extremely common — they are stop-runs and liquidity grabs that snap straight back. A body that closes clearly beyond the level tells you the break was <strong>accepted, not rejected</strong>. Beginners who count every wick as a BOS end up chasing dozens of fake breaks; traders who wait for the close trade far fewer, far cleaner ones. On lower timeframes, some traders demand two closes beyond the level for extra confidence.",
+        },
+        {
+          kind: "heading",
+          text: "How to use a BOS in a real trade",
+        },
+        {
+          kind: "text",
+          html: "A confirmed BOS gives you two things: a <strong>direction</strong> to trade and a <strong>fresh swing low</strong> (or high) to define your risk against. The play is not to chase the breakout candle but to wait for the pullback it usually produces, then enter with your stop parked just beyond the new structural point. That way the trade is sized off a real level the market just drew, not a round number you guessed.",
         },
         {
           kind: "example",
-          title: "Reading a BOS step by step",
+          title: "Turning a BOS into a sized EUR/USD trade",
           steps: [
-            "On the 4-hour chart, mark the <strong>last swing high</strong> of the uptrend — the peak price has to clear. Say it sits at <strong>1.2500</strong> on GBP/USD.",
-            "Price pulls back and makes a <strong>higher low</strong> at 1.2410, holding above the previous higher low. The uptrend structure is still intact.",
-            "A strong bullish candle rallies and <strong>closes at 1.2540</strong>, well above 1.2500. That close — not the earlier wick that just tagged 1.2505 — is your confirmed BOS.",
-            "You now treat the trend as re-confirmed. Instead of chasing the breakout candle, you wait for the <strong>next pullback</strong> toward the broken 1.2500 level, which often flips from resistance to support.",
-            "Entry on the pullback hold at <strong>1.2510</strong>, stop below the fresh higher low at <strong>1.2400</strong> (a 110-pip risk), target the measured next leg near <strong>1.2720</strong> — roughly a 2:1 reward-to-risk trade built entirely around the BOS.",
+            "On the 4-hour EUR/USD chart, mark the <strong>last swing high</strong> of the uptrend at <strong>1.0850</strong> — the peak price must clear.",
+            "Price pulls back and makes a fresh <strong>higher low</strong> at 1.0810, holding above the previous higher low. Structure is intact.",
+            "A strong bullish candle rallies and <strong>closes at 1.0872</strong>, well above 1.0850 — not the earlier wick that only tagged 1.0853. That close is your confirmed BOS.",
+            "You wait for the pullback rather than chasing. Price drifts back to the broken 1.0850 level, which flips to support, and you enter on the hold at <strong>1.0858</strong>.",
+            "Stop below the fresh higher low at <strong>1.0828</strong> — a <strong>30-pip risk</strong>. On a €1,000 account risking <strong>1% (€10)</strong>, a 30-pip stop sizes to roughly <strong>0.03 lots</strong>.",
+            "Target the measured next leg near <strong>1.0918</strong> (60 pips) — about a <strong>2:1</strong> reward-to-risk trade built entirely around the BOS. One rule: a close back below 1.0828 and you're out.",
           ],
         },
         {
@@ -610,7 +639,7 @@ export const priceActionCourse: Course = {
         },
         {
           kind: "text",
-          html: "The candle that makes the BOS is usually the <strong>worst place to enter</strong>: it is extended, your stop has to sit far away back below the swing, and you are buying right where short-term traders take profit. The higher-quality play is to let the BOS confirm the trend, then wait for the retracement. The broken level often becomes support (or resistance in a downtrend), giving you a tighter stop and a much better reward-to-risk — the same role-flip idea covered in the Retest module.",
+          html: "The candle that makes the BOS is usually the <strong>worst place to enter</strong>: it is extended, your stop has to sit far away back below the swing, and you are buying right where short-term traders take profit. The higher-quality play is to let the BOS confirm the trend, then wait for the retracement. The broken level often becomes <strong>support</strong> (or resistance in a downtrend), giving you a tighter stop and a much better reward-to-risk — the same role-flip idea covered in the Retest module.",
         },
         {
           kind: "mistakes",
@@ -648,7 +677,7 @@ export const priceActionCourse: Course = {
         },
         {
           kind: "text",
-          html: "Think of a healthy uptrend as a staircase of higher highs and higher lows. Every higher low that holds is the buyers saying \"we are still defending.\" A CHoCH is the moment one of those higher lows <strong>fails</strong> — price closes below a level that, in a healthy trend, should have held. That failure doesn't guarantee a reversal, but it is the first objective evidence that something has changed. Ignoring it is how traders ride a winning trend all the way back to breakeven and beyond.",
+          html: "<strong>Why it matters:</strong> think of a healthy uptrend as a staircase of higher highs and higher lows. Every higher low that holds is the buyers saying \"we are still defending.\" A CHoCH is the moment one of those higher lows <strong>fails</strong> — price closes below a level that, in a healthy trend, should have held. That failure doesn't guarantee a reversal, but it is the <strong>first objective evidence</strong> that something has changed. Ignoring it is how traders ride a winning trend all the way back to breakeven and beyond.",
         },
         {
           kind: "image",
@@ -656,6 +685,14 @@ export const priceActionCourse: Course = {
           alt: "First lower low breaking a prior higher low, a change of character",
           caption:
             "An uptrend making higher highs, then a candle closes below the prior higher low — the first break against the trend is the CHoCH.",
+        },
+        {
+          kind: "heading",
+          text: "How to spot a CHoCH on a live chart",
+        },
+        {
+          kind: "text",
+          html: "To spot a CHoCH you first need the trend clearly marked. In an uptrend, identify the <strong>last defended higher low</strong> — the trough buyers protected on the previous dip. The CHoCH is a candle that <strong>closes below</strong> that higher low for the first time. In a downtrend, it is the first close above the last lower high. The word 'first' matters: it is the initial break against the trend, not the third or fourth. Demand a body close, not a wick, exactly as you would for a BOS.",
         },
         {
           kind: "heading",
@@ -679,17 +716,26 @@ export const priceActionCourse: Course = {
         },
         {
           kind: "text",
-          html: "Here is the honest part most guides skip: a CHoCH is a <strong>warning, not a guarantee</strong>. Trends routinely dip, break a minor higher low, then resume. If you flip short on every first crack, you will get chopped up counter-trend. The correct response to a CHoCH is defensive first: tighten or trail your stop, take partial profit, and stop hunting for trend-continuation entries. Only after a <strong>second confirmation</strong> — such as a new opposing structure (a lower high followed by a fresh lower low) — should you consider actually trading the reversal.",
+          html: "Here is the honest part most guides skip: a CHoCH is a <strong>warning, not a guarantee</strong>. Trends routinely dip, break a minor higher low, then resume. If you flip short on every first crack, you will get chopped up counter-trend. The correct response to a CHoCH is <strong>defensive first</strong>: tighten or trail your stop, take partial profit, and stop hunting for trend-continuation entries. Only after a <strong>second confirmation</strong> — such as a new opposing structure (a lower high followed by a fresh lower low) — should you consider actually trading the reversal.",
+        },
+        {
+          kind: "heading",
+          text: "How to use a CHoCH — protect first, then trade the confirmed turn",
+        },
+        {
+          kind: "text",
+          html: "Use the CHoCH in two stages. Stage one is <strong>defence</strong>: the instant the level fails, protect any open trend trade — move to breakeven, trail, or bank partial profit. Stage two is <strong>opportunity</strong>: if a full opposing structure then forms, you can trade the reversal with your risk defined against the new counter-trend swing. The example below walks through both stages with concrete numbers and proper position sizing.",
         },
         {
           kind: "example",
-          title: "Acting on a CHoCH step by step",
+          title: "Acting on a CHoCH step by step (EUR/USD)",
           steps: [
-            "You are long GBP/USD in an uptrend. The last defended higher low sits at <strong>1.2650</strong>, and your open trade's stop is currently at 1.2620.",
-            "Price stalls, makes a lower high, then a bearish candle <strong>closes at 1.2635</strong> — below the 1.2650 higher low. That close is your CHoCH.",
-            "You do not immediately flip short. First you protect: you move your stop up to <strong>1.2645</strong> to lock the trade at breakeven-plus, or take partial profit on the long.",
-            "You wait for confirmation. Price bounces to <strong>1.2690</strong> (a lower high than the prior swing) and then breaks down again, closing below 1.2635 — now you have a lower high and a lower low: a new bearish structure.",
-            "Only now do you consider a short: entry on the retest of 1.2660, stop above the 1.2690 lower high at <strong>1.2705</strong> (a 45-pip risk), target the prior demand near <strong>1.2570</strong> — a reversal trade the CHoCH warned you about but the second break confirmed.",
+            "You are long EUR/USD in an uptrend. The last defended higher low sits at <strong>1.0850</strong>, and your open trade's stop is currently at 1.0820.",
+            "Price stalls, makes a lower high, then a bearish candle <strong>closes at 1.0838</strong> — below the 1.0850 higher low. That close is your CHoCH.",
+            "You do not immediately flip short. First you <strong>protect</strong>: you move your stop up to 1.0845 to lock the long near breakeven, or take partial profit.",
+            "You wait for confirmation. Price bounces to <strong>1.0872</strong> (a lower high) then breaks down again, closing below 1.0838 — now a lower high and a lower low: a new bearish structure.",
+            "Only now do you consider a short: entry on the retest at <strong>1.0860</strong>, stop above the 1.0872 lower high at <strong>1.0890</strong> — a <strong>30-pip risk</strong>. On a €1,000 account risking <strong>1% (€10)</strong>, that sizes to about <strong>0.03 lots</strong>.",
+            "Target the prior demand near <strong>1.0770</strong> (90 pips) — roughly <strong>3:1</strong> reward-to-risk: a reversal the CHoCH warned you about, but the second break confirmed.",
           ],
         },
         {
@@ -764,13 +810,14 @@ export const priceActionCourse: Course = {
         },
         {
           kind: "example",
-          title: "Trading a range breakout step by step",
+          title: "Trading a range breakout step by step (EUR/USD)",
           steps: [
-            "Gold consolidates for hours in a tight range between a floor of <strong>2,340</strong> and a ceiling of <strong>2,360</strong>.",
-            "A strong bullish candle expands and <strong>closes at 2,368</strong> — clearly above the 2,360 ceiling, not just a wick. That is your breakout.",
-            "Aggressive plan: enter at <strong>2,368</strong> on the close, stop back inside the range at <strong>2,352</strong> (a 16-point risk), because a return inside means the break failed.",
-            "Conservative plan: skip the break, wait for a pullback to retest 2,360, enter on the hold at <strong>2,361</strong>, stop tighter at <strong>2,353</strong> (an 8-point risk).",
-            "Target with a <strong>measured move</strong>: the range was 20 points tall (2,360 − 2,340), so project 20 points up from the break for a first target near <strong>2,380</strong> — a clean, pre-defined objective either way.",
+            "EUR/USD consolidates for hours in a tight range between a floor of <strong>1.0820</strong> and a ceiling of <strong>1.0850</strong> — a 30-pip band.",
+            "A strong bullish candle expands and <strong>closes at 1.0858</strong> — clearly above the 1.0850 ceiling, not just a wick. That is your breakout.",
+            "Aggressive plan: enter at <strong>1.0858</strong> on the close, stop back inside the range at <strong>1.0838</strong> (a <strong>20-pip risk</strong>), because a return inside means the break failed.",
+            "Conservative plan: skip the break, wait for a pullback to retest 1.0850, enter on the hold at <strong>1.0852</strong>, stop tighter at <strong>1.0838</strong> (a 14-pip risk).",
+            "Sizing: on a €1,000 account risking <strong>1% (€10)</strong>, the 20-pip aggressive stop sizes to about <strong>0.05 lots</strong>; the tighter retest stop lets you carry a slightly larger position for the same €10 risk.",
+            "Target with a <strong>measured move</strong>: the range was 30 pips tall, so project 30 pips up from the break for a first target near <strong>1.0880</strong> — a clean, pre-defined objective either way.",
           ],
         },
         {
@@ -858,7 +905,8 @@ export const priceActionCourse: Course = {
             "EUR/USD is in a clear uptrend. A rally runs from 1.0800 to <strong>1.0900</strong>, then starts to pull back. You do not chase near 1.0900.",
             "You mark your level: the prior swing high at <strong>1.0850</strong> that price broke on the way up, which should now flip to support.",
             "Price dips into 1.0850 and prints a <strong>strong bullish rejection candle</strong> — the sign of the trend resuming. That is your confirmation.",
-            "You enter at <strong>1.0860</strong> on the close of that candle, and place your stop just below the pullback's low at <strong>1.0835</strong> — a tight 25-pip risk.",
+            "You enter at <strong>1.0860</strong> on the close of that candle, and place your stop just below the pullback's low at <strong>1.0835</strong> — a tight <strong>25-pip risk</strong>.",
+            "Sizing: on a €1,000 account risking <strong>1% (€10)</strong>, a 25-pip stop sizes the position to roughly <strong>0.04 lots</strong> on EUR/USD — small enough that being wrong costs a planned €10.",
             "Your target is a new higher high beyond 1.0900, say <strong>1.0960</strong> — a 100-pip move for 25 pips of risk, roughly <strong>4:1</strong> reward-to-risk, all because you waited for the dip instead of chasing the rally.",
           ],
         },
@@ -933,13 +981,14 @@ export const priceActionCourse: Course = {
         },
         {
           kind: "example",
-          title: "Trading a broken-resistance retest step by step",
+          title: "Trading a broken-resistance retest step by step (EUR/USD)",
           steps: [
-            "A stock has repeatedly failed at resistance of <strong>$50.00</strong>. A strong bullish candle finally breaks and <strong>closes at $50.80</strong> — a confirmed break.",
-            "You do not chase at $50.80. You mark $50.00 as the level that should now flip from resistance to <strong>support</strong>, and wait.",
-            "Price pulls back over the next candles and dips into <strong>$50.10</strong>, right at the old level. You watch for it to hold.",
-            "A bullish <strong>rejection candle</strong> forms at the level and closes back up at $50.40 — the retest held. You enter at <strong>$50.45</strong> on that close.",
-            "Your stop goes just below the level at <strong>$49.85</strong> — a tight $0.60 risk. Target the next resistance or a measured move near <strong>$52.05</strong>, giving roughly <strong>2.7:1</strong> reward-to-risk from a confirmed, low-risk entry.",
+            "EUR/USD has repeatedly failed at resistance of <strong>1.0900</strong>. A strong bullish candle finally breaks and <strong>closes at 1.0918</strong> — a confirmed break.",
+            "You do not chase at 1.0918. You mark 1.0900 as the level that should now flip from resistance to <strong>support</strong>, and wait.",
+            "Price pulls back over the next candles and dips into <strong>1.0902</strong>, right at the old level. You watch for it to hold.",
+            "A bullish <strong>rejection candle</strong> forms at the level and closes back up at 1.0910 — the retest held. You enter at <strong>1.0912</strong> on that close.",
+            "Your stop goes just below the level at <strong>1.0888</strong> — a tight <strong>24-pip risk</strong>. On a €1,000 account risking <strong>1% (€10)</strong>, that sizes to roughly <strong>0.04 lots</strong>.",
+            "Target the next resistance or a measured move near <strong>1.0972</strong> (60 pips), giving roughly <strong>2.5:1</strong> reward-to-risk from a confirmed, low-risk entry — with one rule: a close back below 1.0888 and you're out.",
           ],
         },
         {
