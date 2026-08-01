@@ -17,13 +17,13 @@ export const trendCourse: Course = {
       title: "Introduction to Trend Following",
       summary:
         "What trend following is, why traders aim to trade in the direction of the trend, and how indicators fit into that approach.",
-      readingMinutes: 5,
+      readingMinutes: 11,
       objective:
-        "After this module you'll be able to explain what trend following is and why aligning with the trend is the foundation of indicator trading.",
+        "After this module you'll be able to explain what trend following is, why aligning with the trend is the foundation of indicator trading, and how to size a trend-aligned trade with a defined stop.",
       blocks: [
         {
           kind: "text",
-          html: "Trend following is the practice of trading in the <strong>direction of the trend</strong> rather than trying to predict tops and bottoms. The core belief is simple: markets that are moving up or down tend to keep going for longer than most people expect, so it pays to join the move rather than fight it.",
+          html: "Trend following is the practice of trading in the <strong>direction of the trend</strong> rather than trying to predict tops and bottoms. The core belief is simple: markets that are moving up or down tend to keep going for longer than most people expect, so it pays to join the move rather than fight it. You are not trying to be clever or early — you are trying to be aligned with the money that is already flowing one way.",
         },
         {
           kind: "image",
@@ -38,19 +38,49 @@ export const trendCourse: Course = {
         },
         {
           kind: "text",
-          html: "A trend represents the <strong>path of least resistance</strong>. When buyers are consistently in control, buying pullbacks tends to work better than shorting; when sellers dominate, the reverse is true. Trend followers accept many small losses in exchange for occasionally catching a large, sustained move that pays for them.",
+          html: "A trend represents the <strong>path of least resistance</strong>. When buyers are consistently in control, buying pullbacks tends to work better than shorting; when sellers dominate, the reverse is true. The <em>why</em> is behavioural: a rising market attracts fresh buyers, forces trapped sellers to cover, and feeds on its own momentum until something breaks it. Fighting that flow means betting against every one of those participants at once.",
         },
         {
           kind: "text",
-          html: "This course leans on <strong>technical indicators</strong> — moving averages, RSI, MACD, Bollinger Bands and others. Every one of these is math applied to price, which means they <strong>lag behind</strong> the market. They summarise what price has already done; they never see the future.",
+          html: "The trade-off is emotional. Trend followers accept <strong>many small losses</strong> in exchange for occasionally catching a large, sustained move that pays for all of them and more. Most of your trades may be scratches or small losers; a minority of big winners carries the whole account. If you cannot stomach being wrong often while staying disciplined, trend following will feel unbearable long before it works.",
+        },
+        {
+          kind: "text",
+          html: "This course leans on <strong>technical indicators</strong> — moving averages, RSI, MACD, Bollinger Bands and others. Every one of these is math applied to price, which means they <strong>lag behind</strong> the market. They summarise what price has already done; they never see the future. Used well, they are a filter and a discipline aid. Used badly — as a crystal ball — they are a fast way to lose money with false confidence.",
+        },
+        {
+          kind: "heading",
+          text: "How to think about the whole approach",
         },
         {
           kind: "list",
           items: [
-            "Indicators describe trend, momentum and volatility from past price.",
-            "Because they are derived from price, all indicators lag to some degree.",
-            "They shine in trends and struggle in choppy, sideways markets.",
+            "Indicators describe <strong>trend, momentum and volatility</strong> from past price.",
+            "Because they are derived from price, all indicators <strong>lag</strong> to some degree.",
+            "They shine in trends and <strong>struggle in choppy</strong>, sideways markets.",
             "No indicator is a signal to blindly follow — context and risk still rule.",
+          ],
+        },
+        {
+          kind: "example",
+          title: "Turning a trend read into a sized trade",
+          steps: [
+            "On the 4-hour EUR/USD chart price is making <strong>higher highs and higher lows</strong> and sits above a rising average — you only look for buys.",
+            "Price pulls back and stalls near the last higher low at <strong>1.0850</strong>, then prints a strong green close showing buyers returning. You enter long at <strong>1.0870</strong>.",
+            "Your stop goes just below the higher low at <strong>1.0835</strong> — a close there means the uptrend read was wrong. Risk = <strong>35 pips</strong>.",
+            "Account is <strong>€2,000</strong> and you risk <strong>1%</strong> = €20. With a 35-pip stop you size so 35 pips against you costs ~€20 — about <strong>0.05 lots</strong> on EUR/USD.",
+            "You target the measured continuation near <strong>1.0990</strong>, ~120 pips away — roughly <strong>3.4:1 reward-to-risk</strong>. The whole plan exists before you click.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with trend following",
+          items: [
+            "<strong>Picking tops and bottoms.</strong> Trying to call the exact turn is the opposite of trend following. Join the move you can already see, don't guess the one you hope for.",
+            "<strong>Treating indicators as signals.</strong> A crossover or an oversold reading is context, not a command. Blindly acting on one line is how beginners bleed out in ranges.",
+            "<strong>Bailing on the small losers.</strong> Trend following pays through a few big winners funded by many small losses — cutting winners early to 'lock it in' quietly destroys the whole edge.",
+            "<strong>Fighting the higher timeframe.</strong> A one-hour bounce inside a daily downtrend is still a short setup. Let the bigger picture set your bias before any indicator.",
+            "<strong>Skipping risk management because 'the trend is obvious'.</strong> Obvious trends reverse too. No amount of trend clarity removes the need for a stop and a sensible size.",
           ],
         },
         {
@@ -59,7 +89,7 @@ export const trendCourse: Course = {
         },
         {
           kind: "text",
-          html: "Throughout this course we build up in layers: first read the trend, then add moving averages, momentum tools and volatility bands, and finally combine them into one disciplined plan. Because no tool is perfect, <strong>risk management</strong> is the thread that runs through every module.",
+          html: "Throughout this course we build up in layers: first read the trend, then add moving averages, momentum tools and volatility bands, and finally combine them into one disciplined plan. Because no tool is perfect, <strong>risk management</strong> is the thread that runs through every module — the same defined-stop discipline you just saw applies to every setup ahead.",
         },
       ],
     },
@@ -72,13 +102,13 @@ export const trendCourse: Course = {
       title: "Identifying a Trend",
       summary:
         "How to recognise an uptrend, downtrend or range from the chart before you reach for a single indicator.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
-        "After this module you'll be able to classify a market as trending up, trending down, or ranging using price structure alone.",
+        "After this module you'll be able to classify a market as trending up, trending down, or ranging using price structure alone, and know which tactics fit each state.",
       blocks: [
         {
           kind: "text",
-          html: "Before any indicator, you must know whether a market is trending at all. An uptrend prints <strong>higher highs and higher lows</strong>; a downtrend prints lower highs and lower lows; a range drifts sideways with no clear progression. Reading this from price first keeps your indicators honest.",
+          html: "Before any indicator, you must know whether a market is trending at all. An uptrend prints <strong>higher highs and higher lows</strong>; a downtrend prints lower highs and lower lows; a range drifts sideways with no clear progression. Reading this from price first keeps your indicators honest — because almost every trend tool you own will fire misleading signals the moment the market stops trending.",
         },
         {
           kind: "image",
@@ -94,18 +124,40 @@ export const trendCourse: Course = {
         {
           kind: "list",
           items: [
-            "Uptrend: successive higher highs and higher lows — buyers in control.",
-            "Downtrend: successive lower highs and lower lows — sellers in control.",
-            "Range: highs and lows stay roughly level — neither side in control.",
+            "<strong>Uptrend</strong>: successive higher highs and higher lows — buyers in control, favour longs.",
+            "<strong>Downtrend</strong>: successive lower highs and lower lows — sellers in control, favour shorts.",
+            "<strong>Range</strong>: highs and lows stay roughly level — neither side in control, stand aside or fade edges.",
           ],
         },
         {
           kind: "text",
-          html: "The most common mistake is applying trend tools to a <strong>ranging market</strong>. Moving average crossovers, MACD and Supertrend all whipsaw badly when price chops sideways, firing signal after signal that reverses immediately. Recognising a range early tells you to stand aside or switch tactics.",
+          html: "The most common mistake is applying trend tools to a <strong>ranging market</strong>. Moving average crossovers, MACD and Supertrend all whipsaw badly when price chops sideways, firing signal after signal that reverses immediately. Recognising a range early tells you to stand aside or switch tactics — and that single act of restraint saves more money than any clever entry.",
         },
         {
           kind: "text",
-          html: "Timeframe matters too. A market can be in an uptrend on the daily chart and a downtrend on the hourly. Decide which <strong>timeframe you trade</strong>, and let the higher timeframe set your directional bias so your indicator signals point the same way as the bigger picture.",
+          html: "Timeframe matters too. A market can be in an uptrend on the daily chart and a downtrend on the hourly. Decide which <strong>timeframe you trade</strong>, and let the higher timeframe set your directional bias so your indicator signals point the same way as the bigger picture. When the timeframes disagree, the higher one usually wins.",
+        },
+        {
+          kind: "example",
+          title: "Classifying a chart in four questions",
+          steps: [
+            "Zoom out to your bias timeframe (say the <strong>4-hour</strong>) and mark the obvious swing highs and swing lows a stranger would circle at a glance.",
+            "Ask: is each new high <strong>above the last high</strong>? On GBP/USD you see 1.2650, then 1.2710, then 1.2780 — yes, higher highs.",
+            "Ask: is each new low <strong>above the last low</strong>? You see 1.2580, then 1.2640 — yes, higher lows. Two yeses = confirmed uptrend.",
+            "State it out loud: \"higher highs and higher lows — this is an uptrend, I only look for buys.\" If the highs and lows were flat you would say \"range — I wait.\"",
+            "Now, and only now, reach for an indicator to <strong>time an entry</strong> in that direction — never to argue with the structure you just read.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes identifying a trend",
+          items: [
+            "<strong>Forcing a trend that isn't there.</strong> Flat highs and lows are a range, not 'about to break out'. Trading a range as a trend is the fastest way to get chopped up.",
+            "<strong>Reading structure on too low a timeframe.</strong> A 1-minute chart flips between up and down every few minutes. Anchor bias on a higher timeframe first.",
+            "<strong>Ignoring timeframe conflict.</strong> A pretty hourly uptrend inside a daily downtrend is a trap. When timeframes disagree, respect the bigger one.",
+            "<strong>Marking every wiggle as a swing.</strong> Over-marking turns the chart into spaghetti. Only mark the peaks and troughs that are obvious.",
+            "<strong>Applying trend indicators in a range.</strong> Crossovers and MACD whipsaw sideways markets relentlessly — recognise the range and switch off the trend tools.",
+          ],
         },
         {
           kind: "key",
@@ -122,13 +174,13 @@ export const trendCourse: Course = {
       title: "Moving Averages (EMA / SMA)",
       summary:
         "What moving averages are, how the SMA and EMA differ, and how to use them to smooth price and gauge trend direction.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
-        "After this module you'll be able to explain the difference between an SMA and an EMA and read trend direction from a moving average's slope.",
+        "After this module you'll be able to explain the difference between an SMA and an EMA, read trend direction from a moving average's slope, and size a trade off a moving-average pullback.",
       blocks: [
         {
           kind: "text",
-          html: "A moving average smooths price into a single flowing line by averaging the last N closes. It filters out noise so you can see the underlying direction. The two most common types are the <strong>simple moving average (SMA)</strong> and the <strong>exponential moving average (EMA)</strong>.",
+          html: "A moving average smooths price into a single flowing line by averaging the last N closes. It filters out noise so you can see the underlying direction. The two most common types are the <strong>simple moving average (SMA)</strong> and the <strong>exponential moving average (EMA)</strong> — and the difference between them is entirely about how much weight they give to recent versus old prices.",
         },
         {
           kind: "image",
@@ -143,19 +195,41 @@ export const trendCourse: Course = {
         },
         {
           kind: "text",
-          html: "The SMA weights every period equally, so it is <strong>smooth but slow</strong> to react. The EMA gives more weight to recent prices, so it turns faster and tracks price more closely — at the cost of more false turns. Neither is better in absolute terms; they simply trade responsiveness against smoothness.",
+          html: "The SMA weights every period equally, so it is <strong>smooth but slow</strong> to react. The EMA gives more weight to recent prices, so it turns faster and tracks price more closely — at the cost of more false turns. Neither is better in absolute terms; they simply trade responsiveness against smoothness. Faster tools catch moves earlier but cry wolf more often; slower tools are calmer but late.",
         },
         {
           kind: "text",
-          html: "The length you choose sets the character. A short average (like 9 or 20) reacts quickly and suits shorter-term trading; a long average (like 50 or 200) is slow and defines the <strong>bigger trend</strong>. Read the slope: a rising average suggests an uptrend, a falling one a downtrend, and a flat one a range.",
+          html: "The length you choose sets the character. A short average (like 9 or 20) reacts quickly and suits shorter-term trading; a long average (like 50 or 200) is slow and defines the <strong>bigger trend</strong>. Read the slope: a rising average suggests an uptrend, a falling one a downtrend, and a flat one a range. The slope, not the exact number, is what you trade.",
         },
         {
           kind: "list",
           items: [
-            "SMA: equal weight to all periods — smoother, slower to react.",
-            "EMA: more weight to recent prices — faster, more responsive.",
-            "Short lengths track price closely; long lengths define the major trend.",
-            "A flat, tangled moving average is a warning that no trend exists.",
+            "<strong>SMA</strong>: equal weight to all periods — smoother, slower to react.",
+            "<strong>EMA</strong>: more weight to recent prices — faster, more responsive.",
+            "Short lengths track price closely; <strong>long lengths</strong> define the major trend.",
+            "A flat, tangled moving average is a warning that <strong>no trend exists</strong>.",
+          ],
+        },
+        {
+          kind: "example",
+          title: "Buying a pullback to a rising 20 EMA",
+          steps: [
+            "On the 1-hour chart, gold is in an uptrend and the <strong>20 EMA is rising</strong> beneath price — your bias is long only.",
+            "Price pulls back and taps the EMA near <strong>2040</strong>, then prints a strong green close showing buyers defending the average.",
+            "You enter long at <strong>2044</strong> and place the stop just below the EMA and the pullback low at <strong>2032</strong> — risk = <strong>12 points</strong>.",
+            "Account is <strong>€3,000</strong>, risking <strong>1%</strong> = €30; a 12-point stop sizes you to roughly <strong>0.25 lots</strong> on gold.",
+            "You target the prior swing high near <strong>2080</strong>, about 36 points away — a clean <strong>3:1 reward-to-risk</strong> before costs.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with moving averages",
+          items: [
+            "<strong>Chasing the crossover blindly.</strong> A slope or cross in a flat market is noise. Confirm a real trend exists before trusting the line.",
+            "<strong>Using one length for everything.</strong> A 200 EMA times nothing on a 1-minute scalp; a 9 EMA is useless for the daily trend. Match the length to your timeframe.",
+            "<strong>Expecting the average to call turns.</strong> Every moving average lags — it confirms trends, it does not predict reversals. Using it to pick tops is a losing game.",
+            "<strong>Placing stops on the line itself.</strong> Price noise clips a stop sitting exactly on the average. Put the stop beyond the swing the pullback formed.",
+            "<strong>Stacking five averages.</strong> A screen of tangled lines gives conflicting slopes and paralysis. One or two are plenty.",
           ],
         },
         {
@@ -177,7 +251,7 @@ export const trendCourse: Course = {
       title: "The 200 EMA Strategy",
       summary:
         "How the 200 EMA is used as a long-term trend filter and how traders build entries and stops around it.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to use the 200 EMA as a directional bias filter and understand basic entry and stop logic around it.",
       blocks: [
@@ -218,6 +292,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "A 200 EMA pullback long, sized properly",
+          steps: [
+            "On the 4-hour Nasdaq (NAS100) chart, price is trading well above a <strong>rising 200 EMA</strong> — bias is long only.",
+            "After a rally, price drifts back down toward the EMA near <strong>18,200</strong> and stalls, printing a bullish rejection candle off the line.",
+            "You enter long at <strong>18,240</strong> as the candle closes, placing the stop just below the EMA and swing low at <strong>18,120</strong> — risk = <strong>120 points</strong>.",
+            "Account is <strong>€5,000</strong>, risking <strong>1%</strong> = €50; with a 120-point stop and $1 per point per micro-lot, you size to about <strong>0.4 lots</strong>.",
+            "You target the prior high near <strong>18,600</strong>, ~360 points away — roughly <strong>3:1</strong>. If price closes back below the EMA, the premise is dead and you are out.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with the 200 EMA",
+          items: [
+            "<strong>Trading it as a signal, not a filter.</strong> A single touch of the 200 EMA is not a buy or sell — it only sets which direction you are allowed to look.",
+            "<strong>Using it in a flat market.</strong> When the EMA is horizontal, price crosses it constantly and the filter gives conflicting readings. Stand aside.",
+            "<strong>Shorting strong uptrends because 'it's far from the EMA'.</strong> Distance from the average is not a reversal signal — strong trends stay stretched for a long time.",
+            "<strong>Placing the stop right on the line.</strong> Normal noise pokes through the EMA. Put the stop beyond the swing that would truly break the setup.",
+            "<strong>Forgetting it lags.</strong> The 200 EMA confirms a regime, it never predicts the next turn. Treat late confirmation as a feature, not a flaw.",
+          ],
+        },
+        {
           kind: "key",
           text: "Use the 200 EMA to set your bias — long above, short below — and let pullbacks to it offer entries with a clearly defined invalidation.",
         },
@@ -236,7 +332,7 @@ export const trendCourse: Course = {
       title: "Moving Average Crossover",
       summary:
         "How crossovers between a fast and a slow moving average generate trend signals, and why they whipsaw in ranges.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to read a moving average crossover as a trend signal and understand its weakness in choppy markets.",
       blocks: [
@@ -277,6 +373,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "A 9/21 crossover long with a trend filter",
+          steps: [
+            "On the 1-hour EUR/USD chart, price is above the <strong>200 EMA</strong> — you only accept bullish crossovers.",
+            "After a pullback, the <strong>9 EMA crosses above the 21 EMA</strong> and a candle closes at <strong>1.0910</strong> confirming the cross.",
+            "You enter long at <strong>1.0910</strong> and place the stop below the recent swing low at <strong>1.0880</strong> — risk = <strong>30 pips</strong>.",
+            "Account is <strong>€2,000</strong>, risking <strong>1%</strong> = €20; a 30-pip stop sizes you to about <strong>0.06 lots</strong>.",
+            "You target the next resistance near <strong>1.1000</strong>, ~90 pips away — a <strong>3:1</strong> trade. A cross back down or a close below 1.0880 ends it.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with crossovers",
+          items: [
+            "<strong>Taking every cross.</strong> In a range the averages cross back and forth, handing you a string of small losses. Only take crosses that agree with the higher-timeframe trend.",
+            "<strong>Entering before the candle closes.</strong> An intrabar cross that reverses by the close is a fake. Wait for the close to commit.",
+            "<strong>Using too-fast a pair.</strong> A 3/8 crossover fires constantly and mostly noise. Slower pairs signal later but cleaner.",
+            "<strong>Trading crossovers with no stop.</strong> The lag means a bad signal can run far before the reverse cross. Define the invalidation swing first.",
+            "<strong>Expecting them to lead.</strong> A crossover always arrives after the move has begun. Treat it as confirmation, not a head start.",
+          ],
+        },
+        {
           kind: "key",
           text: "A crossover flags a momentum shift, but it lags the turn and whipsaws in ranges — pair it with a trend filter and a defined stop.",
         },
@@ -295,7 +413,7 @@ export const trendCourse: Course = {
       title: "Golden Cross / Death Cross",
       summary:
         "The famous 50/200 crossovers, what they signal about the long-term trend, and why they are lagging by design.",
-      readingMinutes: 5,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to define the golden cross and death cross and interpret them as slow, long-term trend signals.",
       blocks: [
@@ -332,6 +450,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "Using a golden cross as context, not a timing tool",
+          steps: [
+            "On the daily S&P 500 chart, the market has rallied for weeks and the <strong>50-day crosses above the 200-day</strong> — a golden cross prints.",
+            "You note that price is already <strong>far above both averages</strong>, so buying the cross itself means a huge stop back at the 200-day.",
+            "Instead you use it only as a <strong>regime confirmation</strong> — bias is now long — and wait for a pullback to time an actual entry.",
+            "Price dips to the 50-day near <strong>5,200</strong> and holds; you enter there with a stop below at <strong>5,120</strong> — an <strong>80-point</strong> risk, far tighter than chasing the cross.",
+            "The golden cross set the direction; a disciplined pullback entry gave you a real, sized trade with sensible reward-to-risk.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with the golden/death cross",
+          items: [
+            "<strong>Buying the cross itself.</strong> By the time it prints, a big move has already happened. Chasing it means a distant stop and poor reward-to-risk.",
+            "<strong>Treating it as precise timing.</strong> These are slow regime signals, not entry triggers. Use them for bias, then time entries elsewhere.",
+            "<strong>Trusting it in a range.</strong> When the market is sideways, the two long averages weave in and out, firing false crosses repeatedly.",
+            "<strong>Ignoring the higher context.</strong> A death cross during a long-term bull market is often a shakeout, not a top. Read the bigger picture.",
+            "<strong>Reacting to the headlines.</strong> Media hype around a golden cross is not an edge — the signal is already public and heavily lagging.",
+          ],
+        },
+        {
           kind: "key",
           text: "The golden and death crosses mark slow, long-term regime changes — useful as context, but far too lagging to time precise entries.",
         },
@@ -346,7 +486,7 @@ export const trendCourse: Course = {
       title: "RSI Trading",
       summary:
         "How the Relative Strength Index measures momentum, what overbought and oversold really mean, and how to use it responsibly.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to read the RSI, interpret overbought and oversold zones in context, and avoid the classic beginner mistake.",
       blocks: [
@@ -387,6 +527,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "A trend-aligned RSI pullback buy",
+          steps: [
+            "On the 1-hour gold chart, price is in a clear uptrend making higher highs — bias is long only.",
+            "Price pulls back and RSI dips to <strong>38</strong>, near oversold for this trend, while price stalls at prior support of <strong>2035</strong>.",
+            "RSI turns back up through <strong>45</strong> as a green candle closes at <strong>2042</strong> — momentum resuming with the trend. You enter long there.",
+            "Stop goes below the pullback low at <strong>2028</strong> — risk = <strong>14 points</strong>. On a €3,000 account at 1% (€30) that sizes to about <strong>0.2 lots</strong>.",
+            "You target the prior high near <strong>2080</strong>, ~38 points away — nearly <strong>3:1</strong>. RSI timed the entry; the trend gave the direction.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with RSI",
+          items: [
+            "<strong>Shorting just because it's overbought.</strong> In a strong uptrend RSI can hold above 70 for a long time. Overbought means strong, not 'sell'.",
+            "<strong>Buying just because it's oversold.</strong> In a downtrend RSI can sit below 30 for ages. Oversold means weak, not 'buy'.",
+            "<strong>Ignoring the trend entirely.</strong> RSI is a timing aid, not a direction caller. Trade it with the higher-timeframe trend, not against it.",
+            "<strong>Acting on a single reading.</strong> Wait for RSI to actually turn and for price to confirm; a number alone is not an entry.",
+            "<strong>Forgetting it's derived from price.</strong> RSI lags and can be flat while price does something else — always confirm on the chart itself.",
+          ],
+        },
+        {
           kind: "key",
           text: "RSI measures momentum, not destiny — overbought can stay overbought, so use it with the trend rather than against it.",
         },
@@ -405,7 +567,7 @@ export const trendCourse: Course = {
       title: "RSI Divergence",
       summary:
         "How divergence between price and RSI can warn that momentum is fading, and why it is a warning rather than a signal.",
-      readingMinutes: 5,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to spot bullish and bearish RSI divergence and treat it as an early warning, not a trade trigger.",
       blocks: [
@@ -446,6 +608,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "Trading a confirmed bearish divergence",
+          steps: [
+            "On the 4-hour Nasdaq chart, price pushes to a new high of <strong>18,500</strong> but RSI prints <strong>68</strong> — lower than the <strong>76</strong> at the previous high. That is bearish divergence.",
+            "You do <strong>not</strong> short immediately — divergence alone is only a warning. You mark it and watch for price to confirm.",
+            "Price then breaks the last minor swing low at <strong>18,380</strong>, confirming momentum has actually turned. Now you have a signal.",
+            "You short the retest of that broken level at <strong>18,400</strong>, stop above the divergent high at <strong>18,520</strong> — risk = <strong>120 points</strong>.",
+            "On a €5,000 account at 1% (€50) you size to about <strong>0.4 lots</strong> and target <strong>18,160</strong>, ~240 points — a clean <strong>2:1</strong>. Divergence warned; the structure break triggered.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with divergence",
+          items: [
+            "<strong>Shorting on divergence alone.</strong> It can persist for a long time while price keeps trending. Wait for price to confirm with a structure break.",
+            "<strong>Fighting a strong trend with it.</strong> Divergence against a powerful move is often just a pause, not a top. Respect the trend until it actually breaks.",
+            "<strong>Seeing divergence everywhere.</strong> Force it and you'll find it on every chart. Only mark clean, obvious higher-high / lower-high (or the bullish mirror) pairs.",
+            "<strong>Ignoring the timeframe.</strong> Divergence on a 1-minute chart is noise. It carries more weight on higher timeframes.",
+            "<strong>Skipping the stop.</strong> Even confirmed divergence fails. Trade it with a defined invalidation like any other setup.",
+          ],
+        },
+        {
           kind: "key",
           text: "Divergence warns that momentum is fading behind a move — a cue to manage risk, not a licence to fight a trend blindly.",
         },
@@ -460,7 +644,7 @@ export const trendCourse: Course = {
       title: "MACD Trading",
       summary:
         "How the MACD combines two moving averages and a histogram into a single momentum-and-trend tool, and how to use its signals.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to read the MACD line, signal line and histogram, and understand basic crossover entry logic.",
       blocks: [
@@ -501,6 +685,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "A MACD-cross-above-zero long",
+          steps: [
+            "On the 1-hour EUR/USD chart, structure is bullish and price sits above the 200 EMA — bias is long only.",
+            "After a pullback, the <strong>MACD line crosses above its signal line</strong> and the whole reading is climbing back <strong>above zero</strong> at <strong>1.0920</strong>.",
+            "You enter long on that candle close and place the stop below the pullback swing low at <strong>1.0890</strong> — risk = <strong>30 pips</strong>.",
+            "On a €2,000 account at 1% (€20), a 30-pip stop sizes you to about <strong>0.06 lots</strong>.",
+            "You target <strong>1.1010</strong>, ~90 pips away — a <strong>3:1</strong> trade. Requiring the cross above zero filtered out the weaker mid-range signals.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with MACD",
+          items: [
+            "<strong>Taking every crossover.</strong> Below zero and in ranges, MACD crosses constantly and mostly fails. Favour crosses that agree with the trend and the zero line.",
+            "<strong>Ignoring the zero line.</strong> A cross above zero is a very different signal from one deep in negative territory. Read the location, not just the cross.",
+            "<strong>Expecting it to lead.</strong> MACD is built from EMAs, so it lags. It confirms a move underway, it does not predict the turn.",
+            "<strong>Using it in a flat market.</strong> Sideways price makes MACD whip back and forth. Check a trend exists first.",
+            "<strong>Trading with no stop.</strong> The lag means a bad cross can run. Define the invalidation swing before entering.",
+          ],
+        },
+        {
           kind: "key",
           text: "MACD packages trend and momentum into one tool — crossovers plus the zero line guide bias, but it lags and needs a trending market to work.",
         },
@@ -519,7 +725,7 @@ export const trendCourse: Course = {
       title: "MACD Momentum",
       summary:
         "How to read the MACD histogram for momentum, and how growing or shrinking bars hint at acceleration or exhaustion.",
-      readingMinutes: 5,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to interpret the MACD histogram to judge whether momentum is building or fading.",
       blocks: [
@@ -556,6 +762,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "Using the histogram to time a scale-out",
+          steps: [
+            "You are long gold from <strong>2044</strong> in a strong uptrend, and the MACD histogram bars have been <strong>expanding</strong> — momentum with you.",
+            "As price reaches <strong>2072</strong>, you notice the histogram bars start <strong>shrinking</strong> even though price is still ticking up — momentum is fading.",
+            "You take <strong>partial profit</strong> on half the position at 2072, banking the move while it is strong rather than waiting for a reversal.",
+            "You trail the stop on the remainder up to breakeven+ at <strong>2050</strong>, so the rest is a risk-free runner.",
+            "The histogram didn't tell you to reverse — it told you the drive was weakening, which is exactly when a disciplined trader protects gains.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with the histogram",
+          items: [
+            "<strong>Shorting on shrinking bars.</strong> Fading momentum is a management cue, not a reversal signal. Price can drift higher on weak momentum for a while.",
+            "<strong>Reading it in isolation.</strong> The histogram is derived from the MACD, which is derived from price. Always confirm on the chart itself.",
+            "<strong>Over-reacting to one small bar.</strong> A single dip in bar size is noise. Look for a clear, sustained pattern of expansion or contraction.",
+            "<strong>Ignoring histogram divergence context.</strong> Smaller bars at a new high is a warning, not a top. Wait for price to confirm.",
+            "<strong>Forgetting the trend.</strong> Momentum bars only matter within the direction structure gives you — don't use them to fight a strong trend.",
+          ],
+        },
+        {
           kind: "key",
           text: "The histogram reads momentum's rate of change — growing bars back a trend, shrinking bars warn it is running out of fuel.",
         },
@@ -570,7 +798,7 @@ export const trendCourse: Course = {
       title: "Bollinger Bands",
       summary:
         "How Bollinger Bands wrap price in a volatility envelope, what expansion and contraction mean, and how to read touches of the bands.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to read Bollinger Bands as a volatility tool and avoid the common mistake of fading every band touch.",
       blocks: [
@@ -611,6 +839,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "Fading a band touch — only in a confirmed range",
+          steps: [
+            "On the 15-minute EUR/USD chart, structure is clearly <strong>sideways</strong> — flat highs and lows — so mean-reversion is on the table.",
+            "Price stretches up to tap the <strong>upper band</strong> at <strong>1.0960</strong> and prints a bearish rejection candle at the range ceiling.",
+            "You short at <strong>1.0955</strong> with a stop just above the band and range high at <strong>1.0975</strong> — risk = <strong>20 pips</strong>.",
+            "On a €2,000 account at 1% (€20), a 20-pip stop sizes you to about <strong>0.10 lots</strong>.",
+            "You target the middle band near <strong>1.0920</strong>, ~35 pips — roughly <strong>1.7:1</strong>. Crucially, you'd skip this entirely in a trend, where price would just walk the band.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with Bollinger Bands",
+          items: [
+            "<strong>Fading every band touch.</strong> In a trend price walks the band for a long stretch. Only fade touches in a confirmed range, with confirmation.",
+            "<strong>Treating a touch as a signal.</strong> Reaching a band only means price is relatively high or low, not that it must reverse. It is context, not a trigger.",
+            "<strong>Ignoring the band width.</strong> Narrow bands and wide bands mean very different things. Read whether volatility is rising or falling first.",
+            "<strong>Shorting a strong breakout.</strong> Price closing outside the band in a trend is strength, not exhaustion. Don't fade genuine breakouts.",
+            "<strong>Forgetting the stop.</strong> Even a clean range fades fail when the range breaks. Always place the stop beyond the band and the range edge.",
+          ],
+        },
+        {
           kind: "key",
           text: "Bollinger Bands map volatility and relative price position — a band touch is context, not a reversal signal, especially in a trend.",
         },
@@ -629,7 +879,7 @@ export const trendCourse: Course = {
       title: "Bollinger Squeeze",
       summary:
         "How a squeeze in the Bollinger Bands signals compressed volatility before a breakout, and how to trade it honestly.",
-      readingMinutes: 6,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to identify a Bollinger squeeze and understand breakout entry and stop logic around it.",
       blocks: [
@@ -670,6 +920,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "Trading a confirmed squeeze breakout",
+          steps: [
+            "On the 1-hour Nasdaq chart, the bands have <strong>pinched tight</strong> for several hours and price coils in a narrow <strong>18,300–18,360</strong> range.",
+            "The higher-timeframe trend is up, so you favour an <strong>upside break</strong> and ignore a downside one.",
+            "A candle <strong>closes above 18,360</strong> as the bands snap open — you enter long at <strong>18,370</strong>.",
+            "Stop goes on the opposite side of the range at <strong>18,290</strong> — risk = <strong>80 points</strong>. On €5,000 at 1% (€50), that's about <strong>0.6 lots</strong>.",
+            "You target a measured move of the range height projected up, near <strong>18,530</strong> — roughly <strong>2:1</strong>. A close back inside the range would mean a false break and an exit.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with the squeeze",
+          items: [
+            "<strong>Guessing the direction.</strong> A squeeze tells you a move is coming, not which way. Wait for the break rather than pre-positioning.",
+            "<strong>Entering before the close.</strong> Price often pokes outside the range and snaps back. Require a candle close beyond the range to filter fakes.",
+            "<strong>Chasing a break against the trend.</strong> Breakouts that agree with the higher timeframe are far more reliable. Fade the temptation to counter-trend.",
+            "<strong>Skipping the stop on the far side.</strong> A false break needs a clean exit. The opposite side of the range is your logical invalidation.",
+            "<strong>Trading tiny squeezes for tiny moves.</strong> Not every contraction leads to a big expansion. Favour meaningful, prolonged squeezes.",
+          ],
+        },
+        {
           kind: "key",
           text: "A squeeze warns that a volatility expansion is coming — trade the confirmed break out of the range, with a stop on the other side, not a guess at direction.",
         },
@@ -688,7 +960,7 @@ export const trendCourse: Course = {
       title: "Supertrend Indicator",
       summary:
         "How the Supertrend plots a trailing trend line that flips with direction, and where it helps and where it fails.",
-      readingMinutes: 5,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to read the Supertrend as a trailing trend and stop tool and understand its weakness in ranges.",
       blocks: [
@@ -725,6 +997,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "Riding a trend with the Supertrend as a trailing stop",
+          steps: [
+            "On the 1-hour gold chart, the Supertrend line flips <strong>below price and turns green</strong> at <strong>2038</strong> — an uptrend signal.",
+            "You confirm a real trend exists (higher highs, ADX rising) and enter long at <strong>2042</strong>, using the Supertrend line at <strong>2030</strong> as your initial stop — risk = <strong>12 points</strong>.",
+            "On €3,000 at 1% (€30), that sizes to about <strong>0.25 lots</strong>.",
+            "As price climbs to <strong>2075</strong>, the Supertrend line trails up beneath it to <strong>2060</strong> — you slide the stop up with it, locking in profit.",
+            "You stay in until the line finally <strong>flips above price</strong> near <strong>2078</strong>, exiting with most of the move captured. The tool trailed the trend for you.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with the Supertrend",
+          items: [
+            "<strong>Trading every flip.</strong> In a range the line flips constantly, handing you a run of small losses. Only trust it when a real trend is present.",
+            "<strong>Ignoring higher-timeframe context.</strong> A flip against the daily trend is often a fake. Filter Supertrend signals with the bigger picture.",
+            "<strong>Treating the flip as a reversal trade.</strong> It is a trend-following and trailing tool, not a top/bottom picker. Trade with it, not against it.",
+            "<strong>Setting the ATR multiplier too tight.</strong> Too tight and normal noise flips the line; too loose and it lags badly. Tune it to the instrument.",
+            "<strong>Forgetting it lags.</strong> Like every trend tool, it confirms rather than predicts. Late flips are the price of avoiding noise.",
+          ],
+        },
+        {
           kind: "key",
           text: "The Supertrend flips with the trend and works as a volatility-based trailing stop — excellent in clean trends, unreliable in choppy ranges.",
         },
@@ -739,7 +1033,7 @@ export const trendCourse: Course = {
       title: "ADX Trend Strength",
       summary:
         "How the ADX measures the strength of a trend regardless of direction, and how it tells you when trend tools will work.",
-      readingMinutes: 5,
+      readingMinutes: 10,
       objective:
         "After this module you'll be able to use the ADX to judge whether a market is trending strongly enough for trend strategies to work.",
       blocks: [
@@ -776,6 +1070,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "Using ADX as a gatekeeper before a crossover",
+          steps: [
+            "On the 1-hour EUR/USD chart, a bullish moving-average crossover fires — but before acting you check the <strong>ADX</strong>.",
+            "The ADX reads <strong>16 and flat</strong>, below the ~20 threshold — the market is ranging, so the crossover is likely a whipsaw. You <strong>skip the trade</strong>.",
+            "Two days later another crossover appears; this time ADX is <strong>28 and rising</strong> — a genuine trend is present.",
+            "Now you take the long at <strong>1.0910</strong> with a stop below the swing at <strong>1.0880</strong> (30 pips), sized to 1% risk.",
+            "The ADX didn't give direction — it told you <strong>when</strong> your directional signal was worth trading, filtering out the low-quality one entirely.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with the ADX",
+          items: [
+            "<strong>Reading direction into it.</strong> ADX measures strength only. A high ADX in a downtrend is not bullish — direction comes from other tools.",
+            "<strong>Trading trend signals at low ADX.</strong> Below ~20 the market is ranging and trend tools whipsaw. Stand aside until strength returns.",
+            "<strong>Ignoring the slope.</strong> A falling ADX warns a trend is stalling even if it's still high. Watch whether it's rising or fading.",
+            "<strong>Using it alone.</strong> ADX is a filter, not an entry. Pair it with a direction tool and a momentum trigger.",
+            "<strong>Expecting exact thresholds.</strong> 20 and 25 are conventions, not laws. Treat them as rough zones, not precise switches.",
+          ],
+        },
+        {
           kind: "key",
           text: "ADX gauges trend strength, not direction — use it as a filter to know when your directional signals are actually worth trading.",
         },
@@ -790,7 +1106,7 @@ export const trendCourse: Course = {
       title: "Multi-Indicator Confirmation",
       summary:
         "How to combine indicators for confluence without falling into the trap of redundant, over-fitted signals.",
-      readingMinutes: 6,
+      readingMinutes: 11,
       objective:
         "After this module you'll be able to combine complementary indicators for confluence and avoid stacking redundant tools.",
       blocks: [
@@ -831,6 +1147,28 @@ export const trendCourse: Course = {
           ],
         },
         {
+          kind: "example",
+          title: "A three-tool confluence long",
+          steps: [
+            "<strong>Trend tool</strong>: on the 1-hour Nasdaq, price is above a rising 200 EMA — bias long.",
+            "<strong>Strength tool</strong>: ADX reads <strong>27 and rising</strong> — a real trend, so trend signals are worth taking.",
+            "<strong>Momentum tool</strong>: after a pullback, RSI turns up from <strong>42</strong> as a green candle closes at <strong>18,240</strong> — the trigger.",
+            "All three agree, so you enter long at 18,240 with a stop below the pullback low at <strong>18,140</strong> — risk = <strong>100 points</strong>, sized to 1%.",
+            "You target <strong>18,540</strong>, ~300 points — a <strong>3:1</strong> trade. Three <em>different</em> tools agreeing, not three momentum oscillators echoing each other.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes with confirmation",
+          items: [
+            "<strong>Stacking redundant tools.</strong> Five momentum oscillators all read the same price and mostly agree — that's false confidence, not five edges.",
+            "<strong>Analysis paralysis.</strong> Pile on enough indicators and they'll always conflict, freezing you. Fewer, complementary tools keep decisions clean.",
+            "<strong>Waiting for perfection.</strong> Demanding ten green lights means never trading. Two or three complementary confirmations plus price is enough.",
+            "<strong>Treating confluence as certainty.</strong> Even perfect agreement can be wrong. Every confluence trade still needs a stop and sensible size.",
+            "<strong>Curve-fitting on history.</strong> Tweaking settings until a combo looks perfect on old charts rarely survives live markets. Keep it simple and robust.",
+          ],
+        },
+        {
           kind: "key",
           text: "Seek confluence from complementary tools that measure different things — stacking redundant indicators adds noise and false confidence, not edge.",
         },
@@ -849,7 +1187,7 @@ export const trendCourse: Course = {
       title: "Building an Indicator Strategy",
       summary:
         "How to turn everything into one disciplined, rules-based indicator strategy with entries, stops and honest expectations.",
-      readingMinutes: 7,
+      readingMinutes: 12,
       objective:
         "After this module you'll be able to assemble a simple, rules-based trend strategy with defined entries, stops and risk control.",
       blocks: [
@@ -893,6 +1231,28 @@ export const trendCourse: Course = {
         {
           kind: "text",
           html: "Finally, keep expectations honest. No indicator setup <strong>guarantees profit</strong>, no combination removes losing trades, and anyone promising signals or riches is selling something. Your durable edge is <strong>discipline and risk control</strong> applied consistently to a plan you actually understand.",
+        },
+        {
+          kind: "example",
+          title: "Running the five-step template on a live setup",
+          steps: [
+            "<strong>Bias</strong>: on the 1-hour gold chart, price is above a rising 200 EMA — long only.",
+            "<strong>Strength</strong>: ADX reads <strong>26 and rising</strong> — a real trend, so the signal is worth trading.",
+            "<strong>Trigger</strong>: price pulls back and RSI turns up from <strong>40</strong> as a green candle closes at <strong>2046</strong>.",
+            "<strong>Entry & risk</strong>: you buy 2046, stop below the pullback low at <strong>2032</strong> (14 points). On €3,000 at 1% (€30), size ≈ <strong>0.2 lots</strong>.",
+            "<strong>Target</strong>: the prior high near <strong>2088</strong>, ~42 points — a <strong>3:1</strong> trade planned in full before you clicked. Same five steps, every single time.",
+          ],
+        },
+        {
+          kind: "mistakes",
+          title: "Common beginner mistakes building a strategy",
+          items: [
+            "<strong>Having no written rules.</strong> Without them you drift into impulsive trades and can't tell if the approach works. Write the plan down.",
+            "<strong>Stacking redundant tools.</strong> Three momentum oscillators is not a strategy. Use one of each type: trend, strength, momentum.",
+            "<strong>Sizing before the stop.</strong> Pick the invalidation level first, then size so a loss is small. Never pick a size then hunt for a stop that fits.",
+            "<strong>Abandoning the plan in a drawdown.</strong> Every strategy has losing streaks; trend following in particular. A plan you can't follow through a bad run is worthless.",
+            "<strong>Chasing guaranteed profits.</strong> No setup wins every time and anyone selling certainty is selling nonsense. Discipline and risk control are the real edge.",
+          ],
         },
         {
           kind: "key",
