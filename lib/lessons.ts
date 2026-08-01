@@ -308,17 +308,31 @@ const LESSONS: Lesson[] = [
   },
 ];
 
+// --- SEO education clusters (beginner search-intent guides) ---
+// Authored as separate modules so the core curriculum stays readable, then
+// merged into the public lesson set below. Each cluster is a Lesson[].
+import CLUSTER_BASICS from "./seo/cluster-basics";
+import CLUSTER_RISK from "./seo/cluster-risk";
+import CLUSTER_CHOOSING from "./seo/cluster-choosing";
+
+const ALL_LESSONS: Lesson[] = [
+  ...LESSONS,
+  ...CLUSTER_BASICS,
+  ...CLUSTER_RISK,
+  ...CLUSTER_CHOOSING,
+];
+
 /** Return all lessons in display order. */
 export function getLessons(): Lesson[] {
-  return LESSONS;
+  return ALL_LESSONS;
 }
 
 /** Return a single lesson by slug, or undefined if not found. */
 export function getLessonBySlug(slug: string): Lesson | undefined {
-  return LESSONS.find((l) => l.slug === slug);
+  return ALL_LESSONS.find((l) => l.slug === slug);
 }
 
 /** Return all lesson slugs (for static generation). */
 export function getAllLessonSlugs(): string[] {
-  return LESSONS.map((l) => l.slug);
+  return ALL_LESSONS.map((l) => l.slug);
 }
