@@ -179,14 +179,20 @@ export default function ComparePage({
           >
             <div className="font-bold text-ink">{brk.name}</div>
             <div className="text-sm text-muted">{brk.tagline}</div>
-            <a
-              href={brk.affiliateUrl}
-              target="_blank"
-              rel="sponsored noopener"
-              className="mt-2 rounded-lg bg-amber px-5 py-2.5 text-sm font-semibold text-white hover:bg-amber-dark"
-            >
-              Open account
-            </a>
+            {brk.flagged ? (
+              <span className="mt-2 rounded-lg bg-red-50 px-5 py-2.5 text-sm font-semibold text-red-700 ring-1 ring-red-200">
+                Not recommended
+              </span>
+            ) : (
+              <a
+                href={brk.affiliateUrl}
+                target="_blank"
+                rel="sponsored noopener"
+                className="mt-2 rounded-lg bg-amber px-5 py-2.5 text-sm font-semibold text-white hover:bg-amber-dark"
+              >
+                Open account
+              </a>
+            )}
           </div>
         ))}
       </div>

@@ -24,3 +24,12 @@ export function leadListing(scored: ScoredBroker[]): ScoredBroker[] {
   );
   return [...lead, ...rest];
 }
+
+/**
+ * Drop flagged (neutrality-signal) brokers from a scored list. Used on
+ * "best broker for X" pages, where listing a broker we explicitly don't
+ * recommend would make no sense. The full /brokers table still shows them.
+ */
+export function withoutFlagged(scored: ScoredBroker[]): ScoredBroker[] {
+  return scored.filter((s) => !s.broker.flagged);
+}

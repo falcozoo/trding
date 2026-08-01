@@ -40,7 +40,9 @@ export default function CountryPage({
   const country = getCountry(params.country);
   if (!country) notFound();
 
-  const scored = leadListing(scoreBrokers(getBrokers()));
+  const scored = leadListing(
+    scoreBrokers(getBrokers().filter((b) => !b.flagged))
+  );
 
   const itemListLd = {
     "@context": "https://schema.org",
