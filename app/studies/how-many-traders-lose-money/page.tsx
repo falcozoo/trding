@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const PUBLISHED = "2026-08-02";
 const UPDATED = "2026-08-02";
-const AUTHOR = "Falco";
+const AUTHOR = "Michael";
 const AUTHOR_TITLE = "Head of Strategy";
 
 // Cross-regulator loss figures — every number linked to its primary source.

@@ -5,7 +5,7 @@
  * (a) rank for real informational queries and (b) act as "digital PR" landing
  * pages that journalists can cite — earning editorial backlinks. Every stat is
  * sourced to a regulator (FCA / ESMA / ASIC / CFTC). Authored by a named human
- * (Falco) for E-E-A-T. Rendered by app/insights/[slug]/page.tsx.
+ * (Michael) for E-E-A-T. Rendered by app/insights/[slug]/page.tsx.
  */
 
 export interface ArticleBlock {
@@ -35,7 +35,7 @@ export interface Article {
   /** One-paragraph, quotable summary shown near the top ("free to cite"). */
   summary: string;
   blocks: ArticleBlock[];
-  /** The pull-quote offered to journalists, attributed to Falco. */
+  /** The pull-quote offered to journalists, attributed to Michael. */
   citeQuote: string;
   sources: ArticleSource[];
 }

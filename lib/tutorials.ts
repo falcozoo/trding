@@ -4,7 +4,7 @@
  * How-to guides targeting real, low-competition technical search queries
  * (install an EA, backtest on MT5, position sizing...). These are strong
  * backlink magnets: forums, EA vendors and Reddit link to a clear reference
- * page. Authored by Falco (E-E-A-T). Rendered by app/tutorials/[slug]/page.tsx.
+ * page. Authored by Michael (E-E-A-T). Rendered by app/tutorials/[slug]/page.tsx.
  * Shares the ArticleBlock shape with lib/articles.ts.
  */
 

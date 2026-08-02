@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getArticle, getAllArticleSlugs } from "@/lib/articles";
 import { SITE } from "@/lib/site";
 
-const AUTHOR = "Falco";
+const AUTHOR = "Michael";
 const AUTHOR_TITLE = "Head of Strategy";
 
 export function generateStaticParams() {
