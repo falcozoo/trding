@@ -25,6 +25,7 @@ import {
   type Broker,
 } from "@/lib/brokers";
 import { getRegulator } from "@/lib/regulators";
+import { getRegulatorClarity } from "@/lib/regulatorClarity";
 import { SITE, formatWithdrawal } from "@/lib/site";
 
 /** A single visible Q&A that also feeds FAQPage JSON-LD. */
@@ -307,6 +308,7 @@ export const ALL_TOPICS: Topic[] = [
           )}. See the authorities, their registers and what protection you actually get.`,
     build: (b) => {
       const unreg = isUnregulated(b);
+      const clarity = getRegulatorClarity(b.slug);
       const directAnswer = unreg
         ? `${b.name} is NOT regulated by a recognised financial authority — it ${regulationPhrase(
             b
@@ -356,6 +358,12 @@ export const ALL_TOPICS: Topic[] = [
         paragraphs,
         facts: [
           ["Regulators", b.regulators.join(", ")],
+          ...(clarity
+            ? ([
+                ["Verified regulator", clarity.verifiedRegulator],
+                ["Verified on", clarity.verifiedOn],
+              ] as Array<[string, string]>)
+            : []),
           ["Our regulation score", `${b.regulationScore}/5`],
           ["Segregated client funds", b.segregatedFunds ? "Yes" : "No"],
           [
@@ -400,6 +408,14 @@ export const ALL_TOPICS: Topic[] = [
                 : "These protections are part of what its regulatory status requires."
             }`,
           },
+          ...(clarity
+            ? [
+                {
+                  q: `Why do different sites list different regulators for ${b.name}?`,
+                  a: `Comparison sites often copy each other or cite out-of-date entity details, which is why claims conflict. Based on primary sources (the broker's own legal documents and official registers), the verified position as of ${clarity.verifiedOn} is: ${clarity.verifiedRegulator}. ${clarity.caveat}`,
+                },
+              ]
+            : []),
         ],
       };
     },

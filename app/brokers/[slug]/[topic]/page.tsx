@@ -10,6 +10,7 @@ import {
   siblingTopicLinks,
 } from "@/lib/brokerTopics";
 import { SITE, NOT_ADVICE } from "@/lib/site";
+import { getRegulatorClarity } from "@/lib/regulatorClarity";
 
 export function generateStaticParams() {
   return getAllBrokerTopicPairs();
@@ -70,6 +71,13 @@ export default function BrokerTopicPage({
 
   const content = topic.build(broker);
   const heading = topic.title(broker);
+
+  // Regulator contradiction resolver: only on the regulation topic, and only
+  // for the six brokers we verified against primary sources.
+  const clarity =
+    topic.slug === "regulation"
+      ? getRegulatorClarity(broker.slug)
+      : undefined;
 
   // FAQPage JSON-LD (visible Q&A mirrors this exactly).
   const faqLd = {
@@ -170,6 +178,61 @@ export default function BrokerTopicPage({
           <p className="mt-2 text-[15px] leading-relaxed text-ink/90">
             {content.riskNote}
           </p>
+        </section>
+      )}
+
+      {/* Regulator contradiction resolver — the unique, non-copyable asset.
+          Renders only on the regulation topic when verified clarity data
+          exists for the broker. */}
+      {clarity && (
+        <section className="mt-12">
+          <h2 className="text-2xl font-bold text-ink">
+            Why sources disagree about {broker.name}&apos;s regulation
+          </h2>
+          <p className="mt-3 text-[15px] leading-relaxed text-ink/90">
+            Different sites report different regulators for {broker.name}.
+            Here&apos;s each claim, side by side, and what the primary sources
+            actually confirm.
+          </p>
+
+          {/* Conflicting claims, source → claim */}
+          <div className="mt-5 space-y-3">
+            {clarity.conflictingClaims.map((c, i) => (
+              <div
+                key={i}
+                className="rounded-xl2 border border-line bg-paper p-4 shadow-card"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted">
+                  {c.source} claims
+                </p>
+                <p className="mt-1 text-[15px] leading-relaxed text-ink">
+                  {c.claim}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Verified answer — highlighted resolution block */}
+          <div className="mt-6 rounded-xl2 border border-amber/40 bg-amber-soft/40 p-5 shadow-card">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-amber-dark">
+              Verified answer (as of {clarity.verifiedOn})
+            </h3>
+            <p className="mt-3 text-[15px] leading-relaxed text-ink">
+              {clarity.verified}
+            </p>
+            <dl className="mt-4 space-y-1">
+              <dt className="text-xs font-semibold uppercase tracking-wide text-muted">
+                Verified regulator
+              </dt>
+              <dd className="text-[15px] font-semibold text-ink">
+                {clarity.verifiedRegulator}
+              </dd>
+            </dl>
+            <p className="mt-4 border-t border-amber/30 pt-4 text-[15px] leading-relaxed text-ink/90">
+              <span className="font-semibold text-ink">What to weigh: </span>
+              {clarity.caveat}
+            </p>
+          </div>
         </section>
       )}
 
