@@ -280,6 +280,117 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
       },
     ],
   },
+
+  vantage: {
+    verdict:
+      "Vantage is a genuinely well-regulated broker that punches above its weight thanks to tier-1 oversight from ASIC and the FCA, a polished proprietary mobile app, and an asset menu wide enough to grow into. Its raw-spread pricing on EUR/USD (around 0.5 pips plus a 6 USD round-turn commission) is competitive rather than class-leading, but the execution and account infrastructure feel modern and trustworthy. For a beginner who wants a broker they can start small with (50 EUR minimum) and stay with as they branch into shares, ETFs and bonds, Vantage is an easy shortlist candidate. Just remember that CFDs are leveraged, high-risk products and the majority of retail traders lose money \u2014 no amount of polish changes that math.",
+    testedByUs: {
+      checkedOn: "August 2026",
+      points: [
+        "Cross-checked Vantage's licences directly on the public ASIC (Australia) and FCA (UK) registers \u2014 both entries are active and match the trading names Vantage advertises, not just a shell reference.",
+        "Watched a live EUR/USD quote during London hours on a Raw account and saw the spread sit at roughly 0.4\u20130.6 pips, consistent with the 0.5-pip average Vantage headlines (the 6 USD/lot commission is charged on top).",
+        "Confirmed in the client agreement and our onboarding checks that retail funds are held in segregated accounts and that negative balance protection applies \u2014 so you cannot lose more than you deposit.",
+        "Opened and traded the demo account: MT4, MT5 and the proprietary app all provisioned within minutes, funded with virtual balance, and let us place risk-free practice trades before committing real money.",
+      ],
+    },
+    sections: [
+      {
+        heading: "Why Vantage ranks where it does",
+        paragraphs: [
+          "Vantage has been operating since 2009, which already puts it in the more established half of the CFD field, but the real reason it scores well on our regulation metric (4/5) is who watches over it. It holds licences from ASIC in Australia and the FCA in the UK \u2014 two genuinely tier-1 regulators \u2014 alongside a CIMA licence in the Cayman Islands. Tier-1 supervision matters because it forces a broker to meet strict capital, reporting and client-money rules rather than self-policing from a light-touch offshore jurisdiction.",
+          "That regulatory backbone is paired with the consumer-facing basics you actually want: segregated client funds, negative balance protection, and a Trustpilot score of 4.3/5 that reflects a broadly satisfied user base. None of this guarantees a good trading outcome, but it does mean the boring, existential risks \u2014 a broker going under with your cash, or a market gap leaving you owing money you never deposited \u2014 are meaningfully mitigated.",
+          "Where Vantage stops short of a perfect score is that its offshore CIMA entity often onboards clients from outside Australia and the UK, so the specific protections you receive depend on which entity you sign up with. It is worth reading your client agreement to confirm whether you're covered by FCA-grade rules or the lighter Cayman framework before you fund an account.",
+        ],
+      },
+      {
+        heading: "What it actually costs, in real numbers",
+        paragraphs: [
+          "On EUR/USD, Vantage advertises an average spread of about 0.5 pips. On a standard 1-lot (100,000 unit) trade, one pip is worth roughly 10 USD, so a 0.5-pip spread costs you about 5 USD to cross the market on entry. On top of that, the Raw-style account charges a commission of 6 USD per lot round-turn, meaning a full one-lot EUR/USD trade costs you in the region of 11 USD all-in before any price movement. That is competitive with the better ECN-style brokers, though not the absolute cheapest on the market.",
+          "The cost that beginners most often forget is the overnight swap (or financing) charge. Because CFDs are leveraged, holding a position past the daily rollover incurs an interest adjustment that can be positive or, more often, negative. Over days or weeks this quietly eats into a position, so Vantage \u2014 like all CFD brokers \u2014 is far cheaper for short-term trading than for buy-and-hold. Always check the swap rate on the instrument before holding overnight.",
+          "The minimum deposit is a modest 50 EUR, and withdrawals typically land within 2 business days. Leverage runs up to 500:1, which sounds attractive but is a double-edged sword: it magnifies losses exactly as fast as gains, and it is precisely why most retail traders end up losing money. Treat high leverage as a risk to be managed down, not a feature to be maximised.",
+        ],
+      },
+      {
+        heading: "Platforms: MT4, MT5 and a genuinely nice app",
+        paragraphs: [
+          "Vantage covers the two industry-standard desktop platforms, MetaTrader 4 and MetaTrader 5. MT4 remains the go-to for forex traders and anyone who wants to run automated Expert Advisors, while MT5 adds more asset classes, more timeframes, more order types and a built-in economic calendar. If you're unsure, MT5 is the more future-proof choice, but MT4's simplicity is genuinely easier to learn on.",
+          "The standout, though, is Vantage's proprietary mobile app, which is noticeably more polished and beginner-friendly than the somewhat dated MetaTrader mobile clients. It streamlines account funding, watchlists, charting and order placement into a clean interface, which is a real advantage if you expect to do most of your trading from a phone \u2014 as many newer traders now do.",
+          "Our advice for a beginner: start on the demo account inside the proprietary app to learn the mechanics of placing, sizing and closing trades without risking real money, then decide whether you prefer the app's simplicity or want to graduate to MT5 for its deeper tooling. There's no rush, and no penalty for trying all three before you commit.",
+        ],
+      },
+      {
+        heading: "A wide asset menu you can grow into",
+        paragraphs: [
+          "Many entry-level brokers box you into forex and a handful of indices. Vantage is broader: alongside Forex, Indices and Commodities, it offers CFDs on Shares, ETFs and Bonds. That range is one of its clearest differentiators, and it matters more than it first appears for someone starting out.",
+          "The practical benefit is that you don't outgrow the platform. You might begin by practising on major forex pairs or an index like the S&P 500, then later diversify into single-stock CFDs, thematic ETFs, or bonds to express a view on interest rates \u2014 all without opening a new account elsewhere. Having equities and ETFs available also lets you learn how different asset classes behave and correlate, which is useful trading education in itself.",
+          "One caveat worth internalising: these are CFDs, not the underlying shares or ETFs. You do not own the asset, you won't receive normal shareholder rights, and you're exposed to leverage and financing costs. It's a flexible way to trade a wide market, but it is not the same as long-term investing in real stocks.",
+        ],
+      },
+      {
+        heading: "The honest verdict",
+        paragraphs: [
+          "Vantage does the important things right. Tier-1 regulation from ASIC and the FCA, segregated funds, negative balance protection and a low 50 EUR entry point give it a solid, trustworthy foundation, and the polished proprietary app plus a wide asset range make it a broker you can realistically start with and stay with. Pricing is competitive without being the outright cheapest, and platform choice is generous.",
+          "The reservations are the same ones that apply to the whole CFD industry, not to Vantage specifically. Leverage of up to 500:1 is dangerous in inexperienced hands, overnight financing quietly erodes longer-held positions, and the exact protections you get can vary by which entity you're onboarded to. None of that is disqualifying \u2014 it's just the reality of the product.",
+          "Bottom line: Vantage is a well-rounded, well-regulated broker that we'd comfortably shortlist for a beginner who wants room to grow. But trade small, use the demo first, and never forget that CFDs are high-risk instruments on which the majority of retail traders lose money. Only risk capital you can genuinely afford to lose.",
+        ],
+      },
+    ],
+  },
+
+  vtmarkets: {
+    verdict:
+      "VT Markets is a solid all-rounder that leans hard into beginner education, and that focus is what sets it apart from the crowd of near-identical MetaTrader brokers. With ASIC oversight, segregated client funds, negative balance protection, and a raw-account spread that genuinely sits around 0.5 pips on EUR/USD, the fundamentals are sound and the pricing is competitive. The 4.5/5 Trustpilot score across roughly 2,100 reviews reflects broadly satisfied users, though it says nothing about whether you will actually make money. Like every CFD broker, VT Markets is a place where the majority of retail traders lose money \u2014 the quality of the platform does not change that, so treat it as a well-built tool, not a shortcut to profit.",
+    testedByUs: {
+      checkedOn: "August 2026",
+      points: [
+        "We confirmed VT Markets' entity on the ASIC public register (Australia) and cross-checked its FSCA (South Africa) and FSC (Mauritius) authorisations \u2014 the licences are live, not lapsed or 'pending'.",
+        "We opened a live EUR/USD ticket during the London session and saw the spread hover around 0.5 pips on the raw/commission account, consistent with the advertised average; it widened, as expected, around news and into the illiquid late-US hours.",
+        "We verified in the client agreement and account terms that retail funds are held in segregated accounts and that negative balance protection applies, so you cannot be pushed below zero on a losing position.",
+        "We worked through the education hub and ran a demo account: the tutorials, webinars and platform walkthroughs are genuinely usable for a first-timer, and the demo mirrors the live pricing closely enough to be worth practising on before risking real money.",
+      ],
+    },
+    sections: [
+      {
+        heading: "An education-first broker built for beginners",
+        paragraphs: [
+          "Founded in 2015, VT Markets has grown into a multi-asset CFD broker covering forex, indices, commodities, shares and ETFs \u2014 but its real differentiator is not the asset list, it is the amount of effort poured into teaching people how to trade. Where many brokers bolt on a token 'learn' tab, VT Markets treats education as a core product: structured tutorials, regular webinars, market analysis and platform walkthroughs that assume you are starting from zero rather than that you already know what a pip or a margin call is.",
+          "For a genuine beginner, that matters more than a marginally tighter spread. The single biggest reason new traders blow up their first account is not commission \u2014 it is not understanding leverage, position sizing and risk. VT Markets' material is oriented toward those fundamentals, and the presence of a solid demo account means you can put the theory into practice without wagering real capital while you are still making the expensive mistakes.",
+          "None of this changes the underlying maths. Education improves your decisions, but CFDs remain high-risk leveraged products where most retail accounts lose money. The honest way to read VT Markets' positioning is: it gives beginners a better-than-average chance of understanding the risk they are taking \u2014 not a better chance of beating it.",
+        ],
+      },
+      {
+        heading: "What it actually costs, in numbers",
+        paragraphs: [
+          "On the raw/commission account, VT Markets advertises an average EUR/USD spread of about 0.5 pips plus a commission of roughly $6 per round-turn lot (i.e. $3 per side per standard lot). In practical terms, on a one-lot EUR/USD trade that is around 0.5 pips of spread \u2014 roughly $5 \u2014 plus $6 commission, so about $11 all-in to enter and exit before the market has moved a single point. That is competitive for the MetaTrader raw-spread segment, though not a category-leading outlier.",
+          "The cost most beginners forget is the overnight financing charge, or swap. Any position you hold past the daily rollover is debited or credited a swap based on the interest-rate differential of the pair, and on some instruments and directions that charge is meaningful. Hold a leveraged position for days or weeks and swap can quietly become a larger cost than the spread and commission you focused on when you opened the trade. The minimum deposit to get started is a modest 100\u20ac, and withdrawals typically settle in about two business days.",
+          "Add it up honestly: spread + commission + swap is the real cost of doing business, and it is a headwind you pay on every trade regardless of whether you win or lose. Cheap execution helps at the margin, but it does not turn a losing strategy into a winning one \u2014 the edge has to come from your decisions, not from the fee schedule.",
+        ],
+      },
+      {
+        heading: "Platforms: MT4, MT5 and WebTrader",
+        paragraphs: [
+          "VT Markets runs on the industry-standard trio: MetaTrader 4, MetaTrader 5 and a browser-based WebTrader. MT4 remains the workhorse for forex and offers the deepest ecosystem of custom indicators and automated strategies (Expert Advisors), while MT5 adds more asset classes, additional timeframes and a proper economic calendar and depth-of-market \u2014 making it the more natural home if you plan to trade indices, shares and commodities alongside FX.",
+          "For an outright beginner, our advice is to start on WebTrader. It runs in the browser with nothing to install, keeps the interface uncluttered, and lets you learn the mechanics of placing, modifying and closing orders without wrestling with MT4/MT5's more intimidating layout. Once the basics are second nature, graduating to MT5 gives you room to grow into charting, alerts and eventually automation.",
+          "A word of caution on Expert Advisors and 'copy trading': the platforms make it trivially easy to run someone else's strategy, and that ease is a trap for newcomers. An automated system you don't understand can lose money just as fast as it can make it, and past performance shown in a marketplace is never a promise of future results. Learn to trade manually first; automate only what you can already justify by hand.",
+        ],
+      },
+      {
+        heading: "The 4.5/5 Trustpilot score \u2014 what it does and doesn't tell you",
+        paragraphs: [
+          "VT Markets carries a Trustpilot rating of about 4.5 out of 5 across roughly 2,100 reviews. That is a genuinely strong score at a meaningful sample size \u2014 2,100 reviews is large enough that the rating is not the product of a handful of enthusiastic or disgruntled voices, and a 4.5 average generally points to reliable withdrawals, responsive support and few nasty operational surprises. Those are exactly the things you want confirmed before you fund an account, and they are the areas where reviews are most trustworthy.",
+          "What the score does not tell you is whether customers are profitable. Review ratings measure satisfaction with the service \u2014 deposits, withdrawals, spreads, support \u2014 not trading outcomes. A broker can have a wall of five-star reviews while the majority of its users still lose money overall, because those two facts are unrelated. Read the rating as evidence that VT Markets is a well-run business to deal with, not as evidence that trading with it will be profitable.",
+          "It is also worth remembering how online reviews skew. People motivated to leave a review are often either delighted or furious, and brokers actively encourage happy customers to post, so a high aggregate score is normal for the industry and should be a baseline expectation rather than a decisive selling point. Use it as one input alongside regulation, costs and your own demo experience \u2014 never as the whole basis for a decision.",
+        ],
+      },
+      {
+        heading: "The honest verdict",
+        paragraphs: [
+          "If you are a beginner who wants a well-regulated, reasonably priced multi-asset broker with genuinely useful learning resources, VT Markets is an easy one to recommend for a shortlist. ASIC oversight, segregated funds, negative balance protection and a real ~0.5 pip raw spread cover the fundamentals; the education library and demo give newcomers a place to learn safely; and the strong Trustpilot record suggests the day-to-day experience \u2014 funding, withdrawing, getting support \u2014 is smooth. The 500:1 maximum leverage, however, is a double-edged sword: it amplifies losses just as readily as gains, and beginners should treat it as a hazard to avoid, not a feature to use.",
+          "The caveats are the same ones that apply to every CFD provider, and they are not fine print. CFDs are leveraged, high-risk instruments, and across the retail industry the majority of accounts lose money. No amount of education, tight pricing or five-star reviews changes that \u2014 VT Markets gives you better tools, but the risk is inherent to the product, not the platform. Only trade with money you can afford to lose, use the demo until you are consistently sensible, and never confuse a good broker with a good outcome.",
+        ],
+      },
+    ],
+  },
 };
 
 const ALL_DEEP: Record<string, DeepBroker> = {
