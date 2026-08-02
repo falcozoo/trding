@@ -33,7 +33,10 @@ export function generateMetadata({
       ", "
     )} regulation and ${formatWithdrawal(
       broker.withdrawalDays
-    ).toLowerCase()} withdrawals. Neutral rating, pros & cons and FAQ.`,
+    ).toLowerCase()} withdrawals. Neutral rating, pros & cons and FAQ.`.slice(
+      0,
+      158
+    ),
     alternates: { canonical: `/brokers/${broker.slug}` },
   };
 }

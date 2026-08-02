@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BROKERS } from "@/lib/brokers";
 import { SITE } from "@/lib/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
 
 export const metadata: Metadata = {
   title: "Withdrawal Times Barometer — How Long Until You Get Your Money Back?",
   description:
     "Original Trding.io study of CFD broker withdrawal times. The gap between the fastest and slowest brokers reaches 7×. Full data, methodology and key findings — free to cite.",
+  alternates: { canonical: "/studies/withdrawal-times" },
 };
 
 // --- Original study computed live from our own broker dataset ---
@@ -31,6 +34,12 @@ const PUBLISHED = "2026-08-02";
 export default function WithdrawalStudyPage() {
   return (
     <div className="mx-auto max-w-3xl px-5 py-12">
+      <Breadcrumbs
+        items={[
+          { name: "Studies" },
+          { name: "Withdrawal Times Barometer" },
+        ]}
+      />
       <p className="text-sm font-medium uppercase tracking-wide text-accent">
         Trding.io Original Study
       </p>
@@ -186,6 +195,8 @@ export default function WithdrawalStudyPage() {
           See our full scoring methodology →
         </Link>
       </p>
+
+      <RelatedLinks links={CROSS_LINKS} />
     </div>
   );
 }

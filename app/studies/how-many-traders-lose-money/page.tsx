@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE } from "@/lib/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
 
 export const metadata: Metadata = {
   title:
     "Do Most Traders Lose Money? What Official Regulator Data Reveals (FCA, ESMA, ASIC)",
   description:
     "Three major regulators agree: most retail CFD traders lose money. FCA ~80%, ESMA 74–89%, ASIC 68%. The official figures, cross-compared and primary-sourced — free to cite.",
+  alternates: { canonical: "/studies/how-many-traders-lose-money" },
 };
 
 const PUBLISHED = "2026-08-02";
@@ -80,6 +83,13 @@ export default function TradersLoseMoneyStudyPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+
+      <Breadcrumbs
+        items={[
+          { name: "Studies" },
+          { name: "Do most traders lose money?" },
+        ]}
       />
 
       <p className="text-sm font-medium uppercase tracking-wide text-accent">
@@ -252,6 +262,8 @@ export default function TradersLoseMoneyStudyPage() {
         This article is educational and is not financial advice. CFDs are complex
         instruments and come with a high risk of losing money.
       </p>
+
+      <RelatedLinks links={CROSS_LINKS} />
     </div>
   );
 }

@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Methodology — How We Score Brokers",
   description:
     "Our neutral scoring formula, published in full: the criteria, the weights and how the rating is calculated. Affiliation never affects the score.",
+  alternates: { canonical: "/methodology" },
 };
 
 export default function MethodologyPage() {

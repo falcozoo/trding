@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Best Brokers 2026 — Compared & Rated",
   description:
     "Compare the best brokers on regulation, fees, spreads, platforms and withdrawal speed. Neutral scoring, updated regularly. No account needed.",
+  alternates: { canonical: "/brokers" },
 };
 
 export default function BrokersPage() {

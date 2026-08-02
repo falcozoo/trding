@@ -6,7 +6,8 @@ import { scoreBrokers, type ScoredBroker } from "@/lib/scoring";
 import { presentationScores } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { getAllPairs, parsePairSlug } from "@/lib/pairs";
-import { formatWithdrawal } from "@/lib/site";
+import { formatWithdrawal, SITE } from "@/lib/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return getAllPairs().map((p) => ({ pair: p.slug }));
@@ -115,7 +116,7 @@ export default function ComparePage({
       "@type": "ListItem",
       position: i + 1,
       name: brk.name,
-      url: `/brokers/${brk.slug}`,
+      url: `https://${SITE.domain}/brokers/${brk.slug}`,
     })),
   };
 
@@ -126,11 +127,12 @@ export default function ComparePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <nav className="mb-6 text-sm text-muted">
-        <Link href="/compare" className="hover:text-ink">
-          ← All comparisons
-        </Link>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Compare", href: "/compare" },
+          { name: `${a.name} vs ${b.name}` },
+        ]}
+      />
 
       <header className="max-w-3xl">
         <h1 className="text-3xl font-bold sm:text-4xl">

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getArticle, getAllArticleSlugs } from "@/lib/articles";
 import { SITE } from "@/lib/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const AUTHOR = "Michael";
 const AUTHOR_TITLE = "Head of Strategy";
@@ -58,6 +59,13 @@ export default function InsightArticlePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+
+      <Breadcrumbs
+        items={[
+          { name: "Insights", href: "/insights" },
+          { name: article.title },
+        ]}
       />
 
       <p className="text-sm font-medium uppercase tracking-wide text-accent">

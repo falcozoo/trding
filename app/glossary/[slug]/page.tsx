@@ -9,6 +9,7 @@ import {
 } from "@/lib/glossary";
 import { SITE, NOT_ADVICE } from "@/lib/site";
 import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return getAllTermSlugs().map((slug) => ({ slug }));
@@ -78,11 +79,12 @@ export default function GlossaryTermPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <nav className="mb-6 text-sm text-muted">
-        <Link href="/glossary" className="hover:text-ink">
-          ← Trading glossary
-        </Link>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Glossary", href: "/glossary" },
+          { name: term.term },
+        ]}
+      />
 
       {/* Header */}
       <header>

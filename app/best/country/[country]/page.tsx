@@ -6,6 +6,7 @@ import { scoreBrokers } from "@/lib/scoring";
 import { leadListing } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE } from "@/lib/site";
 import { COUNTRIES, getCountry } from "@/lib/geoCountries";
 
@@ -77,11 +78,12 @@ export default function CountryPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
 
-      <nav className="mb-6 text-sm text-muted">
-        <Link href="/brokers" className="hover:text-ink">
-          ← All brokers
-        </Link>
-      </nav>
+      <Breadcrumbs
+        items={[
+          { name: "Brokers by country", href: "/brokers" },
+          { name: country.name },
+        ]}
+      />
 
       <header className="max-w-3xl">
         <h1 className="text-3xl font-bold sm:text-4xl">

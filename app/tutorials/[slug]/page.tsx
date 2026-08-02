@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getTutorial, getAllTutorialSlugs } from "@/lib/tutorials";
 import { SITE } from "@/lib/site";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const AUTHOR = "Michael";
 const AUTHOR_TITLE = "Head of Strategy";
@@ -59,6 +60,13 @@ export default function TutorialPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }}
+      />
+
+      <Breadcrumbs
+        items={[
+          { name: "Tutorials", href: "/tutorials" },
+          { name: t.title },
+        ]}
       />
 
       <p className="text-sm font-medium uppercase tracking-wide text-accent">

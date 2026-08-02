@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "How We Make Money",
   description:
     "Transparency on how Trding.io is funded: affiliate links and paid listings, clearly labelled, and why it never influences our ratings.",
+  alternates: { canonical: "/how-we-make-money" },
 };
 
 export default function HowWeMakeMoneyPage() {
