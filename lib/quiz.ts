@@ -85,8 +85,36 @@ export interface QuizResult extends ScoredBroker {
  * Priorities where a specific broker legitimately owns the #1 slot on raw
  * facts, so the featured edge should stand down (keeps the quiz credible).
  */
+/**
+ * When the user picks a priority that another broker wins *decisively* on the
+ * raw facts, the featured edge stands down so the quiz stays credible — BUT
+ * only when doing so doesn't send a non-US trader to an offshore broker that a
+ * better-regulated, market-appropriate option already covers.
+ *
+ * `priorityOverrideActive` answers: "is this a priority where a non-featured
+ * broker may legitimately take #1?" The geographic guardrail below then makes
+ * sure that override never routes a served-market user away from the featured
+ * pick toward an offshore-only broker.
+ */
 function priorityOverrideActive(priority: Priority): boolean {
   return priority === "High leverage";
+}
+
+/**
+ * True when the featured pick (RaiseFX) actually serves this user's country.
+ * If it does, we must not let the "High leverage" override hand #1 to an
+ * offshore broker (HeroFX) — the featured, market-appropriate broker leads.
+ */
+function featuredServesCountry(
+  answers: QuizAnswers,
+  brokers: Broker[]
+): boolean {
+  return brokers.some(
+    (b) =>
+      b.featured &&
+      !b.flagged &&
+      b.countriesServed.includes(answers.country)
+  );
 }
 
 /**
@@ -118,6 +146,17 @@ export function recommend(
   // 3) Score within the filtered pool (relative, neutral).
   let scored = scoreBrokers(pool, weights);
 
+  // Geographic guardrail (Falco business rule): if the featured, market-
+  // appropriate pick (RaiseFX) serves this user's country, we never let the
+  // "High leverage" override route them to an offshore-only broker (HeroFX).
+  // HeroFX is our pick for US / unregulated-domicile markets — not for a
+  // served EU/Nordic trader who has a better-regulated option.
+  const featuredCovers = featuredServesCountry(answers, brokers);
+  // The override only truly stands down when the featured pick can't serve the
+  // user (e.g. US traders, where RaiseFX isn't available and HeroFX is valid).
+  const overrideStandsDown =
+    priorityOverrideActive(answers.priority) && !featuredCovers;
+
   // 4) Soft re-rank nudges that aren't weighted criteria.
   //
   // Design goal (business rule): the featured pick leads for most general
@@ -139,20 +178,21 @@ export function recommend(
         if (s.broker.minDeposit <= 100) bump += 0.05;
       }
 
-      // Feature-specific override: only "High leverage" hands #1 to another
-      // broker (the highest-leverage one), because it's an unambiguous,
-      // fact-based win. All other priorities keep the featured pick leading.
+      // Feature-specific override: only "High leverage" can hand #1 to another
+      // broker (the highest-leverage one) — AND only when the featured pick
+      // doesn't serve this user's country. This stops a served EU/Nordic
+      // trader from being routed to an offshore-only broker on leverage alone.
       if (
+        overrideStandsDown &&
         answers.priority === "High leverage" &&
         s.broker.maxLeverage === bestLeverage
       ) {
         bump += 0.6;
       }
 
-      // Featured top pick gets a small edge — but NOT when another broker is
-      // winning the user's specific priority (so ~20% of profiles surface a
-      // different, legitimately-better broker at #1).
-      if (s.broker.featured && !priorityOverrideActive(answers.priority)) {
+      // Featured top pick gets a small edge — kept active unless the override
+      // legitimately stands down (i.e. the featured pick can't serve the user).
+      if (s.broker.featured && !overrideStandsDown) {
         bump += 0.15;
       }
 

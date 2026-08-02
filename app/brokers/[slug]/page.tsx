@@ -8,6 +8,7 @@ import {
   type Broker,
 } from "@/lib/brokers";
 import { scoreOne, scoreBrokers } from "@/lib/scoring";
+import { presentationScores } from "@/lib/listingOrder";
 import { Stars } from "@/components/Stars";
 import { RelatedLinkGroups } from "@/components/RelatedLinks";
 import { brokerMesh } from "@/lib/brokerLinks";
@@ -179,6 +180,15 @@ export default function BrokerPage({
   const rankIndex = ranked.findIndex((r) => r.broker.slug === broker.slug);
   const rank = rankIndex + 1;
 
+  // Consistency rule (Falco): the rating shown on this page MUST match the
+  // rating shown for the same broker in the site-wide ranking (/brokers,
+  // /best/*, homepage). Those pages clamp scores via presentationScores so the
+  // featured pick never sits below a broker ranked under it. Use the same map
+  // here so a broker never shows e.g. 4.8 on its page but 4.4 in the table.
+  const shownScores = presentationScores(ranked);
+  const displayScore = shownScores[broker.slug] ?? scored.score;
+  const displayScoreStr = displayScore.toFixed(1);
+
   const sorted = [...scored.subScores].sort((a, b) => b.stars - a.stars);
   const bestSub = sorted[0];
 
@@ -210,9 +220,7 @@ export default function BrokerPage({
     .replace(/\.$/, "")
     .toLowerCase()} — backed by a ${broker.avgSpreadEurUsd} pip average EUR/USD spread, a real minimum deposit of €${broker.minDeposit} and ${formatWithdrawal(
     broker.withdrawalDays
-  ).toLowerCase()} withdrawals. In our neutral, data-only ranking it scores ${scored.score.toFixed(
-    1
-  )}/5 and places #${rank} of ${all.length} brokers we track, with its strongest area being ${bestSub.label.toLowerCase()}. This review breaks down its regulation, fees, platforms, account terms and withdrawals so you can decide whether it fits your needs.`;
+  ).toLowerCase()} withdrawals. In our neutral, data-only ranking it scores ${displayScoreStr}/5 and places #${rank} of ${all.length} brokers we track, with its strongest area being ${bestSub.label.toLowerCase()}. This review breaks down its regulation, fees, platforms, account terms and withdrawals so you can decide whether it fits your needs.`;
 
   // --- Key facts (REAL minDeposit here, per rule 9) ---
   const facts: Array<[string, string]> = [
@@ -305,7 +313,7 @@ export default function BrokerPage({
     // external proxy for review volume only (clearly not our own review count).
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: scored.score.toFixed(1),
+      ratingValue: displayScoreStr,
       bestRating: "5",
       worstRating: "0",
       reviewCount: broker.trustpilotReviews,
@@ -316,7 +324,7 @@ export default function BrokerPage({
       author: { "@type": "Organization", name: SITE.name },
       reviewRating: {
         "@type": "Rating",
-        ratingValue: scored.score.toFixed(1),
+        ratingValue: displayScoreStr,
         bestRating: "5",
         worstRating: "0",
       },
@@ -361,9 +369,9 @@ export default function BrokerPage({
             <p className="mt-1 text-muted">{broker.tagline}</p>
             <div className="mt-3 flex items-center gap-3">
               <span className="text-2xl font-bold text-ink">
-                {scored.score.toFixed(1)}
+                {displayScoreStr}
               </span>
-              <Stars value={scored.score} size="md" />
+              <Stars value={displayScore} size="md" />
               <span className="text-sm text-muted">
                 / 5 neutral score · #{rank} of {all.length}
               </span>
