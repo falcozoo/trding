@@ -29,6 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/compounding",
     "/tools/cost-of-trading",
     "/tools/regulation-checker",
+    "/studies/withdrawal-times",
+    "/studies/how-many-traders-lose-money",
     "/methodology",
     "/how-we-make-money",
     "/about",
