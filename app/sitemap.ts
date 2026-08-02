@@ -8,6 +8,7 @@ import { getCourses } from "@/lib/courses";
 import { getAllTermSlugs } from "@/lib/glossary";
 import { getAllCountrySlugs } from "@/lib/geoCountries";
 import { getAllArticleSlugs } from "@/lib/articles";
+import { getAllTutorialSlugs } from "@/lib/tutorials";
 
 const BASE = `https://${SITE.domain}`;
 
@@ -33,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/studies/withdrawal-times",
     "/studies/how-many-traders-lose-money",
     "/insights",
+    "/tutorials",
     "/methodology",
     "/how-we-make-money",
     "/about",
@@ -125,6 +127,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Technical tutorials (backlink magnets, low-competition search)
+  const tutorialPages = getAllTutorialSlugs().map((slug) => ({
+    url: `${BASE}/tutorials/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...brokerPages,
@@ -135,5 +145,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...lessonPages,
     ...coursePages,
     ...insightPages,
+    ...tutorialPages,
   ];
 }
