@@ -287,30 +287,16 @@ export default function BrokerPage({
   ];
 
   // --- JSON-LD: Organization + Review/AggregateRating + FAQPage ---
+  // The rated entity (the broker itself) carries BOTH the aggregateRating and
+  // the review. Google requires aggregateRating/review to sit ON the reviewed
+  // item — never inside a standalone Review node (that reads as "rating a review").
   const orgLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "FinancialService",
     name: broker.name,
     slogan: broker.tagline,
     foundingDate: String(broker.founded),
     url: `https://${SITE.domain}/brokers/${broker.slug}`,
-  };
-
-  const reviewLd = {
-    "@context": "https://schema.org",
-    "@type": "Review",
-    itemReviewed: {
-      "@type": "FinancialProduct",
-      name: broker.name,
-      description: broker.tagline,
-    },
-    author: { "@type": "Organization", name: SITE.name },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: scored.score.toFixed(1),
-      bestRating: "5",
-      worstRating: "0",
-    },
     // Neutral in-house score used as ratingValue; trustpilotReviews is a rough
     // external proxy for review volume only (clearly not our own review count).
     aggregateRating: {
@@ -320,6 +306,16 @@ export default function BrokerPage({
       worstRating: "0",
       reviewCount: broker.trustpilotReviews,
       ratingCount: broker.trustpilotReviews,
+    },
+    review: {
+      "@type": "Review",
+      author: { "@type": "Organization", name: SITE.name },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: scored.score.toFixed(1),
+        bestRating: "5",
+        worstRating: "0",
+      },
     },
   };
 
@@ -338,10 +334,6 @@ export default function BrokerPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewLd) }}
       />
       <script
         type="application/ld+json"
