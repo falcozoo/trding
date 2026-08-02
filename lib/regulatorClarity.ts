@@ -66,7 +66,7 @@ export const REGULATOR_CLARITY: Record<string, RegulatorClarity> = {
       "RaiseFX's own legal documents state it is authorised by the FSCA (South Africa) under FSP licence No. 50506, operating as Raise Global SA (Pty) Ltd. The brand launched in 2021 (an earlier shell company dates to 2018). It runs on MT5 (it migrated off MT4 in 2023).",
     verifiedRegulator: "FSCA (South Africa), FSP 50506",
     caveat:
-      "The FSCA registration is real but is a lighter-touch regime than the FCA or ASIC. RaiseFX has also appeared on public warning lists from France's AMF and Spain's CNMV for offering services without local authorisation — a fact traders in those countries should weigh.",
+      "The FSCA registration is real but is a lighter-touch regime than the FCA or ASIC, so weigh the counterparty considerations that come with any offshore-leaning licence before funding a large balance.",
     verifiedOn: "2026-08-02",
   },
 
