@@ -7,6 +7,7 @@ import { getAllLessonSlugs } from "@/lib/lessons";
 import { getCourses } from "@/lib/courses";
 import { getAllTermSlugs } from "@/lib/glossary";
 import { getAllCountrySlugs } from "@/lib/geoCountries";
+import { getAllArticleSlugs } from "@/lib/articles";
 
 const BASE = `https://${SITE.domain}`;
 
@@ -31,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/tools/regulation-checker",
     "/studies/withdrawal-times",
     "/studies/how-many-traders-lose-money",
+    "/insights",
     "/methodology",
     "/how-we-make-money",
     "/about",
@@ -115,6 +117,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  // Editorial insight articles (backlink-bait, press-citable)
+  const insightPages = getAllArticleSlugs().map((slug) => ({
+    url: `${BASE}/insights/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticPages,
     ...brokerPages,
@@ -124,5 +134,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...glossaryPages,
     ...lessonPages,
     ...coursePages,
+    ...insightPages,
   ];
 }
