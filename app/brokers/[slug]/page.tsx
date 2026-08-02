@@ -9,6 +9,7 @@ import {
 } from "@/lib/brokers";
 import { scoreOne, scoreBrokers } from "@/lib/scoring";
 import { presentationScores } from "@/lib/listingOrder";
+import { strongestTier, getRegulator } from "@/lib/regulators";
 import { Stars } from "@/components/Stars";
 import { RelatedLinkGroups } from "@/components/RelatedLinks";
 import { brokerMesh } from "@/lib/brokerLinks";
@@ -206,12 +207,24 @@ export default function BrokerPage({
   const topPick =
     ranked.find((r) => !r.broker.flagged)?.broker ?? broker;
 
-  const regWord =
-    broker.regulationScore >= 4
-      ? "strongly regulated"
-      : broker.regulationScore === 3
-      ? "regulated"
-      : "lightly regulated";
+  // Regulation wording must reflect the *strength of the regulator*, not just
+  // our composite score. A high overall score with only an offshore/Tier-3
+  // licence (e.g. FSCA, BVI) must NOT be called "strongly regulated" — that
+  // would overstate protection on YMYL content. "Strongly regulated" is
+  // reserved for brokers holding at least one tier-one authority (FCA, ASIC,
+  // DFSA, CIMA-tier). Unregulated brokers are named plainly.
+  const brokerTier = strongestTier(broker.regulators);
+  const hasTierOne = brokerTier === "Tier 1";
+  const isUnreg =
+    broker.regulationScore <= 1 &&
+    !broker.regulators.some((id) => getRegulator(id)?.registerUrl);
+  const regWord = isUnreg
+    ? "currently unregulated"
+    : hasTierOne && broker.regulationScore >= 4
+    ? "strongly regulated"
+    : broker.regulationScore >= 3
+    ? "regulated"
+    : "lightly regulated";
 
   // Unique, data-synthesised intro.
   const intro = `${broker.name} is a ${regWord} broker founded in ${broker.founded}, operating under ${broker.regulators.join(
