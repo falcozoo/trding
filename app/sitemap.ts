@@ -9,6 +9,7 @@ import { getAllTermSlugs } from "@/lib/glossary";
 import { getAllCountrySlugs } from "@/lib/geoCountries";
 import { getAllArticleSlugs } from "@/lib/articles";
 import { getAllTutorialSlugs } from "@/lib/tutorials";
+import { getAllBrokerTopicPairs } from "@/lib/brokerTopics";
 
 const BASE = `https://${SITE.domain}`;
 
@@ -58,6 +59,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.7,
+  }));
+
+  // Long-tail per-broker topic pages (withdrawal-time, minimum-deposit, fees,
+  // regulation, is-it-safe) — non-flagged brokers only.
+  const brokerTopicPages = getAllBrokerTopicPairs().map(({ slug, topic }) => ({
+    url: `${BASE}/brokers/${slug}/${topic}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
   }));
 
   // Head-to-head compare pages
@@ -138,6 +148,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages,
     ...brokerPages,
+    ...brokerTopicPages,
     ...comparePages,
     ...needPages,
     ...countryPages,

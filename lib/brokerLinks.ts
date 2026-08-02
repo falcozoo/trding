@@ -21,6 +21,7 @@ import { getBrokers, getBrokerBySlug, type Broker, type CountryCode } from "@/li
 import { scoreBrokers } from "@/lib/scoring";
 import { ALL_ANGLES } from "@/lib/bestFor";
 import { COUNTRIES } from "@/lib/geoCountries";
+import { ALL_TOPICS } from "@/lib/brokerTopics";
 
 export type MeshLink = { href: string; label: string; sub?: string };
 
@@ -128,6 +129,20 @@ export function glossaryLinks(): MeshLink[] {
 }
 
 /**
+ * Long-tail "quick answer" pages for THIS broker (withdrawal time, minimum
+ * deposit, fees, regulation, is-it-safe). Non-flagged brokers only — flagged
+ * brokers are a neutrality signal and never get topic pages.
+ */
+export function quickAnswerLinks(subject: Broker): MeshLink[] {
+  if (subject.flagged) return [];
+  return ALL_TOPICS.map((t) => ({
+    href: `/brokers/${subject.slug}/${t.slug}`,
+    label: `${subject.name}: ${t.shortLabel}`,
+    sub: t.title(subject),
+  }));
+}
+
+/**
  * Grouped mesh for the broker page. Each group is only returned if non-empty,
  * so pages never render an empty section.
  */
@@ -136,6 +151,7 @@ export function brokerMesh(subject: Broker): {
   links: MeshLink[];
 }[] {
   const groups = [
+    { title: `${subject.name} quick answers`, links: quickAnswerLinks(subject) },
     { title: "Similar brokers", links: similarBrokers(subject, 3) },
     { title: `See ${subject.name} in our rankings`, links: matchingAngles(subject, 4) },
     { title: "Compare head-to-head", links: compareLinks(subject, 2) },
