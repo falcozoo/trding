@@ -9,7 +9,8 @@ import {
 } from "@/lib/brokers";
 import { scoreOne, scoreBrokers } from "@/lib/scoring";
 import { Stars } from "@/components/Stars";
-import { RelatedLinks, CROSS_LINKS } from "@/components/RelatedLinks";
+import { RelatedLinkGroups } from "@/components/RelatedLinks";
+import { brokerMesh } from "@/lib/brokerLinks";
 import { DepositSteps } from "@/components/DepositSteps";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BrokerDeepContent } from "@/components/BrokerDeepContent";
@@ -745,7 +746,7 @@ export default function BrokerPage({
 
       <p className="mt-6 text-xs text-muted">{NOT_ADVICE}</p>
 
-      <RelatedLinks links={CROSS_LINKS} />
+      <RelatedLinkGroups groups={brokerMesh(broker)} />
     </div>
   );
 }
