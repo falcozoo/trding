@@ -100,8 +100,8 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
       points: [
         "We verified RaiseFX's live EUR/USD spread during London session and saw it sitting around 0.3 pips on the raw account, consistent with what it advertises.",
         "We confirmed a real withdrawal was processed on a funded account (see the statement above) — the single most important check for any broker.",
-        "We checked that MT4 and MT5 downloads link to the genuine MetaQuotes builds and that a free demo account can be opened without funding.",
-        "We re-read RaiseFX's regulatory status directly from its site: FSA (Seychelles), an offshore licence. We reflect that honestly in the regulation sub-score rather than glossing over it.",
+        "We checked that the MT5 download links to the genuine MetaQuotes build and that a free demo account can be opened without funding.",
+        "We re-read RaiseFX's regulatory status directly from its site: FSCA (South Africa), a lighter regime than the FCA or ASIC. We reflect that honestly in the regulation sub-score rather than glossing over it.",
       ],
     },
     sections: [
@@ -110,7 +110,7 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
         paragraphs: [
           "When a complete beginner opens their first account, three things determine whether the experience is good or miserable: how much each trade quietly costs them, whether the platform is simple enough not to cause expensive mistakes, and whether they can get their money back without a fight. RaiseFX is built around those three, which is why it sits at the top of our list despite not carrying a tier-one European licence.",
           "Its raw EUR/USD spread of around 0.3 pips is among the tightest we track. For a beginner this matters more than it sounds: the spread is a cost you pay on every single trade, before the market has moved at all. A tighter spread means you start each trade closer to break-even, which over dozens of small learning trades adds up to real money kept in your pocket rather than handed to the broker.",
-          "We are deliberately clear-eyed about the trade-off. RaiseFX is regulated offshore (FSA, Seychelles), which is a lighter regime than the FCA or ASIC. We do not hide that — it is reflected in our regulation sub-score. What we weigh against it is a consistent, verifiable record on the things beginners actually experience, and payout evidence you can see for yourself above.",
+          "We are deliberately clear-eyed about the trade-off. RaiseFX holds an FSCA (South Africa) licence, which is a lighter regime than the FCA or ASIC. We do not hide that — it is reflected in our regulation sub-score. What we weigh against it is a consistent, verifiable record on the things beginners actually experience, and payout evidence you can see for yourself above.",
         ],
       },
       {
@@ -122,11 +122,11 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
         ],
       },
       {
-        heading: "The platform: MT4 and MT5, nothing exotic",
+        heading: "The platform: MT5, nothing exotic",
         paragraphs: [
-          "RaiseFX runs on MetaTrader 4 and MetaTrader 5 — the two most widely used trading platforms in the world. For a beginner this is a genuine advantage: almost every tutorial, YouTube video and forum answer you will ever find is written for MetaTrader. You are learning a standard tool, not a proprietary system that locks your knowledge to one broker.",
-          "MT4 is the simpler, lighter option and is perfectly adequate for someone learning on forex and gold. MT5 adds more instruments (including shares and a wider set of indices), more timeframes and a built-in economic calendar. Our honest advice to a first-timer: start on MT4, keep it simple, and move to MT5 only when you have a specific reason to.",
-          "Both platforms offer a free demo account, and we strongly recommend using it before funding anything. Place a few practice trades, find the withdrawal screen, and learn where every button is with fake money first. It costs nothing and prevents the classic beginner mistake of clicking the wrong size in a live account.",
+          "RaiseFX runs on MetaTrader 5 — one of the most widely used trading platforms in the world (it migrated fully off MT4 in 2023). For a beginner this is a genuine advantage: almost every tutorial, YouTube video and forum answer you will ever find is written for MetaTrader. You are learning a standard tool, not a proprietary system that locks your knowledge to one broker.",
+          "MT5 covers a wide set of instruments (including forex, gold, shares and a broad range of indices), plenty of timeframes and a built-in economic calendar. Our honest advice to a first-timer: keep it simple to start with, trade forex and gold on small sizes, and explore the extra instruments only when you have a specific reason to.",
+          "The platform offers a free demo account, and we strongly recommend using it before funding anything. Place a few practice trades, find the withdrawal screen, and learn where every button is with fake money first. It costs nothing and prevents the classic beginner mistake of clicking the wrong size in a live account.",
         ],
       },
       {
@@ -172,7 +172,7 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
         heading: "Costs and platform",
         paragraphs: [
           "Axi's raw EUR/USD spread of around 0.4 pips is very competitive — marginally wider than RaiseFX but still among the tightest available, and comfortably better than the 0.8-1.2 pip spreads you find at weaker brokers. On a standard lot that is roughly 4 USD to open a position, a small, predictable cost.",
-          "Like RaiseFX, Axi runs on MetaTrader 4 and MetaTrader 5, so everything a beginner learns is transferable and every tutorial applies. It also offers a broader set of instruments including shares, which matters if you want to grow beyond forex and gold later. Our advice is unchanged: start simple on MT4, use the demo first, and add complexity only when you have a reason to.",
+          "Axi runs on both MetaTrader 4 and MetaTrader 5 (where RaiseFX is MT5-only), so everything a beginner learns is transferable and every tutorial applies. It also offers a broader set of instruments including shares, which matters if you want to grow beyond forex and gold later. Our advice is unchanged: start simple on MT4, use the demo first, and add complexity only when you have a reason to.",
         ],
       },
       {
@@ -193,7 +193,7 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
       points: [
         "We verified Fxcess's CySEC authorisation on the Cyprus regulator's public register — a genuine EU licence, which we weight positively.",
         "We checked its live EUR/USD spread and saw it around 0.6 pips, wider than RaiseFX/Axi but still reasonable for a beginner.",
-        "We confirmed it offers MT4, MT5 and a browser-based WebTrader, so you can trade without installing anything to start.",
+        "We confirmed it offers the MetaTrader 4 platform, the industry-standard choice most beginners will already recognise.",
         "We reviewed its account tiers and confirmed a low entry deposit, making it accessible for someone testing the waters.",
       ],
     },
@@ -201,14 +201,14 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
       {
         heading: "Where Fxcess fits",
         paragraphs: [
-          "Fxcess sits just below our top two, and the reason is a fair one: its EUR/USD spread of around 0.6 pips is wider than RaiseFX's 0.3 and Axi's 0.4. On frequent trading that difference adds up. But it compensates with genuine flexibility — several account types, a low minimum entry, and a browser-based WebTrader alongside MT4 and MT5, so a total beginner can start trading without installing any software.",
+          "Fxcess sits just below our top two, and the reason is a fair one: its EUR/USD spread of around 0.6 pips is wider than RaiseFX's 0.3 and Axi's 0.4. On frequent trading that difference adds up. But it compensates with genuine flexibility — several account types and a low minimum entry, all on the familiar MetaTrader 4 platform, so a total beginner is on standard, well-documented software from day one.",
           "Its regulatory picture is mixed but tilts positive: a CySEC (Cyprus) licence puts part of its operation inside the EU regulatory perimeter, which is meaningfully stronger than a purely offshore setup. It also holds an offshore MISA (Comoros) registration, which we treat as the weaker of the two. On balance, the EU licence is what earns Fxcess its place ahead of purely offshore brokers.",
         ],
       },
       {
         heading: "The honest verdict",
         paragraphs: [
-          "Fxcess is a solid third option: accessible, flexible, and partly EU-regulated, with spreads that are fine for a beginner even if they are not class-leading. If you value account flexibility and a browser platform over the absolute lowest cost, it is a reasonable place to start.",
+          "Fxcess is a solid third option: accessible, flexible, and partly EU-regulated, with spreads that are fine for a beginner even if they are not class-leading. If you value account flexibility on a familiar MetaTrader 4 setup over the absolute lowest cost, it is a reasonable place to start.",
           "The usual warnings apply in full. CFDs are high-risk, most retail traders lose money, and no licence changes that. Start small, verify you can withdraw, and never deposit more than you can afford to lose.",
         ],
       },
@@ -217,7 +217,7 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
 
   herofx: {
     verdict:
-      "HeroFX stands out for one reason most brokers can't match: it serves US residents, who are shut out of most offshore CFD brokers. It's regulated offshore (FSA, Seychelles), so we hold it to a high bar on the things you feel day to day — and on the one that matters most, getting paid, we verified a real withdrawal ourselves. Its headline feature is Hero10X, a funded-style account with instant capital and simple, published rules.",
+      "HeroFX stands out for one reason most brokers can't match: it serves US residents, who are shut out of most offshore CFD brokers. It is unregulated — it holds no financial-services licence, only an offshore company registration in Saint Lucia — so we hold it to a high bar on the things you feel day to day, and on the one that matters most, getting paid, we verified a real withdrawal ourselves. Its headline feature is Hero10X, a funded-style account with instant capital and simple, published rules.",
     withdrawalProof: {
       image: "/proof/herofx-withdrawal.jpg",
       alt: "HeroFX wallet history showing a completed withdrawal of 5,683.28 USD marked Done",
@@ -235,7 +235,7 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
         "We personally requested and received a withdrawal on HeroFX — the statement above (5,683.28 USD, marked Done) is from our own account. Getting paid is the test that matters, and it passed.",
         "We confirmed HeroFX accepts US residents, which is genuinely rare and its main point of difference versus the rest of our set.",
         "We reviewed the Hero10X account rules directly inside the portal and reproduced them below exactly as published.",
-        "We noted its regulation is offshore (FSA, Seychelles), and reflect that honestly in the regulation sub-score rather than overselling it.",
+        "We checked HeroFX's regulatory status: it is unregulated, holding no financial-services licence — only an offshore company registration in Saint Lucia. We reflect that honestly in the regulation sub-score rather than overselling it.",
       ],
     },
     featureBlock: {
@@ -259,7 +259,7 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
       {
         heading: "Why HeroFX earns its place: US access + a verified payout",
         paragraphs: [
-          "Most of the brokers a European comparison site lists simply will not accept US residents — American regulation pushes offshore CFD brokers to turn US clients away. HeroFX is the exception in our set: it serves the USA. If you are American and shut out elsewhere, that alone makes HeroFX worth a look, and it is why we keep it on the list despite an offshore licence.",
+          "Most of the brokers a European comparison site lists simply will not accept US residents — American regulation pushes offshore CFD brokers to turn US clients away. HeroFX is the exception in our set: it serves the USA. If you are American and shut out elsewhere, that alone makes HeroFX worth a look, and it is why we keep it on the list despite it being unregulated.",
           "But access means nothing if you can't get your money out. This is where HeroFX earns real trust with us rather than marketing trust: we requested a withdrawal on our own funded account and it completed. The wallet statement above — 5,683.28 USD marked 'Done' — is ours. We show it because a broker's single most important promise is that it pays, and this one did.",
         ],
       },
@@ -274,7 +274,7 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
       {
         heading: "The honest verdict",
         paragraphs: [
-          "HeroFX is the broker we point US residents to first, because it actually accepts them, and it backs that up with a payout we verified ourselves. Its Hero10X funded-style account is a genuinely interesting, simply-ruled product for traders who want defined-risk access to larger capital. The trade-off, as always, is offshore regulation — so we would not tell a European beginner to pick it over Axi on safety grounds alone.",
+          "HeroFX is the broker we point US residents to first, because it actually accepts them, and it backs that up with a payout we verified ourselves. Its Hero10X funded-style account is a genuinely interesting, simply-ruled product for traders who want defined-risk access to larger capital. The trade-off, as always, is that HeroFX is unregulated — it holds no financial-services licence — so we would not tell a European beginner to pick it over Axi on safety grounds alone.",
           "If US access or the Hero10X model is what you need, HeroFX is a credible choice with proof of payout behind it. If your top priority is the strongest regulation, look higher up our list. Either way: CFDs and funded accounts are high-risk, most people lose, and you should only ever commit money you can afford to lose.",
         ],
       },

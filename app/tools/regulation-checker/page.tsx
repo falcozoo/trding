@@ -99,6 +99,18 @@ export default function RegulationCheckerPage() {
                       </span>
                     );
                   }
+                  if (!info.registerUrl) {
+                    return (
+                      <span
+                        key={rid}
+                        title={`${info.fullName} — ${info.registerLabel}`}
+                        className={`rounded-full border px-2.5 py-1 text-xs font-medium ${TIER_STYLES[info.tier]}`}
+                      >
+                        {info.acronym}{" "}
+                        <span className="opacity-70">· {info.jurisdiction}</span>
+                      </span>
+                    );
+                  }
                   return (
                     <a
                       key={rid}
@@ -162,14 +174,18 @@ export default function RegulationCheckerPage() {
               </div>
               <p className="mt-1 text-sm font-medium text-ink">{r.fullName}</p>
               <p className="mt-0.5 text-sm text-muted">{r.jurisdiction}</p>
-              <a
-                href={r.registerUrl}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-                className="mt-3 inline-block text-sm font-semibold text-amber-dark hover:underline"
-              >
-                {r.registerLabel} ↗
-              </a>
+              {r.registerUrl ? (
+                <a
+                  href={r.registerUrl}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="mt-3 inline-block text-sm font-semibold text-amber-dark hover:underline"
+                >
+                  {r.registerLabel} ↗
+                </a>
+              ) : (
+                <p className="mt-3 text-sm text-muted">{r.registerLabel}</p>
+              )}
             </div>
           ))}
         </div>

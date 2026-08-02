@@ -27,8 +27,8 @@ export interface RegulatorInfo {
   jurisdiction: string;
   /** Broad, widely-recognised strength grouping (general, not broker-specific). */
   tier: RegulatorTier;
-  /** Official public register / firm-check URL (authoritative source). */
-  registerUrl: string;
+  /** Official public register / firm-check URL (authoritative source). Omitted for unregulated entities. */
+  registerUrl?: string;
   /** Human label for the register link. */
   registerLabel: string;
 }
@@ -119,6 +119,24 @@ export const REGULATORS: Record<string, RegulatorInfo> = {
     tier: "Tier 3",
     registerUrl: "https://mwaliregistrar.com/",
     registerLabel: "Mwali International Services Authority",
+  },
+  "FSC (BVI)": {
+    id: "FSC (BVI)",
+    acronym: "FSC",
+    fullName: "Financial Services Commission",
+    jurisdiction: "British Virgin Islands",
+    tier: "Tier 3",
+    registerUrl: "https://www.bvifsc.vg/regulated-entities",
+    registerLabel: "BVI FSC regulated entities register",
+  },
+  "Unregulated (offshore, St. Lucia)": {
+    id: "Unregulated (offshore, St. Lucia)",
+    acronym: "Unregulated",
+    fullName: "No financial-services licence",
+    jurisdiction: "Saint Lucia (offshore company registration only)",
+    tier: "Tier 3",
+    registerLabel:
+      "No regulatory licence on any official register — offshore company registration only",
   },
 };
 
