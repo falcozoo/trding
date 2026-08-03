@@ -90,7 +90,7 @@ export default function BrokerTopicPage({
     })),
   };
 
-  const siblings = siblingTopicLinks(broker, topic.slug, 3);
+  const siblings = siblingTopicLinks(broker, topic.slug, 4);
   const tool = toolLinkFor(topic.slug);
 
   const linkGroups = [
