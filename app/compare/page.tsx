@@ -22,7 +22,12 @@ export default function CompareHubPage() {
   const pairs = getAllPairs();
 
   // Serialize only the fields the client selector needs (no server-only code).
-  const brokers: CompareBroker[] = getBrokers().map((b) => ({
+  // Only real, affiliated brokers populate the interactive picker: flagged
+  // (not-recommended) and unaffiliated (no-deal, no affiliate CTA) brokers are
+  // excluded so the selector always yields a valid "Open account" action.
+  const brokers: CompareBroker[] = getBrokers()
+    .filter((b) => !b.flagged && !b.unaffiliated)
+    .map((b) => ({
     slug: b.slug,
     name: b.name,
     tagline: b.tagline,

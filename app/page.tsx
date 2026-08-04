@@ -11,7 +11,9 @@ import { getFearGreed } from "@/lib/markets";
 export const revalidate = 900;
 
 export default async function HomePage() {
-  const ranked = leadListing(scoreBrokers(getBrokers())).slice(0, 3);
+  const ranked = leadListing(
+    scoreBrokers(getBrokers().filter((b) => !b.flagged && !b.unaffiliated))
+  ).slice(0, 3);
   // Presentation-only: on the homepage preview, the displayed rating must
   // follow the displayed rank — the #1 (RaiseFX) can never show a lower score
   // than a broker beneath it (Falco rule). We keep the objective scores intact

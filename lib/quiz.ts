@@ -129,8 +129,11 @@ export function recommend(
 
   // 1) Hard filters: must serve the country and accept the budget.
   //    Flagged brokers (neutrality-signal listings) are never recommended.
+  //    Unaffiliated brokers (real brokers we have no deal with, listed for
+  //    SEO/neutrality) are also never recommended — we only route users to
+  //    brokers we can stand behind and are set up with.
   const eligible = brokers.filter((b) => {
-    if (b.flagged) return false;
+    if (b.flagged || b.unaffiliated) return false;
     const servesCountry = b.countriesServed.includes(answers.country);
     const affordable = b.minDeposit <= ceiling;
     return servesCountry && affordable;

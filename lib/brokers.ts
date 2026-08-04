@@ -92,6 +92,17 @@ export interface Broker {
    */
   featured?: boolean;
 
+  /**
+   * Unaffiliated broker: a REAL, well-known broker we have NO affiliate deal
+   * with. Listed purely for SEO/coverage and neutrality — it is a legitimate
+   * company (not a scam), so it is never `flagged` and never smeared. It simply
+   * is not one of our current top picks and carries NO affiliate link. The page
+   * states plainly "not in our current top picks" and links the reader to our
+   * top-rated, published-criteria brokers. This proves we cover brokers we do
+   * not earn from. Facts must be accurate and sourceable, same bar as any page.
+   */
+  unaffiliated?: boolean;
+
   /** Last time we verified this broker's facts. */
   lastVerified: string;
 }
@@ -327,6 +338,7 @@ import { FLAGGED_BROKERS_10 } from "./seo/flagged-batch-10";
 import { FLAGGED_BROKERS_11 } from "./seo/flagged-batch-11";
 import { FLAGGED_BROKERS_12 } from "./seo/flagged-batch-12";
 import { FLAGGED_BROKERS_13 } from "./seo/flagged-batch-13";
+import { POPULAR_UNAFFILIATED } from "./seo/popular-unaffiliated";
 
 const ALL_BROKERS: Broker[] = [
   ...BROKERS,
@@ -343,6 +355,7 @@ const ALL_BROKERS: Broker[] = [
   ...FLAGGED_BROKERS_11,
   ...FLAGGED_BROKERS_12,
   ...FLAGGED_BROKERS_13,
+  ...POPULAR_UNAFFILIATED,
 ];
 
 // --- Access helpers (async-shaped for a painless Supabase swap later) ---

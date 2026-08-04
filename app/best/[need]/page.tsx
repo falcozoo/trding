@@ -36,8 +36,9 @@ export default function BestPage({
   if (!angle) notFound();
 
   // 1) Filter to brokers that genuinely qualify for this angle (if any).
-  //    Flagged (not-recommended) brokers never appear on a "best for" page.
-  const base = getBrokers().filter((b) => !b.flagged);
+  //    Flagged (not-recommended) and unaffiliated (no-deal, SEO-only) brokers
+  //    never appear on a "best for" page.
+  const base = getBrokers().filter((b) => !b.flagged && !b.unaffiliated);
   const pool = angle.filter ? base.filter(angle.filter) : base;
 
   // 2) Score the qualifying pool with the angle's weight lean.

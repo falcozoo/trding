@@ -29,9 +29,12 @@ export function leadListing(scored: ScoredBroker[]): ScoredBroker[] {
  * Drop flagged (neutrality-signal) brokers from a scored list. Used on
  * "best broker for X" pages, where listing a broker we explicitly don't
  * recommend would make no sense. The full /brokers table still shows them.
+ *
+ * Also drops `unaffiliated` brokers: real brokers we carry for SEO/neutrality
+ * but have no deal with — they should not appear as a "best for X" pick either.
  */
 export function withoutFlagged(scored: ScoredBroker[]): ScoredBroker[] {
-  return scored.filter((s) => !s.broker.flagged);
+  return scored.filter((s) => !s.broker.flagged && !s.broker.unaffiliated);
 }
 
 /**
@@ -57,9 +60,10 @@ export function presentationScores(
     if (shown >= ceiling) {
       shown = Math.round((ceiling - 0.1) * 10) / 10;
     }
-    // Flagged brokers keep their (low) honest score; don't lift them.
+    // Flagged / unaffiliated brokers keep their honest score; don't lift them
+    // and don't let them set the ceiling for genuinely ranked (affiliated) picks.
     out[s.broker.slug] = shown;
-    if (!s.broker.flagged) ceiling = shown;
+    if (!s.broker.flagged && !s.broker.unaffiliated) ceiling = shown;
   }
   return out;
 }

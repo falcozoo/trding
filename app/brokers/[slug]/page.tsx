@@ -395,6 +395,13 @@ export default function BrokerPage({
               <div className="rounded-xl border border-red-200 bg-red-50 px-6 py-3.5 font-semibold text-red-700">
                 ⚠️ Not recommended
               </div>
+            ) : broker.unaffiliated ? (
+              <Link
+                href="/brokers"
+                className="rounded-xl border border-line bg-paper px-6 py-3.5 font-semibold text-ink hover:border-amber"
+              >
+                See our top brokers
+              </Link>
             ) : (
               <a
                 href={broker.affiliateUrl}
@@ -722,6 +729,64 @@ export default function BrokerPage({
             </Link>
           </div>
         </section>
+      ) : broker.unaffiliated ? (
+        <section className="mt-10 rounded-xl2 border border-line bg-cream/60 p-6 shadow-card">
+          <h2 className="text-xl font-bold text-ink">
+            {broker.name} isn&apos;t in our current top picks
+          </h2>
+          <p className="mt-2 text-sm text-ink/90">
+            We cover {broker.name} for completeness and because many traders
+            search for it — but we have no affiliate relationship with them and
+            they are not one of the brokers we currently recommend. That means
+            there is no &quot;open account&quot; link on this page: we only place
+            those on brokers we&apos;ve vetted and stand behind. The facts above
+            are here so you can compare {broker.name} fairly against our
+            top-rated options.
+          </p>
+
+          {topPick.slug !== broker.slug && (
+            <div className="mt-5 rounded-xl border border-green-200 bg-green-50 p-4">
+              <p className="text-sm font-semibold text-green-800">
+                Our current top pick: {topPick.name}
+              </p>
+              <p className="mt-1 text-sm text-ink/80">
+                {topPick.name} is our top-rated broker on objective, published
+                criteria — regulation, fees and withdrawals. If you&apos;re
+                weighing up {broker.name}, compare it against {topPick.name}{" "}
+                first.
+              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                <Link
+                  href={`/brokers/${topPick.slug}`}
+                  className="rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-green-700"
+                >
+                  Read our {topPick.name} review →
+                </Link>
+                <Link
+                  href="/brokers"
+                  className="text-sm font-medium text-green-800 underline"
+                >
+                  See all our top-rated brokers
+                </Link>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <Link
+              href="/brokers"
+              className="rounded-xl bg-amber px-6 py-3.5 font-semibold text-white shadow-card hover:bg-amber-dark"
+            >
+              See our recommended brokers
+            </Link>
+            <Link
+              href={`/compare/${comparePair}`}
+              className="rounded-xl border border-line bg-paper px-6 py-3.5 font-semibold text-ink hover:border-amber"
+            >
+              Compare {broker.name} vs {other.name}
+            </Link>
+          </div>
+        </section>
       ) : (
       <section className="mt-10 rounded-xl2 border border-line bg-amber-soft p-6 shadow-card">
         <h2 className="text-xl font-bold text-ink">
@@ -756,7 +821,7 @@ export default function BrokerPage({
       </section>
       )}
 
-      {!broker.flagged && (
+      {!broker.flagged && !broker.unaffiliated && (
         <DepositSteps
           brokerName={broker.name}
           affiliateUrl={broker.affiliateUrl}

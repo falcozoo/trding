@@ -110,6 +110,13 @@ export default function BrokersPage() {
                     <span className="whitespace-nowrap rounded-lg bg-red-50 px-3 py-2 text-xs font-semibold text-red-700 ring-1 ring-red-200">
                       Not recommended
                     </span>
+                  ) : s.broker.unaffiliated ? (
+                    <Link
+                      href={`/brokers/${s.broker.slug}`}
+                      className="whitespace-nowrap rounded-lg bg-cream px-3 py-2 text-xs font-semibold text-ink ring-1 ring-line hover:ring-amber"
+                    >
+                      Read review
+                    </Link>
                   ) : (
                     <a
                       href={s.broker.affiliateUrl}

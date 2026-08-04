@@ -42,7 +42,7 @@ export default function CountryPage({
   if (!country) notFound();
 
   const scored = leadListing(
-    scoreBrokers(getBrokers().filter((b) => !b.flagged))
+    scoreBrokers(getBrokers().filter((b) => !b.flagged && !b.unaffiliated))
   );
 
   const itemListLd = {

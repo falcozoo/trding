@@ -193,6 +193,13 @@ export default function ComparePage({
               <span className="mt-2 rounded-lg bg-red-50 px-5 py-2.5 text-sm font-semibold text-red-700 ring-1 ring-red-200">
                 Not recommended
               </span>
+            ) : brk.unaffiliated ? (
+              <Link
+                href={`/brokers/${brk.slug}`}
+                className="mt-2 rounded-lg bg-cream px-5 py-2.5 text-sm font-semibold text-ink ring-1 ring-line hover:ring-amber"
+              >
+                Read our review
+              </Link>
             ) : (
               <a
                 href={brk.affiliateUrl}
