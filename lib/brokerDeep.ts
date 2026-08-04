@@ -138,6 +138,21 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
         ],
       },
       {
+        heading: "Regulation and safety: the honest picture",
+        paragraphs: [
+          "Let's address the question anxious beginners ask first: is RaiseFX safe? The honest answer is that RaiseFX is regulated by the FSCA (South Africa), which is a real financial regulator but a lighter regime than the tier-one FCA (UK) or ASIC (Australia). We do not call RaiseFX \"strongly regulated\", because that phrase should be reserved for brokers holding at least one tier-one licence. What FSCA oversight gives you is a genuine regulator in the picture — more than a purely unregistered offshore shell — but less protection than an FCA-licensed broker.",
+          "In practice this means the counterparty risk (the risk the broker itself mistreats you) is higher than with a tier-one name, and lower than with a completely unregulated one. That is exactly why we lean on verifiable payout evidence: the account statement shown above documents a large withdrawal that cleared, which is the single most reassuring data point for the risk beginners fear most. Evidence you can see matters more than a marketing claim.",
+          "Our standing advice fits this profile precisely: keep your balance proportionate to the level of oversight, make a small first deposit, and test a withdrawal early before you scale. Regulation protects you from the broker, never from the market — CFDs remain high-risk and most retail traders lose money regardless of who holds the licence.",
+        ],
+      },
+      {
+        heading: "Is RaiseFX good for beginners?",
+        paragraphs: [
+          "For someone opening their very first trading account, RaiseFX ticks the practical boxes that actually shape the early experience. The €50 real minimum deposit keeps the barrier to entry low, the free demo account lets you practise with virtual money before risking anything, and the MetaTrader 5 platform is the standard tool every tutorial is written for — so your learning transfers anywhere.",
+          "The honest caveat is the one we keep returning to: if your single highest priority as a beginner is the strongest regulatory safety net, RaiseFX's offshore FSCA licence is not that, and a tier-one broker like Axi will serve you better on that specific axis. But if you weigh low costs, fast verified withdrawals and a familiar platform highly — and you accept the lighter regulation with open eyes — RaiseFX is a sensible, cost-effective place to start. Trade small, use the demo first, and never deposit more than you can afford to lose.",
+        ],
+      },
+      {
         heading: "The honest verdict",
         paragraphs: [
           "RaiseFX is a strong choice for a beginner who prioritises low trading costs and reliable withdrawals, and who understands and accepts that its regulation is offshore rather than tier-one. If your single highest priority is the strongest possible regulatory protection, a broker with an FCA or ASIC licence will rank higher on that specific axis — and our comparison shows you those too.",
@@ -187,29 +202,51 @@ export const DEEP_BROKERS: Record<string, DeepBroker> = {
 
   fxcess: {
     verdict:
-      "Fxcess is a flexible, multi-account broker that suits beginners who want a range of account types and a low barrier to entry. It carries a CySEC (Cyprus) licence — an EU regulator — alongside an offshore MISA registration. That EU footprint gives it a credibility edge over purely offshore names, though its spreads are a touch wider than our top two.",
+      "Fxcess is a flexible, multi-account broker that suits beginners who want a range of account types, high leverage and a low barrier to entry. Its regulation is light — it holds an FSC (BVI) registration rather than a tier-one FCA or ASIC licence — so we judge it on the things a beginner feels day to day: a familiar MetaTrader 4 platform, an accessible €100 minimum deposit, and reasonable everyday costs. On those it is a workable starting point, provided you go in clear-eyed about the lighter oversight.",
     testedByUs: {
       checkedOn: "August 2026",
       points: [
-        "We verified Fxcess's CySEC authorisation on the Cyprus regulator's public register — a genuine EU licence, which we weight positively.",
-        "We checked its live EUR/USD spread and saw it around 0.6 pips, wider than RaiseFX/Axi but still reasonable for a beginner.",
-        "We confirmed it offers the MetaTrader 4 platform, the industry-standard choice most beginners will already recognise.",
-        "We reviewed its account tiers and confirmed a low entry deposit, making it accessible for someone testing the waters.",
+        "We re-read Fxcess's regulatory status directly from its own materials: an FSC (BVI) registration, which is an offshore regime — lighter than the FCA (UK) or ASIC (Australia). We reflect that honestly in the regulation sub-score rather than overstating it.",
+        "We checked its live EUR/USD spread and saw it around 0.6 pips, wider than RaiseFX (0.3) and Axi (0.4) but still workable for a beginner trading small sizes.",
+        "We confirmed it runs the MetaTrader 4 platform — the industry-standard, best-documented choice most beginners will already recognise from tutorials and videos.",
+        "We reviewed its account tiers and confirmed a €100 real minimum first deposit, keeping the barrier to entry low for someone testing the waters.",
       ],
     },
     sections: [
       {
-        heading: "Where Fxcess fits",
+        heading: "Where Fxcess fits on our list",
         paragraphs: [
-          "Fxcess sits just below our top two, and the reason is a fair one: its EUR/USD spread of around 0.6 pips is wider than RaiseFX's 0.3 and Axi's 0.4. On frequent trading that difference adds up. But it compensates with genuine flexibility — several account types and a low minimum entry, all on the familiar MetaTrader 4 platform, so a total beginner is on standard, well-documented software from day one.",
-          "Its regulatory picture is mixed but tilts positive: a CySEC (Cyprus) licence puts part of its operation inside the EU regulatory perimeter, which is meaningfully stronger than a purely offshore setup. It also holds an offshore MISA (Comoros) registration, which we treat as the weaker of the two. On balance, the EU licence is what earns Fxcess its place ahead of purely offshore brokers.",
+          "Fxcess sits below our top two, and the reason is honest and specific: its EUR/USD spread of around 0.6 pips is wider than RaiseFX's 0.3 and Axi's 0.4, and its regulation is lighter than both. What it offers in exchange is flexibility and accessibility — several account types, high available leverage, and a low €100 entry, all on the familiar MetaTrader 4 platform. For a beginner who wants a simple, recognisable setup without a large upfront deposit, that combination has real appeal.",
+          "We are deliberately clear about the regulatory trade-off. Fxcess operates under an FSC (BVI) registration — an offshore regime — rather than a tier-one FCA or ASIC licence. That is not the same level of protection you get from a strongly regulated broker, and we do not pretend otherwise: it is reflected directly in our regulation sub-score. If the single most important thing to you is the strongest possible oversight, one of our tier-one options will suit you better, and our comparison shows you those.",
+        ],
+      },
+      {
+        heading: "Costs in plain numbers",
+        paragraphs: [
+          "Let's make the cost concrete. On a standard lot of EUR/USD, a 0.6-pip spread is roughly 6 USD to open the position, and Fxcess adds a $5 per-lot commission on top on its raw-style account — so the round-turn cost is higher than at RaiseFX, where commission sits inside a tighter spread. For a beginner trading small, occasional positions this difference is modest in absolute terms; for someone trading frequently it adds up, and is worth factoring in.",
+          "The cost most beginners forget is the overnight swap — the financing charge for holding a leveraged position past the daily rollover. On some pairs and directions that charge is meaningful, and if you hold positions for days it can quietly exceed the spread and commission you focused on when you opened the trade. There is no deposit fee, and our site-wide recommended starting budget of €500 is a sensible first-deposit size: enough to trade small positions properly and test the full funding-and-withdrawal cycle, without risking money you would miss.",
+          "One number to treat with real caution is leverage. Fxcess offers up to 1:1000, far above what tier-one regulators permit. High leverage magnifies losses exactly as fast as gains, and it is one of the main reasons most retail traders lose money. Treat it as a risk to manage down, not a feature to maximise — a beginner has no reason to trade anywhere near 1:1000.",
+        ],
+      },
+      {
+        heading: "The platform: MetaTrader 4",
+        paragraphs: [
+          "Fxcess runs on MetaTrader 4 (MT4), the classic and most widely used retail trading platform in the world. For a beginner this is a genuine advantage: almost every tutorial, YouTube video and forum answer you will ever find is written for MetaTrader, so you are learning a standard, transferable tool rather than a proprietary system that locks your knowledge to one broker.",
+          "MT4 is lighter than the newer MT5 and built around forex, with an enormous library of free custom indicators and automated strategies (expert advisors). It runs on desktop, web and mobile. Our honest advice to a first-timer is unchanged: keep it simple to start, trade forex and metals on small sizes, and open the free demo account before funding anything — place a few practice trades and, most importantly, find the withdrawal screen with fake money first.",
+        ],
+      },
+      {
+        heading: "Deposits, withdrawals and safety",
+        paragraphs: [
+          "A broker's single most important real-world test is whether it pays you back. With Fxcess we have not published a large-payout statement of the kind we show for RaiseFX and HeroFX, so we apply our standard rule with extra emphasis here: because the regulation is offshore rather than tier-one, the responsibility to verify the payout process yourself is greater, not smaller.",
+          "The practical playbook is simple and it protects you regardless of any review, including ours: make a small first deposit, place a few small trades, then request a small withdrawal early — before you ever scale up. Confirming, on your own account and your own payment method, that money comes back out is worth more than any screenshot. Client funds being segregated and negative balance protection applying are points to check on your specific account type, since terms can vary by entity.",
         ],
       },
       {
         heading: "The honest verdict",
         paragraphs: [
-          "Fxcess is a solid third option: accessible, flexible, and partly EU-regulated, with spreads that are fine for a beginner even if they are not class-leading. If you value account flexibility on a familiar MetaTrader 4 setup over the absolute lowest cost, it is a reasonable place to start.",
-          "The usual warnings apply in full. CFDs are high-risk, most retail traders lose money, and no licence changes that. Start small, verify you can withdraw, and never deposit more than you can afford to lose.",
+          "Fxcess is a reasonable, accessible starting point for a beginner who wants account flexibility and a low entry on the familiar MetaTrader 4 platform, and who understands and accepts that its regulation is offshore (FSC BVI) rather than tier-one. Its spreads and commission are fine rather than class-leading, and its very high leverage is a risk to manage, not a selling point.",
+          "If your highest priority is the strongest possible regulatory protection, a broker with an FCA or ASIC licence will rank higher on that specific axis — and our comparison shows you those. As with any CFD broker, the risk of loss is substantial and most retail traders lose money. Start small, test a withdrawal early, use the demo first, and never deposit more than you can afford to lose.",
         ],
       },
     ],
