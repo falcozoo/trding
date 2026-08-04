@@ -523,6 +523,93 @@ export const ALL_TOPICS: Topic[] = [
       };
     },
   },
+
+  // 6) PLATFORMS / METATRADER ------------------------------------------------
+  {
+    slug: "platforms",
+    shortLabel: "Platforms (MT4/MT5)",
+    title: (b) =>
+      `${b.name} Trading Platforms (2026): ${b.platforms.join(", ")}`,
+    metaDescription: (b) =>
+      `Which platforms does ${b.name} offer? It runs ${b.platforms.join(
+        ", "
+      )}. See MetaTrader versions, what each is best for, and how to get started.`,
+    build: (b) => {
+      const hasMt4 = b.platforms.some((p) => /mt4|metatrader 4/i.test(p));
+      const hasMt5 = b.platforms.some((p) => /mt5|metatrader 5/i.test(p));
+      const hasMeta = hasMt4 || hasMt5;
+      const list = b.platforms.join(", ");
+      const mtStr = hasMt4 && hasMt5
+        ? "both MetaTrader 4 (MT4) and MetaTrader 5 (MT5)"
+        : hasMt5
+        ? "MetaTrader 5 (MT5)"
+        : hasMt4
+        ? "MetaTrader 4 (MT4)"
+        : "no MetaTrader platform";
+
+      const directAnswer = hasMeta
+        ? `${b.name} runs on ${mtStr}${
+            b.platforms.length > (hasMt4 && hasMt5 ? 2 : 1)
+              ? `, alongside ${list}`
+              : ""
+          }, so you can trade on the industry-standard MetaTrader software.`
+        : `${b.name} offers ${list} rather than the MetaTrader (MT4/MT5) platforms.`;
+
+      return {
+        directAnswer,
+        paragraphs: [
+          `${b.name} gives you access to ${list}. ${
+            hasMeta
+              ? `That includes ${mtStr}, the most widely used retail trading software in the world — which means charts, indicators and expert advisors (EAs) you may already know will work here.`
+              : `These are not the MetaTrader platforms, so if you specifically want MT4 or MT5 you should confirm availability with the broker before opening an account.`
+          }`,
+          hasMt4 && hasMt5
+            ? `The practical difference between the two MetaTrader versions: MT4 is the older, lighter platform built around forex and simple, reliable order execution — many traders prefer it for its huge library of custom indicators and EAs. MT5 is the newer, heavier platform that adds more timeframes, more built-in indicators, an economic calendar and broader asset coverage (stocks, futures). For a beginner, either works well; pick MT4 if you want simplicity, MT5 if you want the extra tools.`
+            : hasMt5
+            ? `MetaTrader 5 (MT5) is the newer MetaTrader version. Compared with MT4 it offers more timeframes, more built-in indicators, a built-in economic calendar and support for a wider range of assets. It runs on desktop, web browser and mobile, so you can manage positions from anywhere.`
+            : hasMt4
+            ? `MetaTrader 4 (MT4) is the classic, battle-tested trading platform. It is lighter than MT5 and built around forex trading, with an enormous library of free custom indicators and automated strategies (expert advisors). It runs on desktop, web and mobile.`
+            : `Because ${b.name} uses ${list}, take time in the free demo (if available) to learn where the order ticket, charts and — most importantly — the withdrawal screen live before funding real money.`,
+          `Whichever platform you use, the software itself does not change your risk. Leverage of up to 1:${b.maxLeverage} at ${b.name} means a small deposit controls a much larger position. Learn the platform on a ${
+            b.demoAccount ? "free demo account first" : "small balance first"
+          }, place a test trade, and locate the withdrawal process early so nothing surprises you later.`,
+        ],
+        facts: [
+          ["Platforms offered", list],
+          ["MetaTrader 4 (MT4)", hasMt4 ? "Yes" : "No"],
+          ["MetaTrader 5 (MT5)", hasMt5 ? "Yes" : "No"],
+          ["Demo account", b.demoAccount ? "Yes (free)" : "No"],
+          ["Max leverage", `1:${b.maxLeverage}`],
+        ],
+        faqs: [
+          {
+            q: `Does ${b.name} offer MetaTrader 4 or MetaTrader 5?`,
+            a: hasMeta
+              ? `${b.name} offers ${mtStr}. ${
+                  hasMt4 && hasMt5
+                    ? "You can choose whichever suits you — MT4 for simplicity, MT5 for extra tools."
+                    : hasMt5
+                    ? "MT5 is the newer version with more indicators, timeframes and asset coverage."
+                    : "MT4 is the classic, lightweight forex-focused platform."
+                }`
+              : `${b.name} does not advertise MetaTrader (MT4/MT5); it offers ${list}. Confirm current platform availability with the broker directly.`,
+          },
+          {
+            q: `What is the difference between MT4 and MT5?`,
+            a: `MT4 is the older, lighter platform focused on forex with a massive library of custom indicators and automated strategies. MT5 is newer and heavier, adding more timeframes, more built-in indicators, an economic calendar and support for more asset classes. Neither is "better" for a beginner — MT4 is simpler, MT5 has more features.`,
+          },
+          {
+            q: `Can I use ${b.name} on my phone?`,
+            a: hasMeta
+              ? `Yes. The MetaTrader apps (${
+                  hasMt4 && hasMt5 ? "MT4 and MT5" : hasMt5 ? "MT5" : "MT4"
+                }) are available on iOS and Android, so you can monitor and manage ${b.name} positions from your phone. Always double-check trade sizes on a small screen before confirming.`
+              : `${b.name} offers ${list} — check the broker's site for its mobile app options. Whatever you use, confirm trade sizes carefully on mobile before confirming an order.`,
+          },
+        ],
+      };
+    },
+  },
 ];
 
 // --- Lookups & enumeration --------------------------------------------------
