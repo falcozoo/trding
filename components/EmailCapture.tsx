@@ -32,6 +32,10 @@ export function EmailCapture() {
         setStatus("success");
         setMessage("You're on the list. Look out for the next review.");
         setEmail("");
+        // Meta Pixel: Subscribe event fires only on a real subscription
+        if (typeof window !== "undefined" && (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq) {
+          (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Subscribe");
+        }
       } else {
         setStatus("error");
         setMessage(data.error ?? "Please enter a valid email address.");
