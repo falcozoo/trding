@@ -32,9 +32,9 @@ export function EmailCapture() {
         setStatus("success");
         setMessage("You're on the list. Look out for the next review.");
         setEmail("");
-        // Meta Pixel: Subscribe event fires only on a real subscription
+        // Meta Pixel: Lead event fires on a real form completion
         if (typeof window !== "undefined" && (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq) {
-          (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Subscribe");
+          (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Lead");
         }
       } else {
         setStatus("error");

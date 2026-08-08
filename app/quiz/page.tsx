@@ -368,6 +368,10 @@ function SoftEmailCapture() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
+      // Meta Pixel: Lead event on quiz-end form completion (highest intent)
+      if (typeof window !== "undefined" && (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq) {
+        (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Lead");
+      }
     } catch {
       // Non-blocking: we still confirm to the user.
     }
